@@ -1,42 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://egydahab.com/</loc>
+    <loc>https://egydahab.vercel.app/</loc>
     <changefreq>hourly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://egydahab.com/other-currencies.html</loc>
+    <loc>https://egydahab.vercel.app/other-currencies.html</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://egydahab.com/articles.html</loc>
+    <loc>https://egydahab.vercel.app/articles.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://egydahab.com/about.html</loc>
+    <loc>https://egydahab.vercel.app/about.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://egydahab.com/contact.html</loc>
+    <loc>https://egydahab.vercel.app/contact.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
-    <loc>https://egydahab.com/privacy.html</loc>
+    <loc>https://egydahab.vercel.app/privacy.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://egydahab.com/terms.html</loc>
+    <loc>https://egydahab.vercel.app/terms.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://egydahab.com/disclaimer.html</loc>
+    <loc>https://egydahab.vercel.app/disclaimer.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>

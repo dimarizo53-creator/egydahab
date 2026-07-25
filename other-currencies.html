@@ -77,6 +77,31 @@
   .fx-bs-label{font-family:var(--font-body);font-weight:800;font-size:11px;color:var(--ink-muted);}
   .fx-bs-value{font-family:var(--font-display);font-weight:900;font-size:16px;color:var(--teal-deep);}
   .fx-unit{font-size:13px;color:var(--ink-muted);font-family:var(--font-body);font-weight:800;}
+  .fx-card{cursor:pointer;}
+  .chart-tab{background:var(--surface);border:1px solid var(--border);color:var(--ink-muted);font-family:var(--font-body);font-weight:700;font-size:13px;padding:7px 16px;border-radius:20px;cursor:pointer;transition:.2s;}
+  .chart-tab.active{background:var(--teal);border-color:var(--teal);color:#fff;font-weight:700;}
+  .chart-range{font-family:var(--font-mono);font-size:11px;color:var(--ink-muted);display:flex;justify-content:space-between;margin-top:8px;direction:ltr;}
+  .chart-loading{font-family:var(--font-body);font-weight:600;font-size:13px;color:var(--ink-muted);text-align:center;padding:40px 0;}
+  .modal-overlay{
+    display:none;position:fixed;inset:0;background:rgba(32,40,31,.45);z-index:100;
+    align-items:center;justify-content:center;padding:20px;
+  }
+  .modal-overlay.open{display:flex;}
+  .modal-box{
+    background:var(--bg);border-radius:16px;max-width:520px;width:100%;max-height:88vh;overflow-y:auto;
+    padding:26px;position:relative;box-shadow:0 20px 60px rgba(0,0,0,.25);
+  }
+  .modal-close{
+    position:absolute;top:16px;inset-inline-end:16px;width:32px;height:32px;border-radius:50%;
+    background:var(--surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;
+    cursor:pointer;color:var(--ink-muted);
+  }
+  .modal-close svg{width:15px;height:15px;stroke:currentColor;}
+  .modal-close:hover{color:var(--down);border-color:var(--down);}
+  .modal-title{font-family:var(--font-display);font-weight:900;font-size:22px;color:var(--ink);margin-bottom:16px;padding-inline-end:36px;}
+  .modal-tabs{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap;}
+  .modal-chart-box{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:18px;box-shadow:0 6px 24px rgba(32,40,31,.06);position:relative;}
+  @media(max-width:480px){ .modal-box{padding:20px;} .modal-title{font-size:19px;} }
   footer{text-align:center;padding-top:24px;margin-top:48px;border-top:1px solid var(--border);}
   .copyright-line{font-family:var(--font-body);font-weight:600;font-size:11.5px;color:var(--ink-muted);}
   @media(max-width:520px){ .grid{grid-template-columns:1fr;} h1{font-size:23px;} }
@@ -121,6 +146,21 @@
 
   <div class="grid" id="fxGrid"></div>
 
+  <div class="modal-overlay" id="assetModal">
+    <div class="modal-box">
+      <button class="modal-close" id="modalCloseBtn" aria-label="Close">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg>
+      </button>
+      <div class="modal-title" id="modalTitle"></div>
+      <div class="modal-tabs" id="modalTabs"></div>
+      <div class="modal-chart-box">
+        <div class="chart-loading" id="modalChartLoading" data-i18n="chartLoading">جارِ التحميل...</div>
+        <svg id="modalChartSvg" viewBox="0 0 600 160" width="100%" height="140" preserveAspectRatio="none" style="display:none;"></svg>
+        <div class="chart-range" id="modalChartRange" style="display:none;"></div>
+      </div>
+    </div>
+  </div>
+
   <footer>
     <nav class="footer-nav">
       <a href="index.html" data-i18n="menuHome">الرئيسية</a>
@@ -148,6 +188,8 @@ const dict = {
     title: 'عملات أخرى',
     subtitle: 'عملات إضافية مقابل الجنيه المصري، غير مدرجة في الصفحة الرئيسية.',
     unit: 'جنيه',
+    chartLoading: 'جارِ التحميل...',
+    tabs: {week:'أسبوع', month:'شهر', sixm:'6 أشهر'},
     copyright: '© 2026 إيجي دهب. جميع الحقوق محفوظة.'
   },
   en: {
@@ -161,6 +203,8 @@ const dict = {
     title: 'Other Currencies',
     subtitle: 'Additional currencies against the Egyptian Pound, not shown on the main page.',
     unit: 'EGP',
+    chartLoading: 'Loading...',
+    tabs: {week:'Week', month:'Month', sixm:'6 Months'},
     copyright: '© 2026 Egydahab. All rights reserved.'
   }
 };
@@ -220,7 +264,7 @@ function renderFx(){
     const name = lang === 'ar' ? c.name_ar : c.name_en;
     const country = lang === 'ar' ? c.country_ar : c.country_en;
     return `
-    <div class="fx-card">
+    <div class="fx-card" onclick="openAssetModal('${c.code}')">
       <div class="fx-top"><img class="fx-flag" src="https://flagcdn.com/w80/${c.flag}.png" alt="${c.code}" loading="lazy" onerror="handleFlagError(this,'${c.code}')"><span class="fx-code">${c.code}</span></div>
       <div class="fx-name">${name}</div>
       <div class="fx-country">${country}</div>
@@ -230,6 +274,125 @@ function renderFx(){
       </div>
     </div>`;
   }).join('');
+}
+
+const API = 'https://api.frankfurter.dev/v2/rates';
+let modalAsset = null;
+let modalTimeframe = 'week';
+let modalChartRequestId = 0;
+
+function getAssetLabel(code){
+  const c = currencies.find(x => x.code === code);
+  if(!c) return code;
+  return lang === 'ar' ? c.name_ar : c.name_en;
+}
+
+function dateStr(d){ return d.toISOString().slice(0,10); }
+
+function timeframeRange(tf){
+  const to = new Date();
+  const from = new Date();
+  let group = null;
+  if(tf === 'week'){ from.setDate(to.getDate()-7); }
+  else if(tf === 'month'){ from.setDate(to.getDate()-30); }
+  else if(tf === 'sixm'){ from.setDate(to.getDate()-182); group='week'; }
+  return {from: dateStr(from), to: dateStr(to), group};
+}
+
+function renderModalTabs(){
+  const t = dict[lang];
+  const order = ['week','month','sixm'];
+  document.getElementById('modalTabs').innerHTML = order.map(k => `
+    <button class="chart-tab ${k===modalTimeframe?'active':''}" data-tf="${k}">${t.tabs[k]}</button>
+  `).join('');
+  document.querySelectorAll('#modalTabs .chart-tab').forEach(btn => {
+    btn.onclick = () => { modalTimeframe = btn.dataset.tf; renderModalTabs(); loadModalChart(); };
+  });
+}
+
+function openAssetModal(code){
+  modalAsset = code;
+  modalTimeframe = 'week';
+  document.getElementById('modalTitle').textContent = getAssetLabel(code);
+  document.getElementById('assetModal').classList.add('open');
+  renderModalTabs();
+  loadModalChart();
+}
+function closeAssetModal(){
+  document.getElementById('assetModal').classList.remove('open');
+  modalAsset = null;
+}
+document.getElementById('modalCloseBtn').onclick = closeAssetModal;
+document.getElementById('assetModal').addEventListener('click', (e) => {
+  if(e.target.id === 'assetModal') closeAssetModal();
+});
+document.addEventListener('keydown', (e) => {
+  if(e.key === 'Escape' && modalAsset) closeAssetModal();
+});
+
+async function loadModalChart(){
+  if(!modalAsset) return;
+  const thisRequestId = ++modalChartRequestId;
+  const loadingEl = document.getElementById('modalChartLoading');
+  const svgEl = document.getElementById('modalChartSvg');
+  const rangeEl = document.getElementById('modalChartRange');
+  const t = dict[lang];
+  loadingEl.style.display = 'block';
+  loadingEl.textContent = t.chartLoading;
+  svgEl.style.display = 'none';
+  rangeEl.style.display = 'none';
+
+  const {from, to, group} = timeframeRange(modalTimeframe);
+
+  const showError = () => {
+    if(thisRequestId !== modalChartRequestId) return;
+    loadingEl.textContent = lang==='ar' ? 'تعذر تحميل البيانات — حاول اختيار فترة أخرى' : 'Could not load data — try a different time range';
+    loadingEl.style.display = 'block';
+    svgEl.style.display = 'none';
+    rangeEl.style.display = 'none';
+  };
+
+  try{
+    let url = `${API}?base=${modalAsset}&quotes=EGP&from=${from}&to=${to}`;
+    if(group) url += `&group=${group}`;
+    const res = await fetchWithTimeout(url, 12000);
+    if(thisRequestId !== modalChartRequestId) return;
+    if(!res.ok) throw new Error('bad response status: ' + res.status);
+    const data = await res.json();
+    let points = Array.isArray(data) ? data.map(rec => ({date:rec.date, value:rec.rate})).filter(p=>p.value) : [];
+    points.sort((a,b) => a.date.localeCompare(b.date));
+
+    if(points.length < 2){ showError(); return; }
+
+    const values = points.map(p => p.value);
+    const min = Math.min(...values), max = Math.max(...values);
+    const w = 600, h = 120, pad = 8;
+    const path = values.map((v,i) => {
+      const x = (i/(values.length-1)) * w;
+      const y = (h+pad) - ((v-min)/((max-min)||1)) * h - pad;
+      return `${i===0?'M':'L'}${x.toFixed(1)},${y.toFixed(1)}`;
+    }).join(' ');
+
+    if(thisRequestId !== modalChartRequestId) return;
+
+    svgEl.innerHTML = `
+      <defs>
+        <linearGradient id="modalFillGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#B8860B" stop-opacity="0.25"/>
+          <stop offset="100%" stop-color="#B8860B" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+      <path d="${path} L${w},${h+pad} L0,${h+pad} Z" fill="url(#modalFillGrad)"/>
+      <path d="${path}" fill="none" stroke="#B8860B" stroke-width="2.5"/>
+    `;
+    svgEl.style.display = 'block';
+    loadingEl.style.display = 'none';
+
+    rangeEl.innerHTML = `<span>${points[0].date} · ${fmt(values[0])} ${t.unit}</span><span>${points[points.length-1].date} · ${fmt(values[values.length-1])} ${t.unit}</span>`;
+    rangeEl.style.display = 'flex';
+  }catch(e){
+    showError();
+  }
 }
 
 function applyLang(){
@@ -244,6 +407,11 @@ function applyLang(){
   dot.textContent = state.live ? t.live : t.offlineDot;
   dot.classList.toggle('offline', !state.live);
   renderFx();
+  if(modalAsset){
+    document.getElementById('modalTitle').textContent = getAssetLabel(modalAsset);
+    renderModalTabs();
+    loadModalChart();
+  }
 }
 document.getElementById('langBtn').onclick = () => { lang = lang === 'ar' ? 'en' : 'ar'; applyLang(); };
 document.getElementById('menuBtn').onclick = (e) => { e.stopPropagation(); document.getElementById('menuDropdown').classList.toggle('open'); };

@@ -1,130 +1,130 @@
 {
   "gold": {
     "k24": {
-      "sell": 6742.75,
-      "buy": 6685.75
+      "sell": 6828.5,
+      "buy": 6771.5
     },
     "k22": {
-      "sell": 6181,
-      "buy": 6128.5
+      "sell": 6259.5,
+      "buy": 6207.25
     },
     "k21": {
-      "sell": 5900,
-      "buy": 5850
+      "sell": 5975,
+      "buy": 5925
     },
     "k18": {
-      "sell": 5057.25,
-      "buy": 5014.25
+      "sell": 5121.5,
+      "buy": 5078.5
     },
     "goldPound": {
-      "sell": 47200,
-      "buy": 46800
+      "sell": 47800,
+      "buy": 47400
     }
   },
   "silver": {
     "s999": {
-      "sell": 99.75,
-      "buy": 94.75
+      "sell": 101,
+      "buy": 96
     },
     "s925": {
-      "sell": 92.5,
-      "buy": 87.75
+      "sell": 93.5,
+      "buy": 89
     },
     "s900": {
-      "sell": 90,
-      "buy": 85.5
+      "sell": 91,
+      "buy": 86.5
     },
     "s800": {
-      "sell": 80,
-      "buy": 76
+      "sell": 81,
+      "buy": 77
     },
     "s600": {
-      "sell": 60,
-      "buy": 57
+      "sell": 60.75,
+      "buy": 57.75
     },
     "silverPound": {
-      "sell": 740,
-      "buy": 702
+      "sell": 748,
+      "buy": 712
     }
   },
   "currencies": {
-    "USD": {
-      "buy": 51.3,
-      "sell": 51.4
-    },
-    "EUR": {
-      "buy": 58.477,
-      "sell": 58.689
-    },
-    "GBP": {
-      "buy": 68.516,
-      "sell": 68.85
-    },
-    "CAD": {
-      "buy": 36.355,
-      "sell": 36.501
-    },
-    "KWD": {
-      "buy": 161.906,
-      "sell": 167.019
-    },
-    "SAR": {
-      "buy": 13.629,
-      "sell": 13.694
-    },
     "AED": {
       "buy": 13.954,
       "sell": 13.996
     },
+    "AUD": {
+      "buy": 35.736,
+      "sell": 35.954
+    },
     "BHD": {
       "buy": 133.925,
-      "sell": 136.332
+      "sell": 136.34
     },
-    "QAR": {
-      "buy": 13.02,
-      "sell": 14.102
+    "CAD": {
+      "buy": 36.417,
+      "sell": 36.539
+    },
+    "CHF": {
+      "buy": 62.745,
+      "sell": 63.037
+    },
+    "EUR": {
+      "buy": 58.359,
+      "sell": 58.596
+    },
+    "GBP": {
+      "buy": 68.265,
+      "sell": 68.588
     },
     "JOD": {
       "buy": 71.523,
       "sell": 72.599
     },
-    "AUD": {
-      "buy": 33.6,
-      "sell": 33.9
-    },
-    "CHF": {
-      "buy": 63.8,
-      "sell": 64.3
-    },
-    "TRY": {
-      "buy": 1.21,
-      "sell": 1.23
+    "KWD": {
+      "buy": 161.906,
+      "sell": 167.019
     },
     "LYD": {
-      "buy": 10.55,
-      "sell": 10.7
+      "buy": 8.008328661808282,
+      "sell": 8.008328661808282
+    },
+    "QAR": {
+      "buy": 13.02,
+      "sell": 14.1
+    },
+    "SAR": {
+      "buy": 13.629,
+      "sell": 13.693
+    },
+    "TRY": {
+      "buy": 1.085387429042797,
+      "sell": 1.085387429042797
+    },
+    "USD": {
+      "buy": 51.3,
+      "sell": 51.4
     }
   },
   "currencySources": {
-    "USD": "nbe",
+    "AED": "nbe",
+    "AUD": "nbe",
+    "BHD": "nbe",
+    "CAD": "nbe",
+    "CHF": "nbe",
     "EUR": "nbe",
     "GBP": "nbe",
-    "CAD": "nbe",
-    "KWD": "nbe",
-    "SAR": "nbe",
-    "AED": "nbe",
-    "BHD": "nbe",
-    "QAR": "nbe",
     "JOD": "nbe",
-    "AUD": "frankfurter",
-    "CHF": "frankfurter",
+    "KWD": "nbe",
+    "LYD": "frankfurter",
+    "QAR": "nbe",
+    "SAR": "nbe",
     "TRY": "frankfurter",
-    "LYD": "frankfurter"
+    "USD": "nbe"
   },
-  "goldSilverUpdatedAt": "2026-07-22T00:00:00.000Z",
-  "currenciesUpdatedAt": "2026-07-22T00:00:00.000Z",
+  "goldSilverUpdatedAt": "2026-07-25T08:35:31.692Z",
+  "currenciesUpdatedAt": "2026-07-25T08:35:33.382Z",
   "goldSilverStatus": "live",
   "currenciesStatus": "live",
-  "lastRunAt": "2026-07-22T00:00:00.000Z",
+  "lastRunAt": "2026-07-25T08:35:33.382Z",
   "note": "Seed data confirmed directly from market.isagha.com/prices/eg and egrates.com/en/banks/4 (National Bank of Egypt rates) on 2026-07-22. Switched currency source from CBE (blocked by their firewall, confirmed unusable) to NBE via egrates.com (verified real, working). Will be overwritten by the first GitHub Actions run."
 }

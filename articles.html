@@ -71,6 +71,8 @@
   .article-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px;}
   .article-tag{font-family:var(--font-body);font-weight:800;font-size:11px;letter-spacing:.3px;padding:3px 10px;border-radius:20px;background:var(--surface-2);color:var(--gold);border:1px solid var(--border);}
   .article-tag.usd{color:var(--teal);}
+  .article-tag.silver{color:#8A8070;}
+  .article-tag.other{color:var(--teal-deep);}
   .article-card-title{font-family:var(--font-display);font-weight:800;font-size:18px;color:var(--ink);line-height:1.4;margin-bottom:8px;}
   .article-card-excerpt{font-family:var(--font-body);font-weight:600;font-size:13.5px;color:var(--ink-muted);line-height:1.7;margin-bottom:10px;}
   .article-readmore{display:flex;align-items:center;gap:6px;font-family:var(--font-body);font-weight:800;font-size:12.5px;color:var(--teal);}
@@ -147,8 +149,8 @@ const dict = {
     back: '→ الرجوع للرئيسية',
     title: 'المقالات',
     subtitle: 'تحليلات ومقالات عن الذهب والدولار والاقتصاد المصري.',
-    filterAll: 'الكل', filterGold: 'الذهب', filterUsd: 'الدولار',
-    tagGold: 'ذهب', tagUsd: 'دولار',
+    filterAll: 'الكل', filterGold: 'الذهب', filterUsd: 'الدولار', filterSilver: 'الفضة', filterOther: 'أخرى',
+    tagGold: 'ذهب', tagUsd: 'دولار', tagSilver: 'فضة', tagOther: 'أخرى',
     readMore: 'اقرأ المزيد',
     copyright: '© 2026 إيجي دهب. جميع الحقوق محفوظة.'
   },
@@ -160,21 +162,40 @@ const dict = {
     back: '← Back to home',
     title: 'Articles',
     subtitle: 'Analysis and articles about gold, the dollar, and the Egyptian economy.',
-    filterAll: 'All', filterGold: 'Gold', filterUsd: 'Dollar',
-    tagGold: 'Gold', tagUsd: 'Dollar',
+    filterAll: 'All', filterGold: 'Gold', filterUsd: 'Dollar', filterSilver: 'Silver', filterOther: 'Other',
+    tagGold: 'Gold', tagUsd: 'Dollar', tagSilver: 'Silver', tagOther: 'Other',
     readMore: 'Read more',
     copyright: '© 2026 Egydahab. All rights reserved.'
   }
 };
 let lang = 'ar';
 let activeFilter = 'all';
+const KNOWN_CATEGORIES = ['gold', 'silver', 'usd'];
+
+function isOtherArticle(article){
+  return !article.tags.some(tag => KNOWN_CATEGORIES.includes(tag));
+}
+
+function tagLabel(tag, t){
+  if(tag === 'gold') return t.tagGold;
+  if(tag === 'silver') return t.tagSilver;
+  if(tag === 'usd') return t.tagUsd;
+  return t.tagOther;
+}
+
+function tagClass(tag){
+  if(KNOWN_CATEGORIES.includes(tag)) return tag;
+  return 'other';
+}
 
 function renderFilters(){
   const t = dict[lang];
   const filters = [
     {key:'all', label:t.filterAll},
     {key:'gold', label:t.filterGold},
-    {key:'usd', label:t.filterUsd}
+    {key:'silver', label:t.filterSilver},
+    {key:'usd', label:t.filterUsd},
+    {key:'other', label:t.filterOther}
   ];
   document.getElementById('filters').innerHTML = filters.map(f =>
     `<button class="filter-btn${activeFilter===f.key?' active':''}" data-filter="${f.key}">${f.label}</button>`
@@ -188,9 +209,17 @@ function renderArticles(){
   const t = dict[lang];
   renderFilters();
   const list = (typeof ARTICLES !== 'undefined') ? ARTICLES : [];
-  const filtered = activeFilter === 'all' ? list : list.filter(a => a.tags.includes(activeFilter));
+  let filtered;
+  if(activeFilter === 'all') filtered = list;
+  else if(activeFilter === 'other') filtered = list.filter(isOtherArticle);
+  else filtered = list.filter(a => a.tags.includes(activeFilter));
+
   document.getElementById('articleList').innerHTML = filtered.map(a => {
-    const tagsHtml = a.tags.map(tag => `<span class="article-tag ${tag}">${tag==='gold'?t.tagGold:t.tagUsd}</span>`).join('');
+    // Only show a real gold/silver/dollar badge when the article is actually
+    // tagged for that category — anything else (a specific currency like KWD)
+    // shows as a generic "Other" badge instead of the raw code.
+    const displayTags = isOtherArticle(a) ? ['other'] : a.tags.filter(tag => KNOWN_CATEGORIES.includes(tag));
+    const tagsHtml = displayTags.map(tag => `<span class="article-tag ${tagClass(tag)}">${tagLabel(tag, t)}</span>`).join('');
     return `
     <a class="article-card" href="articles/${a.id}.html">
       <div class="article-tags">${tagsHtml}</div>

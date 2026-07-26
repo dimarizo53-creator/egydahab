@@ -190,6 +190,7 @@
   .card-label{font-family:var(--font-body);font-weight:800;font-size:12.5px;color:var(--ink-muted);margin-bottom:10px;}
   .card-value{font-family:var(--font-display);font-weight:900;font-size:23px;color:var(--gold);direction:ltr;text-align:start;}
   .card-value .g{font-family:var(--font-body);font-weight:800;font-size:13px;color:var(--ink-muted);margin-inline-start:4px;}
+  .fx-bs-value .g{font-family:var(--font-body);font-weight:700;font-size:10px;color:var(--ink-muted);margin-inline-start:3px;}
 
   .fx-card{background:var(--surface);padding:17px;display:flex;flex-direction:column;gap:5px;position:relative;overflow:hidden;transition:background .2s,transform .2s;}
   .fx-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--teal),transparent);opacity:0;transition:opacity .25s;}
@@ -503,6 +504,7 @@ const dict = {
     disclaimer: 'أسعار الذهب والفضة تشمل هامش تقريبي لمواكبة سعر السوق المحلي، وقد تختلف قليلاً عن محل الصاغة. آخر تحديث: ',
     unit: 'جنيه',
     perGram: 'الجرام',
+    silverLabel: 'فضة 999',
     goldPoundLabel: 'جنيه ذهب',
     goldPoundSub: '8 جم · عيار 21',
     buyLabel: 'شراء', sellLabel: 'بيع',
@@ -544,6 +546,7 @@ const dict = {
     disclaimer: 'Gold/silver prices include an approximate local-market premium; may still vary slightly from a specific jeweler. Last updated: ',
     unit: 'EGP',
     perGram: 'per gram',
+    silverLabel: 'Silver 999',
     goldPoundLabel: 'Gold Pound',
     goldPoundSub: '8g · 21K',
     buyLabel: 'Buy', sellLabel: 'Sell',
@@ -695,24 +698,31 @@ function renderGold(){
   const t = dict[lang];
   const karatLabel = (n) => lang === 'ar' ? `عيار ${n}` : `${n}K`;
   const items = [
-    {label:karatLabel(24), value: goldGramEgp('k24'), key:'XAU24', sub:t.perGram},
-    {label:karatLabel(21), value: goldGramEgp('k21'), key:'XAU21', sub:t.perGram},
-    {label:karatLabel(18), value: goldGramEgp('k18'), key:'XAU18', sub:t.perGram},
-    {label:t.goldPoundLabel, value: goldPoundEgp(), key:'GOLDPOUND', sub:t.goldPoundSub},
+    {label:karatLabel(24), entry: state.goldPrices && state.goldPrices.k24, key:'XAU24', sub:t.perGram},
+    {label:karatLabel(21), entry: state.goldPrices && state.goldPrices.k21, key:'XAU21', sub:t.perGram},
+    {label:karatLabel(18), entry: state.goldPrices && state.goldPrices.k18, key:'XAU18', sub:t.perGram},
+    {label:t.goldPoundLabel, entry: state.goldPrices && state.goldPrices.goldPound, key:'GOLDPOUND', sub:t.goldPoundSub},
   ];
   document.getElementById('goldGrid').innerHTML = items.map(it => `
     <div class="card" onclick="openAssetModal('${it.key}')">
       <div class="card-label">${it.label} · ${it.sub}</div>
-      <div class="card-value">${fmt(it.value)}<span class="g">${t.unit}</span></div>
+      <div class="fx-buysell">
+        <div><span class="fx-bs-label">${t.buyLabel}</span><span class="fx-bs-value">${fmt(it.entry&&it.entry.buy)}<span class="g">${t.unit}</span></span></div>
+        <div><span class="fx-bs-label">${t.sellLabel}</span><span class="fx-bs-value">${fmt(it.entry&&it.entry.sell)}<span class="g">${t.unit}</span></span></div>
+      </div>
     </div>`).join('');
 }
 
 function renderSilver(){
   const t = dict[lang];
+  const entry = state.silverPrices && state.silverPrices.s999;
   document.getElementById('silverGrid').innerHTML = `
     <div class="card" onclick="openAssetModal('XAG')">
-      <div class="card-label">${t.perGram}</div>
-      <div class="card-value">${fmt(silverGramEgp())}<span class="g">${t.unit}</span></div>
+      <div class="card-label">${t.silverLabel} · ${t.perGram}</div>
+      <div class="fx-buysell">
+        <div><span class="fx-bs-label">${t.buyLabel}</span><span class="fx-bs-value">${fmt(entry&&entry.buy)}<span class="g">${t.unit}</span></span></div>
+        <div><span class="fx-bs-label">${t.sellLabel}</span><span class="fx-bs-value">${fmt(entry&&entry.sell)}<span class="g">${t.unit}</span></span></div>
+      </div>
     </div>`;
 }
 

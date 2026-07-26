@@ -1,0 +1,12 @@
+{
+  "redirects": [
+    {
+      "source": "/article.html",
+      "has": [
+        { "type": "query", "key": "id", "value": "(?<id>.*)" }
+      ],
+      "destination": "/articles/:id.html",
+      "permanent": true
+    }
+  ]
+}

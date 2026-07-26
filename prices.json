@@ -49,60 +49,60 @@
   },
   "currencies": {
     "AED": {
-      "buy": 13.954,
-      "sell": 13.996
+      "buy": 13.948,
+      "sell": 13.99
     },
     "AUD": {
-      "buy": 35.736,
-      "sell": 35.98
+      "buy": 35.722,
+      "sell": 35.966
     },
     "BHD": {
-      "buy": 133.925,
-      "sell": 136.34
+      "buy": 133.873,
+      "sell": 136.287
     },
     "CAD": {
-      "buy": 36.347,
-      "sell": 36.539
+      "buy": 36.333,
+      "sell": 36.525
     },
     "CHF": {
-      "buy": 62.676,
-      "sell": 63.037
+      "buy": 62.651,
+      "sell": 63.012
     },
     "EUR": {
-      "buy": 58.303,
-      "sell": 58.596
+      "buy": 58.28,
+      "sell": 58.573
     },
     "GBP": {
-      "buy": 68.265,
-      "sell": 68.609
+      "buy": 68.238,
+      "sell": 68.582
     },
     "JOD": {
-      "buy": 71.523,
-      "sell": 72.599
+      "buy": 71.495,
+      "sell": 72.571
     },
     "KWD": {
-      "buy": 161.906,
-      "sell": 167.019
+      "buy": 161.767,
+      "sell": 166.954
     },
     "LYD": {
       "buy": 8.010894816951053,
       "sell": 8.010894816951053
     },
     "QAR": {
-      "buy": 13.02,
-      "sell": 14.114
+      "buy": 13.015,
+      "sell": 14.108
     },
     "SAR": {
-      "buy": 13.629,
-      "sell": 13.693
+      "buy": 13.624,
+      "sell": 13.688
     },
     "TRY": {
       "buy": 1.0852225248787264,
       "sell": 1.0852225248787264
     },
     "USD": {
-      "buy": 51.3,
-      "sell": 51.4
+      "buy": 51.28,
+      "sell": 51.38
     }
   },
   "currencySources": {
@@ -121,10 +121,10 @@
     "TRY": "frankfurter",
     "USD": "nbe"
   },
-  "goldSilverUpdatedAt": "2026-07-26T06:26:32.715Z",
-  "currenciesUpdatedAt": "2026-07-26T06:26:34.318Z",
+  "goldSilverUpdatedAt": "2026-07-26T08:43:10.744Z",
+  "currenciesUpdatedAt": "2026-07-26T08:43:11.370Z",
   "goldSilverStatus": "live",
   "currenciesStatus": "live",
-  "lastRunAt": "2026-07-26T06:26:34.318Z",
+  "lastRunAt": "2026-07-26T08:43:11.370Z",
   "note": "Seed data confirmed directly from market.isagha.com/prices/eg and egrates.com/en/banks/4 (National Bank of Egypt rates) on 2026-07-22. Switched currency source from CBE (blocked by their firewall, confirmed unusable) to NBE via egrates.com (verified real, working). Will be overwritten by the first GitHub Actions run."
 }

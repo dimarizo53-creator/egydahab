@@ -192,7 +192,7 @@ function renderArticles(){
   document.getElementById('articleList').innerHTML = filtered.map(a => {
     const tagsHtml = a.tags.map(tag => `<span class="article-tag ${tag}">${tag==='gold'?t.tagGold:t.tagUsd}</span>`).join('');
     return `
-    <a class="article-card" href="articles/${a.id}.html">
+    <a class="article-card" href="article.html?id=${a.id}">
       <div class="article-tags">${tagsHtml}</div>
       <div class="article-card-title">${a.title[lang]}</div>
       <div class="article-card-excerpt">${a.excerpt[lang]}</div>
@@ -230,7 +230,7 @@ function redirectFromHash(){
   const list = (typeof ARTICLES !== 'undefined') ? ARTICLES : [];
   const match = list.find(a => a.id === id);
   if(match){
-    window.location.replace(`articles/${id}.html`);
+    window.location.replace(`article.html?id=${id}`);
   }
 }
 

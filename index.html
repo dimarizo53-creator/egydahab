@@ -992,7 +992,7 @@ function renderModalArticles(key){
     return;
   }
   list.innerHTML = items.map(a => `
-    <a class="article-mini-card" href="articles/${a.id}.html">
+    <a class="article-mini-card" href="article.html?id=${a.id}">
       <div class="article-mini-title">${a.title[lang]}</div>
       <div class="article-mini-excerpt">${a.excerpt[lang]}</div>
       <span class="article-mini-readmore">${t.articlesReadMore}</span>

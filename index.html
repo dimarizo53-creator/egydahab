@@ -407,14 +407,6 @@
   </div>
 
   <div class="section">
-    <div class="section-title">
-      <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 10l-3 3 3 3"/><path d="M4 13h13"/><path d="M17 6l3 3-3 3"/><path d="M20 9H7"/></svg>
-      <span data-i18n="otherFxTitle">عملات أخرى</span>
-    </div>
-    <div class="grid fx" id="otherFxGrid"></div>
-  </div>
-
-  <div class="section">
     <div class="section-title-row">
       <div class="section-title" data-i18n="chartTitle">السعر عبر الزمن</div>
       <button class="chart-toggle-btn" id="chartToggleBtn">
@@ -501,7 +493,6 @@ const dict = {
     goldTitle: 'الذهب',
     silverTitle: 'الفضة',
     fxTitle: 'العملات',
-    otherFxTitle: 'عملات أخرى',
     chartTitle: 'السعر عبر الزمن',
     chartToggleShow: 'عرض الرسم البياني',
     chartToggleHide: 'إخفاء الرسم البياني',
@@ -543,7 +534,6 @@ const dict = {
     goldTitle: 'Gold',
     silverTitle: 'Silver',
     fxTitle: 'Currencies',
-    otherFxTitle: 'Other Currencies',
     chartTitle: 'Price Over Time',
     chartToggleShow: 'Show chart',
     chartToggleHide: 'Hide chart',
@@ -589,12 +579,6 @@ const currencies = [
   {code:'CAD', flag:'ca', name_ar:'الدولار الكندي', name_en:'Canadian Dollar', country_ar:'كندا', country_en:'Canada'},
   {code:'BHD', flag:'bh', name_ar:'الدينار البحريني', name_en:'Bahraini Dinar', country_ar:'البحرين', country_en:'Bahrain'},
   {code:'QAR', flag:'qa', name_ar:'الريال القطري', name_en:'Qatari Riyal', country_ar:'قطر', country_en:'Qatar'}
-];
-const otherCurrencies = [
-  {code:'AUD', flag:'au', name_ar:'الدولار الأسترالي', name_en:'Australian Dollar', country_ar:'أستراليا', country_en:'Australia'},
-  {code:'LYD', flag:'ly', name_ar:'الدينار الليبي', name_en:'Libyan Dinar', country_ar:'ليبيا', country_en:'Libya'},
-  {code:'TRY', flag:'tr', name_ar:'الليرة التركية', name_en:'Turkish Lira', country_ar:'تركيا', country_en:'Turkey'},
-  {code:'CHF', flag:'ch', name_ar:'الفرنك السويسري', name_en:'Swiss Franc', country_ar:'سويسرا', country_en:'Switzerland'}
 ];
 const ALL_QUOTES = currencies.map(c=>c.code).concat(['XAU','XAG']).join(',');
 const OUNCE_TO_GRAM = 31.1034768;
@@ -735,25 +719,6 @@ function renderSilver(){
 function renderFx(){
   const t = dict[lang];
   document.getElementById('fxGrid').innerHTML = currencies.map(c => {
-    const p = state.currencyPrices[c.code];
-    const name = lang === 'ar' ? c.name_ar : c.name_en;
-    const country = lang === 'ar' ? c.country_ar : c.country_en;
-    return `
-    <div class="fx-card" onclick="openAssetModal('${c.code}')">
-      <div class="fx-top"><img class="fx-flag" src="https://flagcdn.com/w80/${c.flag}.png" alt="${c.code}" loading="lazy" onerror="handleFlagError(this,'${c.code}')"><span class="fx-code">${c.code}</span></div>
-      <div class="fx-name">${name}</div>
-      <div class="fx-country">${country}</div>
-      <div class="fx-buysell">
-        <div><span class="fx-bs-label">${t.buyLabel}</span><span class="fx-bs-value">${fmt(p&&p.buy)}</span></div>
-        <div><span class="fx-bs-label">${t.sellLabel}</span><span class="fx-bs-value">${fmt(p&&p.sell)}</span></div>
-      </div>
-    </div>`;
-  }).join('');
-}
-
-function renderOtherFx(){
-  const t = dict[lang];
-  document.getElementById('otherFxGrid').innerHTML = otherCurrencies.map(c => {
     const p = state.currencyPrices[c.code];
     const name = lang === 'ar' ? c.name_ar : c.name_en;
     const country = lang === 'ar' ? c.country_ar : c.country_en;
@@ -1187,7 +1152,7 @@ function applyLang(){
   currenciesTag.textContent = state.currenciesLive ? t.tagLive : t.tagStale;
   currenciesTag.className = 'section-live-tag ' + (state.currenciesLive ? 'live' : 'stale');
 
-  renderGold(); renderSilver(); renderFx(); renderOtherFx(); renderHero();
+  renderGold(); renderSilver(); renderFx(); renderHero();
   renderAssetSelect(); renderChartTabs();
   if(chartOpen) loadChart();
   if(modalAsset){

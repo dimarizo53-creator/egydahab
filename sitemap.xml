@@ -100,4 +100,24 @@
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
+  <url>
+    <loc>https://egydahab.vercel.app/article.html?id=human-obsession-with-gold</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://egydahab.vercel.app/article.html?id=venezuela-gold-us-conflict</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://egydahab.vercel.app/article.html?id=africa-gold-poverty-paradox</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://egydahab.vercel.app/article.html?id=silver-the-new-gold</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
 </urlset>

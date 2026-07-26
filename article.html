@@ -190,42 +190,9 @@ function renderArticle(){
     return;
   }
 
-  const tagsHtml = article.tags.map(tag => `<span class="article-tag ${tag}">${tag==='gold'?t.tagGold:t.tagUsd}</span>`).join('');
-  container.innerHTML = `
-    <div class="article-tags">${tagsHtml}</div>
-    <h1 class="article-title">${article.title[lang]}</h1>
-    <div class="article-excerpt">${article.excerpt[lang]}</div>
-    <div class="article-body">${article.body[lang]}</div>
-  `;
-
-  const fullTitle = `${article.title[lang]} | Egydahab`;
-  const description = article.excerpt[lang];
-  const url = `https://egydahab.vercel.app/article.html?id=${article.id}`;
-
-  document.title = fullTitle;
-  document.getElementById('pageTitle').textContent = fullTitle;
-  document.getElementById('pageDescription').setAttribute('content', description);
-  document.getElementById('ogTitle').setAttribute('content', fullTitle);
-  document.getElementById('ogDescription').setAttribute('content', description);
-  document.getElementById('ogUrl').setAttribute('content', url);
-  document.getElementById('canonicalLink').setAttribute('href', url);
-
-  let ld = document.getElementById('articleLd');
-  if(!ld){
-    ld = document.createElement('script');
-    ld.type = 'application/ld+json';
-    ld.id = 'articleLd';
-    document.head.appendChild(ld);
-  }
-  ld.textContent = JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": article.title[lang],
-    "description": description,
-    "inLanguage": lang === 'ar' ? 'ar' : 'en',
-    "publisher": { "@type": "Organization", "name": "Egydahab" },
-    "mainEntityOfPage": url
-  });
+  // This page is a legacy fallback — the real article now lives at its own
+  // static page. Redirect there immediately.
+  window.location.replace(`articles/${article.id}.html`);
 }
 
 function applyLang(){

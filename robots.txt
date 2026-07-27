@@ -3,4 +3,4 @@ Allow: /
 
 Disallow: /404.html
 
-Sitemap: https://egydahab.vercel.app/sitemap.xml
+Sitemap: https://egydahab.online/sitemap.xml

@@ -632,11 +632,11 @@ function parseFrankfurterResponse(data){
   return {rates: out, rateDate};
 }
 
-// ⚠️ REPLACE 'YOUR_GITHUB_USERNAME/YOUR_REPO_NAME' below with your actual GitHub username
-// and repo name once you've set up the egydahab-actions project (see its README).
-// Example: if your repo is at github.com/ahmed123/egydahab, this becomes:
-// 'https://raw.githubusercontent.com/ahmed123/egydahab/main/prices.json'
-const PRICES_JSON_URL = 'https://raw.githubusercontent.com/dimarizo53-creator/egydahab.3/main/prices.json';
+// prices.json lives in this same repo, so it's fetched directly from our own
+// domain instead of GitHub's raw-content CDN — that CDN caches aggressively
+// (sometimes for a long while) and ignores cache-busting query params, which
+// is what was causing prices to look stale after every update.
+const PRICES_JSON_URL = '/prices.json';
 
 // Fallback used ONLY if the prices.json fetch itself fails entirely (e.g. repo not set up yet).
 // Calibrated to real iSagha values confirmed 2026-07-20.

@@ -227,7 +227,7 @@ const currencies = [
   {code:'TRY', flag:'tr', name_ar:'الليرة التركية', name_en:'Turkish Lira', country_ar:'تركيا', country_en:'Turkey'},
   {code:'CHF', flag:'ch', name_ar:'الفرنك السويسري', name_en:'Swiss Franc', country_ar:'سويسرا', country_en:'Switzerland'}
 ];
-const PRICES_JSON_URL = 'https://raw.githubusercontent.com/dimarizo53-creator/egydahab.3/main/prices.json';
+const PRICES_JSON_URL = '/prices.json';
 
 async function fetchWithTimeout(url, ms = 12000){
   const controller = new AbortController();

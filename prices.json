@@ -1,6 +1,134 @@
 {
   "gold": {
     "k24": {
+      "sell": 6794.25,
+      "buy": 6737.25
+    },
+    "k22": {
+      "sell": 6228,
+      "buy": 6175.75
+    },
+    "k21": {
+      "sell": 5945,
+      "buy": 5895
+    },
+    "k18": {
+      "sell": 5095.75,
+      "buy": 5052.75
+    },
+    "goldPound": {
+      "sell": 47560,
+      "buy": 47160
+    }
+  },
+  "silver": {
+    "s999": {
+      "sell": 101,
+      "buy": 96
+    },
+    "s925": {
+      "sell": 93.5,
+      "buy": 89
+    },
+    "s900": {
+      "sell": 91,
+      "buy": 86.5
+    },
+    "s800": {
+      "sell": 81,
+      "buy": 77
+    },
+    "s600": {
+      "sell": 60.75,
+      "buy": 57.75
+    },
+    "silverPound": {
+      "sell": 748,
+      "buy": 712
+    }
+  },
+  "currencies": {
+    "AED": {
+      "buy": 13.782,
+      "sell": 13.825
+    },
+    "AUD": {
+      "buy": 35.423,
+      "sell": 35.595
+    },
+    "BHD": {
+      "buy": 132.28,
+      "sell": 134.651
+    },
+    "CAD": {
+      "buy": 35.906,
+      "sell": 36.081
+    },
+    "CHF": {
+      "buy": 61.891,
+      "sell": 62.371
+    },
+    "EUR": {
+      "buy": 57.622,
+      "sell": 57.969
+    },
+    "GBP": {
+      "buy": 67.416,
+      "sell": 67.844
+    },
+    "JOD": {
+      "buy": 70.645,
+      "sell": 71.709
+    },
+    "KWD": {
+      "buy": 159.918,
+      "sell": 164.972
+    },
+    "LYD": {
+      "buy": 8.003201280512204,
+      "sell": 8.003201280512204
+    },
+    "QAR": {
+      "buy": 12.86,
+      "sell": 13.927
+    },
+    "SAR": {
+      "buy": 13.462,
+      "sell": 13.525
+    },
+    "TRY": {
+      "buy": 1.0819349324331635,
+      "sell": 1.0819349324331635
+    },
+    "USD": {
+      "buy": 50.67,
+      "sell": 50.77
+    }
+  },
+  "currencySources": {
+    "AED": "nbe",
+    "AUD": "nbe",
+    "BHD": "nbe",
+    "CAD": "nbe",
+    "CHF": "nbe",
+    "EUR": "nbe",
+    "GBP": "nbe",
+    "JOD": "nbe",
+    "KWD": "nbe",
+    "LYD": "frankfurter",
+    "QAR": "nbe",
+    "SAR": "nbe",
+    "TRY": "frankfurter",
+    "USD": "nbe"
+  },
+  "goldSilverUpdatedAt": "2026-07-27T22:58:30.562Z",
+  "currenciesUpdatedAt": "2026-07-27T22:58:32.080Z",
+  "goldSilverStatus": "live",
+  "currenciesStatus": "live",
+  "lastRunAt": "2026-07-27T22:58:32.081Z",
+  "note": "Seed data confirmed directly from market.isagha.com/prices/eg and egrates.com/en/banks/4 (National Bank of Egypt rates) on 2026-07-22. Switched currency source from CBE (blocked by their firewall, confirmed unusable) to NBE via egrates.com (verified real, working). Will be overwritten by the first GitHub Actions run.",
+  "previousGold": {
+    "k24": {
       "sell": 6742.75,
       "buy": 6685.75
     },
@@ -21,7 +149,7 @@
       "buy": 46800
     }
   },
-  "silver": {
+  "previousSilver": {
     "s999": {
       "sell": 99.75,
       "buy": 94.75
@@ -47,7 +175,7 @@
       "buy": 702
     }
   },
-  "currencies": {
+  "previousCurrencies": {
     "USD": {
       "buy": 51.3,
       "sell": 51.4
@@ -103,76 +231,6 @@
     "LYD": {
       "buy": 10.55,
       "sell": 10.7
-    }
-  },
-  "currencySources": {
-    "USD": "nbe",
-    "EUR": "nbe",
-    "GBP": "nbe",
-    "CAD": "nbe",
-    "KWD": "nbe",
-    "SAR": "nbe",
-    "AED": "nbe",
-    "BHD": "nbe",
-    "QAR": "nbe",
-    "JOD": "nbe",
-    "AUD": "frankfurter",
-    "CHF": "frankfurter",
-    "TRY": "frankfurter",
-    "LYD": "frankfurter"
-  },
-  "goldSilverUpdatedAt": "2026-07-22T00:00:00.000Z",
-  "currenciesUpdatedAt": "2026-07-22T00:00:00.000Z",
-  "goldSilverStatus": "live",
-  "currenciesStatus": "live",
-  "lastRunAt": "2026-07-22T00:00:00.000Z",
-  "note": "Seed data confirmed directly from market.isagha.com/prices/eg and egrates.com/en/banks/4 (National Bank of Egypt rates) on 2026-07-22. Switched currency source from CBE (blocked by their firewall, confirmed unusable) to NBE via egrates.com (verified real, working). Will be overwritten by the first GitHub Actions run.",
-  "previousGold": {
-    "k24": {
-      "sell": 6742.75,
-      "buy": 6685.75
-    },
-    "k22": {
-      "sell": 6181,
-      "buy": 6128.5
-    },
-    "k21": {
-      "sell": 5900,
-      "buy": 5850
-    },
-    "k18": {
-      "sell": 5057.25,
-      "buy": 5014.25
-    },
-    "goldPound": {
-      "sell": 47200,
-      "buy": 46800
-    }
-  },
-  "previousSilver": {
-    "s999": {
-      "sell": 99.75,
-      "buy": 94.75
-    },
-    "s925": {
-      "sell": 92.5,
-      "buy": 87.75
-    },
-    "s900": {
-      "sell": 90,
-      "buy": 85.5
-    },
-    "s800": {
-      "sell": 80,
-      "buy": 76
-    },
-    "s600": {
-      "sell": 60,
-      "buy": 57
-    },
-    "silverPound": {
-      "sell": 740,
-      "buy": 702
     }
   }
 }

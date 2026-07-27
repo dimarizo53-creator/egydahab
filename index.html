@@ -53,6 +53,7 @@
     --teal-deep:#0A5346;
     --gold:#B8860B;
     --gold-bright:#D89B1F;
+    --silver-metal:#8E97A3;
     --ink:#20281F;
     --ink-muted:#8A8070;
     --up:#1E8E5A;
@@ -191,6 +192,12 @@
   .card-value{font-family:var(--font-display);font-weight:900;font-size:23px;color:var(--gold);direction:ltr;text-align:start;}
   .card-value .g{font-family:var(--font-body);font-weight:800;font-size:13px;color:var(--ink-muted);margin-inline-start:4px;}
   .fx-bs-value .g{font-family:var(--font-body);font-weight:700;font-size:10px;color:var(--ink-muted);margin-inline-start:3px;}
+  .fx-bs-value.tone-gold{color:var(--gold);}
+  .fx-bs-value.tone-silver{color:var(--silver-metal);}
+  .change-badge{font-family:var(--font-mono);font-size:10.5px;font-weight:700;margin-inline-start:6px;letter-spacing:.2px;}
+  .change-badge.up{color:var(--up);}
+  .change-badge.down{color:var(--down);}
+  .change-badge.flat{color:var(--ink-muted);}
 
   .fx-card{background:var(--surface);padding:17px;display:flex;flex-direction:column;gap:5px;position:relative;overflow:hidden;transition:background .2s,transform .2s;}
   .fx-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--teal),transparent);opacity:0;transition:opacity .25s;}
@@ -653,6 +660,8 @@ async function fetchCurrent(){
     if(data.gold && data.gold.k24){
       state.goldPrices = data.gold;
       state.silverPrices = data.silver || {};
+      state.previousGoldPrices = data.previousGold || null;
+      state.previousSilverPrices = data.previousSilver || null;
       state.metalsLive = data.goldSilverStatus === 'live';
       state.metalsDate = data.goldSilverUpdatedAt;
     } else {
@@ -681,6 +690,20 @@ async function fetchCurrent(){
   state.rateDate = state.metalsLive ? state.metalsDate : state.currenciesDate;
 }
 
+function pctChange(current, previous){
+  if(current == null || previous == null || previous === 0) return null;
+  return ((current - previous) / previous) * 100;
+}
+
+function changeBadgeHtml(current, previous){
+  const pct = pctChange(current, previous);
+  if(pct === null) return '';
+  const dir = pct > 0.001 ? 'up' : (pct < -0.001 ? 'down' : 'flat');
+  const sign = pct > 0 ? '+' : '';
+  const arrow = dir === 'up' ? '▲' : (dir === 'down' ? '▼' : '');
+  return `<span class="change-badge ${dir}">${arrow} ${sign}${pct.toFixed(2)}%</span>`;
+}
+
 function goldGramEgp(karatKey){
   const entry = state.goldPrices && state.goldPrices[karatKey];
   return entry ? entry.sell : null;
@@ -697,18 +720,19 @@ function goldPoundEgp(){
 function renderGold(){
   const t = dict[lang];
   const karatLabel = (n) => lang === 'ar' ? `عيار ${n}` : `${n}K`;
+  const prevGold = state.previousGoldPrices;
   const items = [
-    {label:karatLabel(24), entry: state.goldPrices && state.goldPrices.k24, key:'XAU24', sub:t.perGram},
-    {label:karatLabel(21), entry: state.goldPrices && state.goldPrices.k21, key:'XAU21', sub:t.perGram},
-    {label:karatLabel(18), entry: state.goldPrices && state.goldPrices.k18, key:'XAU18', sub:t.perGram},
-    {label:t.goldPoundLabel, entry: state.goldPrices && state.goldPrices.goldPound, key:'GOLDPOUND', sub:t.goldPoundSub},
+    {label:karatLabel(24), entry: state.goldPrices && state.goldPrices.k24, prevEntry: prevGold && prevGold.k24, key:'XAU24', sub:t.perGram},
+    {label:karatLabel(21), entry: state.goldPrices && state.goldPrices.k21, prevEntry: prevGold && prevGold.k21, key:'XAU21', sub:t.perGram},
+    {label:karatLabel(18), entry: state.goldPrices && state.goldPrices.k18, prevEntry: prevGold && prevGold.k18, key:'XAU18', sub:t.perGram},
+    {label:t.goldPoundLabel, entry: state.goldPrices && state.goldPrices.goldPound, prevEntry: prevGold && prevGold.goldPound, key:'GOLDPOUND', sub:t.goldPoundSub},
   ];
   document.getElementById('goldGrid').innerHTML = items.map(it => `
     <div class="card" onclick="openAssetModal('${it.key}')">
-      <div class="card-label">${it.label} · ${it.sub}</div>
+      <div class="card-label">${it.label} · ${it.sub} ${changeBadgeHtml(it.entry&&it.entry.sell, it.prevEntry&&it.prevEntry.sell)}</div>
       <div class="fx-buysell">
-        <div><span class="fx-bs-label">${t.buyLabel}</span><span class="fx-bs-value">${fmt(it.entry&&it.entry.buy)}<span class="g">${t.unit}</span></span></div>
-        <div><span class="fx-bs-label">${t.sellLabel}</span><span class="fx-bs-value">${fmt(it.entry&&it.entry.sell)}<span class="g">${t.unit}</span></span></div>
+        <div><span class="fx-bs-label">${t.buyLabel}</span><span class="fx-bs-value tone-gold">${fmt(it.entry&&it.entry.buy)}<span class="g">${t.unit}</span></span></div>
+        <div><span class="fx-bs-label">${t.sellLabel}</span><span class="fx-bs-value tone-gold">${fmt(it.entry&&it.entry.sell)}<span class="g">${t.unit}</span></span></div>
       </div>
     </div>`).join('');
 }
@@ -716,12 +740,13 @@ function renderGold(){
 function renderSilver(){
   const t = dict[lang];
   const entry = state.silverPrices && state.silverPrices.s999;
+  const prevEntry = state.previousSilverPrices && state.previousSilverPrices.s999;
   document.getElementById('silverGrid').innerHTML = `
     <div class="card" onclick="openAssetModal('XAG')">
-      <div class="card-label">${t.silverLabel} · ${t.perGram}</div>
+      <div class="card-label">${t.silverLabel} · ${t.perGram} ${changeBadgeHtml(entry&&entry.sell, prevEntry&&prevEntry.sell)}</div>
       <div class="fx-buysell">
-        <div><span class="fx-bs-label">${t.buyLabel}</span><span class="fx-bs-value">${fmt(entry&&entry.buy)}<span class="g">${t.unit}</span></span></div>
-        <div><span class="fx-bs-label">${t.sellLabel}</span><span class="fx-bs-value">${fmt(entry&&entry.sell)}<span class="g">${t.unit}</span></span></div>
+        <div><span class="fx-bs-label">${t.buyLabel}</span><span class="fx-bs-value tone-silver">${fmt(entry&&entry.buy)}<span class="g">${t.unit}</span></span></div>
+        <div><span class="fx-bs-label">${t.sellLabel}</span><span class="fx-bs-value tone-silver">${fmt(entry&&entry.sell)}<span class="g">${t.unit}</span></span></div>
       </div>
     </div>`;
 }

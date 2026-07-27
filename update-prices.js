@@ -30,6 +30,10 @@ async function main() {
 
   try {
     const { gold, silver, scrapedAt } = await scrapeISagha();
+    // Keep whatever was live before this run so the frontend can show a
+    // "change since last update" percentage next to each price.
+    if (data.gold) data.previousGold = data.gold;
+    if (data.silver) data.previousSilver = data.silver;
     data.gold = gold;
     data.silver = silver;
     data.goldSilverUpdatedAt = scrapedAt;
@@ -43,6 +47,7 @@ async function main() {
   try {
     const { rates, sources } = await resolveCurrencies();
     if (!rates.USD) throw new Error('No currency source returned USD data');
+    if (data.currencies) data.previousCurrencies = data.currencies;
     data.currencies = rates;
     data.currencySources = sources;
     data.currenciesUpdatedAt = new Date().toISOString();

@@ -670,6 +670,7 @@ async function fetchCurrent(){
 
     if(data.currencies && data.currencies.USD && data.currencies.USD.sell){
       Object.assign(state.currencyPrices, data.currencies);
+      state.previousCurrencyPrices = data.previousCurrencies || null;
       state.currenciesLive = data.currenciesStatus === 'live';
       state.currenciesDate = data.currenciesRateDate;
     } else {
@@ -690,18 +691,19 @@ async function fetchCurrent(){
   state.rateDate = state.metalsLive ? state.metalsDate : state.currenciesDate;
 }
 
-function pctChange(current, previous){
-  if(current == null || previous == null || previous === 0) return null;
-  return ((current - previous) / previous) * 100;
+function priceDiff(current, previous){
+  if(current == null || previous == null) return null;
+  return current - previous;
 }
 
 function changeBadgeHtml(current, previous){
-  const pct = pctChange(current, previous);
-  if(pct === null) return '';
-  const dir = pct > 0.001 ? 'up' : (pct < -0.001 ? 'down' : 'flat');
-  const sign = pct > 0 ? '+' : '';
+  const diff = priceDiff(current, previous);
+  if(diff === null) return '';
+  const rounded = Math.round(diff);
+  const dir = rounded > 0 ? 'up' : (rounded < 0 ? 'down' : 'flat');
+  const sign = rounded > 0 ? '+' : '';
   const arrow = dir === 'up' ? '▲' : (dir === 'down' ? '▼' : '');
-  return `<span class="change-badge ${dir}">${arrow} ${sign}${pct.toFixed(2)}%</span>`;
+  return `<span class="change-badge ${dir}">${arrow} ${sign}${rounded}</span>`;
 }
 
 function goldGramEgp(karatKey){
@@ -753,13 +755,15 @@ function renderSilver(){
 
 function renderFx(){
   const t = dict[lang];
+  const prevFx = state.previousCurrencyPrices;
   document.getElementById('fxGrid').innerHTML = currencies.map(c => {
     const p = state.currencyPrices[c.code];
+    const prevP = prevFx && prevFx[c.code];
     const name = lang === 'ar' ? c.name_ar : c.name_en;
     const country = lang === 'ar' ? c.country_ar : c.country_en;
     return `
     <div class="fx-card" onclick="openAssetModal('${c.code}')">
-      <div class="fx-top"><img class="fx-flag" src="https://flagcdn.com/w80/${c.flag}.png" alt="${c.code}" loading="lazy" onerror="handleFlagError(this,'${c.code}')"><span class="fx-code">${c.code}</span></div>
+      <div class="fx-top"><img class="fx-flag" src="https://flagcdn.com/w80/${c.flag}.png" alt="${c.code}" loading="lazy" onerror="handleFlagError(this,'${c.code}')"><span class="fx-code">${c.code}</span> ${changeBadgeHtml(p&&p.sell, prevP&&prevP.sell)}</div>
       <div class="fx-name">${name}</div>
       <div class="fx-country">${country}</div>
       <div class="fx-buysell">

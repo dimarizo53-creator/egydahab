@@ -68,7 +68,6 @@
   html[dir="rtl"] .search-box svg{inset-inline-start:auto;inset-inline-end:16px;}
   .search-input:focus{border-color:var(--teal);}
   .search-input::placeholder{color:var(--ink-muted);}
-  .article-meta{font-family:var(--font-mono);font-size:11px;color:var(--ink-muted);margin-bottom:8px;letter-spacing:.2px;}
   .filter-btn{font-family:var(--font-body);font-weight:800;font-size:13px;padding:8px 16px;border-radius:20px;border:1px solid var(--border);background:var(--surface);color:var(--ink-muted);cursor:pointer;}
   .filter-btn.active{background:var(--teal);border-color:var(--teal);color:#fff;}
   .filter-btn:hover:not(.active){border-color:var(--teal);color:var(--teal);}
@@ -82,11 +81,16 @@
   .article-tag.silver{color:#8A8070;}
   .article-tag.other{color:var(--teal-deep);}
   .article-card-title{font-family:var(--font-display);font-weight:800;font-size:18px;color:var(--ink);line-height:1.4;margin-bottom:8px;}
-  .article-meta{font-family:var(--font-mono);font-size:11px;color:var(--ink-muted);margin-bottom:10px;}
+  .article-meta{font-family:var(--font-mono);font-size:11.5px;font-weight:800;color:#000;margin-bottom:10px;}
   .article-card-excerpt{font-family:var(--font-body);font-weight:600;font-size:13.5px;color:var(--ink-muted);line-height:1.7;margin-bottom:10px;}
   .article-readmore{display:flex;align-items:center;gap:6px;font-family:var(--font-body);font-weight:800;font-size:12.5px;color:var(--teal);}
   .article-readmore svg{width:14px;height:14px;stroke:currentColor;transform:scaleX(-1);}
   html[dir="ltr"] .article-readmore svg{transform:none;}
+  .pagination{display:flex;justify-content:center;gap:8px;margin-top:28px;flex-wrap:wrap;}
+  .page-btn{min-width:38px;height:38px;padding:0 8px;border-radius:10px;border:1px solid var(--border);background:var(--surface);color:var(--ink);font-family:var(--font-mono);font-weight:700;font-size:13px;cursor:pointer;}
+  .page-btn.active{background:var(--teal);border-color:var(--teal);color:#fff;}
+  .page-btn:hover:not(.active):not(:disabled){border-color:var(--teal);color:var(--teal);}
+  .page-btn:disabled{opacity:.4;cursor:default;}
 
   footer{text-align:center;padding-top:24px;margin-top:48px;border-top:1px solid var(--border);}
   .copyright-line{font-family:var(--font-body);font-weight:600;font-size:11.5px;color:var(--ink-muted);}
@@ -132,10 +136,11 @@
 
   <div class="search-box">
     <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
-    <input type="text" class="search-input" id="searchInput" data-i18n-placeholder="searchPlaceholder" placeholder="ابحث في عناوين المقالات...">
+    <input type="text" class="search-input" id="searchInput" data-i18n-placeholder="searchPlaceholder" placeholder="بحث...">
   </div>
   <div class="filters" id="filters"></div>
   <div class="article-list" id="articleList"></div>
+  <div class="pagination" id="pagination"></div>
 
   <footer>
     <nav class="footer-nav">
@@ -165,7 +170,7 @@ const dict = {
     filterAll: 'الكل', filterGold: 'الذهب', filterUsd: 'الدولار', filterSilver: 'الفضة', filterOther: 'أخرى',
     tagGold: 'ذهب', tagUsd: 'دولار', tagSilver: 'فضة', tagOther: 'أخرى',
     readMore: 'اقرأ المزيد',
-    searchPlaceholder: 'ابحث في عناوين المقالات...',
+    searchPlaceholder: 'بحث...',
     byLabel: 'بقلم',
     copyright: '© 2026 إيجي دهب. جميع الحقوق محفوظة.'
   },
@@ -180,7 +185,7 @@ const dict = {
     filterAll: 'All', filterGold: 'Gold', filterUsd: 'Dollar', filterSilver: 'Silver', filterOther: 'Other',
     tagGold: 'Gold', tagUsd: 'Dollar', tagSilver: 'Silver', tagOther: 'Other',
     readMore: 'Read more',
-    searchPlaceholder: 'Search article headlines...',
+    searchPlaceholder: 'Search...',
     byLabel: 'By',
     copyright: '© 2026 Egydahab. All rights reserved.'
   }
@@ -188,6 +193,8 @@ const dict = {
 let lang = 'ar';
 let activeFilter = 'all';
 let searchQuery = '';
+let currentPage = 1;
+const PAGE_SIZE = 10;
 const KNOWN_CATEGORIES = ['gold', 'silver', 'usd'];
 
 function isOtherArticle(article){
@@ -219,7 +226,7 @@ function renderFilters(){
     `<button class="filter-btn${activeFilter===f.key?' active':''}" data-filter="${f.key}">${f.label}</button>`
   ).join('');
   document.querySelectorAll('.filter-btn').forEach(btn => {
-    btn.onclick = () => { activeFilter = btn.getAttribute('data-filter'); renderArticles(); };
+    btn.onclick = () => { activeFilter = btn.getAttribute('data-filter'); currentPage = 1; renderArticles(); };
   });
 }
 
@@ -244,7 +251,11 @@ function renderArticles(){
     filtered = filtered.filter(a => a.title[lang].toLowerCase().includes(q));
   }
 
-  document.getElementById('articleList').innerHTML = filtered.map(a => {
+  const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
+  if(currentPage > totalPages) currentPage = totalPages;
+  const pageItems = filtered.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE);
+
+  document.getElementById('articleList').innerHTML = pageItems.map(a => {
     // Only show a real gold/silver/dollar badge when the article is actually
     // tagged for that category — anything else (a specific currency like KWD)
     // shows as a generic "Other" badge instead of the raw code.
@@ -263,6 +274,32 @@ function renderArticles(){
       </div>
     </a>`;
   }).join('');
+
+  renderPagination(totalPages);
+}
+
+function renderPagination(totalPages){
+  const container = document.getElementById('pagination');
+  if(totalPages <= 1){ container.innerHTML = ''; return; }
+
+  const buttons = [];
+  buttons.push(`<button class="page-btn" data-page="prev" ${currentPage===1?'disabled':''}>${lang==='ar'?'‹':'‹'}</button>`);
+  for(let p = 1; p <= totalPages; p++){
+    buttons.push(`<button class="page-btn${p===currentPage?' active':''}" data-page="${p}">${p}</button>`);
+  }
+  buttons.push(`<button class="page-btn" data-page="next" ${currentPage===totalPages?'disabled':''}>${lang==='ar'?'›':'›'}</button>`);
+
+  container.innerHTML = buttons.join('');
+  container.querySelectorAll('.page-btn').forEach(btn => {
+    btn.onclick = () => {
+      const val = btn.getAttribute('data-page');
+      if(val === 'prev') currentPage = Math.max(1, currentPage - 1);
+      else if(val === 'next') currentPage = Math.min(totalPages, currentPage + 1);
+      else currentPage = parseInt(val, 10);
+      renderArticles();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+  });
 }
 
 function applyLang(){
@@ -278,6 +315,7 @@ function applyLang(){
 }
 document.getElementById('searchInput').addEventListener('input', (e) => {
   searchQuery = e.target.value;
+  currentPage = 1;
   renderArticles();
 });
 document.getElementById('langBtn').onclick = () => { lang = lang === 'ar' ? 'en' : 'ar'; applyLang(); };

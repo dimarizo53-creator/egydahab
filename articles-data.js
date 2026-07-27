@@ -6,6 +6,8 @@ const ARTICLES = [
   {
     id: 'gold-or-dollar-2026',
     tags: ['gold', 'usd'],
+    date: '2026-07-21',
+    author: { ar: 'فريق إيجي دهب', en: 'Egydahab Team' },
     title: {
       ar: 'الذهب أم الدولار؟ أين تحفظ أموالك في 2026 لحمايتها من التضخم؟',
       en: 'Gold or the Dollar? Where Should You Keep Your Money in 2026 to Protect It From Inflation?'
@@ -70,6 +72,8 @@ const ARTICLES = [
   {
     id: 'fed-interest-rate-egp',
     tags: ['usd'],
+    date: '2026-07-21',
+    author: { ar: 'فريق إيجي دهب', en: 'Egydahab Team' },
     title: {
       ar: 'الفيدرالي الأمريكي وسعر الفائدة: كيف تؤثر القرارات الدولية على الجنيه والاقتصاد المصري؟',
       en: 'The Fed and Interest Rates: How Do International Decisions Affect the Egyptian Pound and Economy?'
@@ -132,6 +136,8 @@ const ARTICLES = [
   {
     id: 'gold-price-volatility',
     tags: ['gold'],
+    date: '2026-07-21',
+    author: { ar: 'فريق إيجي دهب', en: 'Egydahab Team' },
     title: {
       ar: 'بورصة الذهب وتذبذب الأسعار: قراءة في المسببات العالمية والواقع المصري',
       en: 'The Gold Exchange and Price Swings: Reading the Global Causes and the Egyptian Reality'
@@ -196,6 +202,8 @@ const ARTICLES = [
   {
     id: 'egypt-fx-market-outlook',
     tags: ['usd'],
+    date: '2026-07-21',
+    author: { ar: 'فريق إيجي دهب', en: 'Egydahab Team' },
     title: {
       ar: 'سوق الصرف وسعر الدولار في مصر: بين المبادرات الاقتصادية وتوقعات المستقبل',
       en: 'Egypt\'s FX Market and the Dollar Price: Between Economic Initiatives and Future Outlook'
@@ -266,6 +274,8 @@ const ARTICLES = [
   {
     id: 'gold-economy-relationship',
     tags: ['gold'],
+    date: '2026-07-22',
+    author: { ar: 'فريق إيجي دهب', en: 'Egydahab Team' },
     title: {
       ar: 'هل تحمي أسعار الذهب اقتصاد البلدان أم تزدهر في أوقات الأزمات؟',
       en: 'Does Gold Protect a Country\'s Economy, or Does It Thrive in Times of Crisis?'
@@ -300,6 +310,8 @@ const ARTICLES = [
   {
     id: 'bullion-vs-gold-pound',
     tags: ['gold'],
+    date: '2026-07-22',
+    author: { ar: 'فريق إيجي دهب', en: 'Egydahab Team' },
     title: {
       ar: 'سبائك أم جنيهات ذهبية؟ أين تذهب بـ«تحويشة العمر» لتجنب المصنعية والضرائب؟',
       en: 'Bullion Bars or Gold Pounds? Where Should Your Life Savings Go to Avoid Markup and Taxes?'
@@ -334,6 +346,8 @@ const ARTICLES = [
   {
     id: 'what-makes-a-currency-strong',
     tags: ['usd'],
+    date: '2026-07-22',
+    author: { ar: 'فريق إيجي دهب', en: 'Egydahab Team' },
     title: {
       ar: 'ما الذي يصنع قوة العملة؟ السر الحقيقي وراء قيمة النقد أمام السوق',
       en: 'What Makes a Currency Strong? The Real Secret Behind a Currency\'s Market Value'
@@ -370,6 +384,8 @@ const ARTICLES = [
   {
     id: 'egp-exchange-rate-outlook',
     tags: ['usd'],
+    date: '2026-07-22',
+    author: { ar: 'فريق إيجي دهب', en: 'Egydahab Team' },
     title: {
       ar: 'بين المرونة والتوقع.. ما هو المصير المرتقب لسعر صرف الجنيه المصري؟',
       en: 'Between Flexibility and Prediction: What Lies Ahead for the Egyptian Pound\'s Exchange Rate?'
@@ -402,6 +418,8 @@ const ARTICLES = [
   {
     id: 'geopolitical-conflict-global-inflation',
     tags: ['gold', 'usd'],
+    date: '2026-07-23',
+    author: { ar: 'فريق إيجي دهب', en: 'Egydahab Team' },
     title: {
       ar: 'الحرب بين واشنطن وطهران: كيف تبتلع النزاعات الجيوسياسية ثروات العالم وتغذي موجات التضخم؟',
       en: 'The Washington-Tehran Conflict: How Geopolitical Wars Devour Global Wealth and Fuel Inflation'
@@ -434,6 +452,8 @@ const ARTICLES = [
   {
     id: 'crypto-bitcoin-risk-vs-gold',
     tags: ['gold'],
+    date: '2026-07-23',
+    author: { ar: 'فريق إيجي دهب', en: 'Egydahab Team' },
     title: {
       ar: 'هوس العملات المشفرة بين حلم الثراء السريع ومخاطر الانهيار: هل أصبحت البيتكوين استثماراً آمناً؟',
       en: 'The Crypto Obsession: Between the Dream of Quick Riches and the Risk of Collapse — Is Bitcoin a Safe Investment?'
@@ -466,6 +486,8 @@ const ARTICLES = [
   {
     id: 'kuwaiti-dinar-strongest-currency',
     tags: ['KWD'],
+    date: '2026-07-24',
+    author: { ar: 'فريق إيجي دهب', en: 'Egydahab Team' },
     title: {
       ar: 'سر الدينار الكويتي: لماذا يتربع على عرش أغلى العملات عالمياً وكيف يُحدد سعره مقابل الدولار؟',
       en: 'The Secret of the Kuwaiti Dinar: Why It Sits Atop the World\'s Most Valuable Currencies and How Its Rate Against the Dollar Is Set'
@@ -498,6 +520,8 @@ const ARTICLES = [
   {
     id: 'investment-alternatives-beyond-gold-dollar',
     tags: ['gold', 'usd'],
+    date: '2026-07-24',
+    author: { ar: 'فريق إيجي دهب', en: 'Egydahab Team' },
     title: {
       ar: 'ما بعد الذهب والدولار: أين تضع أموالك لحمايتها من التضخم وتحقيق عوائد مجزية؟',
       en: 'Beyond Gold and the Dollar: Where Should You Put Your Money for Inflation Protection and Solid Returns?'
@@ -530,6 +554,8 @@ const ARTICLES = [
   {
     id: 'human-obsession-with-gold',
     tags: ['gold'],
+    date: '2026-07-26',
+    author: { ar: 'فريق إيجي دهب', en: 'Egydahab Team' },
     title: {
       ar: 'سحر المعدن الأصفر: كيف تحول الذهب من عنصر طبيعي إلى هوس أبدي يحكم العقل البشري؟',
       en: 'The Spell of the Yellow Metal: How Gold Became an Eternal Obsession That Rules the Human Mind'
@@ -562,6 +588,8 @@ const ARTICLES = [
   {
     id: 'venezuela-gold-us-conflict',
     tags: ['gold'],
+    date: '2026-07-26',
+    author: { ar: 'فريق إيجي دهب', en: 'Egydahab Team' },
     title: {
       ar: 'معركة الذهب بين واشنطن وكاراكاس: كيف تحول الذهب الفنزويلي إلى ساحة صراع جيوسياسي ومواجهة أمريكية؟',
       en: 'The Gold Battle Between Washington and Caracas: How Venezuelan Gold Became a Geopolitical Battleground'
@@ -594,6 +622,8 @@ const ARTICLES = [
   {
     id: 'africa-gold-poverty-paradox',
     tags: ['gold'],
+    date: '2026-07-26',
+    author: { ar: 'فريق إيجي دهب', en: 'Egydahab Team' },
     title: {
       ar: 'كنوز القارة السمراء: هل تحولت إفريقيا إلى منجم ذهب للعالم بينما يعاني أبناؤها من الفقر؟',
       en: "Treasures of the Dark Continent: Has Africa Become the World's Gold Mine While Its People Live in Poverty?"
@@ -626,6 +656,8 @@ const ARTICLES = [
   {
     id: 'silver-the-new-gold',
     tags: ['silver'],
+    date: '2026-07-26',
+    author: { ar: 'فريق إيجي دهب', en: 'Egydahab Team' },
     title: {
       ar: 'هل أصبحت الفضة هي الذهب الجديد؟ ثورة الطاقة الخضراء والذكاء الاصطناعي تعيد تشكيل عرش المعادن.',
       en: 'Has Silver Become the New Gold? The Green Energy and AI Revolution Is Reshaping the Throne of Metals'
@@ -658,6 +690,8 @@ const ARTICLES = [
   {
     id: 'trump-new-dollar-bill-design',
     tags: ['usd'],
+    date: '2026-07-27',
+    author: { ar: 'فريق إيجي دهب', en: 'Egydahab Team' },
     title: {
       ar: 'رسائل الورقة الجديدة: ماذا تعني اقتراحات ترامب لطباعة دولار جديد على مستقبل الاقتصاد العالمي؟',
       en: "The New Bill's Message: What Trump's Proposed New Dollar Design Means for the Global Economy"
@@ -688,6 +722,8 @@ const ARTICLES = [
   {
     id: 'what-could-replace-the-dollar',
     tags: ['usd'],
+    date: '2026-07-27',
+    author: { ar: 'فريق إيجي دهب', en: 'Egydahab Team' },
     title: {
       ar: 'البديل القادم: ما هي القوة النقدية التي تستطيع الإطاحة بالدولار وإدارة التجارة العالمية؟',
       en: 'The Next Contender: What Monetary Power Could Dethrone the Dollar and Run Global Trade?'
@@ -718,6 +754,8 @@ const ARTICLES = [
   {
     id: 'end-of-dollar-dominance',
     tags: ['usd'],
+    date: '2026-07-27',
+    author: { ar: 'فريق إيجي دهب', en: 'Egydahab Team' },
     title: {
       ar: 'نهاية الهيمنة المطلقة: هل يفقد الدولار الأمريكي عرشه الاقتصادي العالمي؟',
       en: 'The End of Absolute Dominance: Is the US Dollar Losing Its Global Economic Throne?'
@@ -748,6 +786,8 @@ const ARTICLES = [
   {
     id: 'chicken-prices-egypt-inflation-gauge',
     tags: ['economy'],
+    date: '2026-07-27',
+    author: { ar: 'فريق إيجي دهب', en: 'Egydahab Team' },
     title: {
       ar: 'مؤشر البانيه: كيف تروي أسعار الدواجن القصة الكاملة للضغوط الاقتصادية في مصر؟',
       en: "The Chicken Breast Index: How Poultry Prices Tell Egypt's Whole Economic Story"

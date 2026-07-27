@@ -61,6 +61,14 @@
   .page-sub{font-family:var(--font-body);font-weight:600;font-size:14px;color:var(--ink-muted);margin-bottom:26px;}
 
   .filters{display:flex;gap:8px;margin-bottom:26px;flex-wrap:wrap;}
+  .search-box{position:relative;margin-bottom:18px;}
+  .search-box svg{position:absolute;top:50%;transform:translateY(-50%);inset-inline-start:16px;width:17px;height:17px;stroke:var(--ink-muted);pointer-events:none;}
+  .search-input{width:100%;padding:12px 16px 12px 44px;border-radius:24px;border:1px solid var(--border);background:var(--surface);font-family:var(--font-body);font-weight:600;font-size:14px;color:var(--ink);outline:none;}
+  html[dir="rtl"] .search-input{padding:12px 44px 12px 16px;}
+  html[dir="rtl"] .search-box svg{inset-inline-start:auto;inset-inline-end:16px;}
+  .search-input:focus{border-color:var(--teal);}
+  .search-input::placeholder{color:var(--ink-muted);}
+  .article-meta{font-family:var(--font-mono);font-size:11px;color:var(--ink-muted);margin-bottom:8px;letter-spacing:.2px;}
   .filter-btn{font-family:var(--font-body);font-weight:800;font-size:13px;padding:8px 16px;border-radius:20px;border:1px solid var(--border);background:var(--surface);color:var(--ink-muted);cursor:pointer;}
   .filter-btn.active{background:var(--teal);border-color:var(--teal);color:#fff;}
   .filter-btn:hover:not(.active){border-color:var(--teal);color:var(--teal);}
@@ -74,6 +82,7 @@
   .article-tag.silver{color:#8A8070;}
   .article-tag.other{color:var(--teal-deep);}
   .article-card-title{font-family:var(--font-display);font-weight:800;font-size:18px;color:var(--ink);line-height:1.4;margin-bottom:8px;}
+  .article-meta{font-family:var(--font-mono);font-size:11px;color:var(--ink-muted);margin-bottom:10px;}
   .article-card-excerpt{font-family:var(--font-body);font-weight:600;font-size:13.5px;color:var(--ink-muted);line-height:1.7;margin-bottom:10px;}
   .article-readmore{display:flex;align-items:center;gap:6px;font-family:var(--font-body);font-weight:800;font-size:12.5px;color:var(--teal);}
   .article-readmore svg{width:14px;height:14px;stroke:currentColor;transform:scaleX(-1);}
@@ -121,6 +130,10 @@
   <h1 data-i18n="title">المقالات</h1>
   <div class="page-sub" data-i18n="subtitle">تحليلات ومقالات عن الذهب والدولار والاقتصاد المصري.</div>
 
+  <div class="search-box">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+    <input type="text" class="search-input" id="searchInput" data-i18n-placeholder="searchPlaceholder" placeholder="ابحث في عناوين المقالات...">
+  </div>
   <div class="filters" id="filters"></div>
   <div class="article-list" id="articleList"></div>
 
@@ -152,6 +165,8 @@ const dict = {
     filterAll: 'الكل', filterGold: 'الذهب', filterUsd: 'الدولار', filterSilver: 'الفضة', filterOther: 'أخرى',
     tagGold: 'ذهب', tagUsd: 'دولار', tagSilver: 'فضة', tagOther: 'أخرى',
     readMore: 'اقرأ المزيد',
+    searchPlaceholder: 'ابحث في عناوين المقالات...',
+    byLabel: 'بقلم',
     copyright: '© 2026 إيجي دهب. جميع الحقوق محفوظة.'
   },
   en: {
@@ -165,11 +180,14 @@ const dict = {
     filterAll: 'All', filterGold: 'Gold', filterUsd: 'Dollar', filterSilver: 'Silver', filterOther: 'Other',
     tagGold: 'Gold', tagUsd: 'Dollar', tagSilver: 'Silver', tagOther: 'Other',
     readMore: 'Read more',
+    searchPlaceholder: 'Search article headlines...',
+    byLabel: 'By',
     copyright: '© 2026 Egydahab. All rights reserved.'
   }
 };
 let lang = 'ar';
 let activeFilter = 'all';
+let searchQuery = '';
 const KNOWN_CATEGORIES = ['gold', 'silver', 'usd'];
 
 function isOtherArticle(article){
@@ -205,6 +223,11 @@ function renderFilters(){
   });
 }
 
+function formatArticleDate(dateStr, lang){
+  const d = new Date(dateStr + 'T00:00:00');
+  return d.toLocaleDateString(lang === 'ar' ? 'ar-EG' : 'en-GB', { year: 'numeric', month: 'long', day: 'numeric' });
+}
+
 function renderArticles(){
   const t = dict[lang];
   renderFilters();
@@ -214,16 +237,25 @@ function renderArticles(){
   else if(activeFilter === 'other') filtered = list.filter(isOtherArticle);
   else filtered = list.filter(a => a.tags.includes(activeFilter));
 
+  filtered = filtered.slice().sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+
+  if(searchQuery.trim()){
+    const q = searchQuery.trim().toLowerCase();
+    filtered = filtered.filter(a => a.title[lang].toLowerCase().includes(q));
+  }
+
   document.getElementById('articleList').innerHTML = filtered.map(a => {
     // Only show a real gold/silver/dollar badge when the article is actually
     // tagged for that category — anything else (a specific currency like KWD)
     // shows as a generic "Other" badge instead of the raw code.
     const displayTags = isOtherArticle(a) ? ['other'] : a.tags.filter(tag => KNOWN_CATEGORIES.includes(tag));
     const tagsHtml = displayTags.map(tag => `<span class="article-tag ${tagClass(tag)}">${tagLabel(tag, t)}</span>`).join('');
+    const metaHtml = a.date ? `<div class="article-meta">${a.author ? a.author[lang] : ''} · ${formatArticleDate(a.date, lang)}</div>` : '';
     return `
     <a class="article-card" href="articles/${a.id}.html">
       <div class="article-tags">${tagsHtml}</div>
       <div class="article-card-title">${a.title[lang]}</div>
+      ${metaHtml}
       <div class="article-card-excerpt">${a.excerpt[lang]}</div>
       <div class="article-readmore">
         <span>${t.readMore}</span>
@@ -241,8 +273,13 @@ function applyLang(){
     el.innerHTML = t[el.getAttribute('data-i18n')];
   });
   document.getElementById('langBtn').textContent = lang === 'ar' ? 'EN' : 'AR';
+  document.getElementById('searchInput').placeholder = t.searchPlaceholder;
   renderArticles();
 }
+document.getElementById('searchInput').addEventListener('input', (e) => {
+  searchQuery = e.target.value;
+  renderArticles();
+});
 document.getElementById('langBtn').onclick = () => { lang = lang === 'ar' ? 'en' : 'ar'; applyLang(); };
 document.getElementById('menuBtn').onclick = (e) => { e.stopPropagation(); document.getElementById('menuDropdown').classList.toggle('open'); };
 document.addEventListener('click', (e) => {

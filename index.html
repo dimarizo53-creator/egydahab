@@ -12,7 +12,6 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-9HCSMCNTCT');
 </script>
 <meta property="og:type" content="website">
@@ -196,7 +195,8 @@
   .fx-bs-value .g{font-family:var(--font-body);font-weight:700;font-size:10px;color:var(--ink-muted);margin-inline-start:3px;}
   .fx-bs-value.tone-gold{color:var(--gold);}
   .fx-bs-value.tone-silver{color:var(--silver-metal);}
-  .change-badge{font-family:var(--font-mono);font-size:10.5px;font-weight:700;margin-inline-start:6px;letter-spacing:.2px;}
+  .change-badge{display:inline-flex;align-items:center;gap:2px;font-family:var(--font-mono);font-size:11px;font-weight:800;margin-inline-start:6px;letter-spacing:.2px;}
+  .change-arrow{width:11px;height:11px;flex-shrink:0;}
   .change-badge.up{color:var(--up);}
   .change-badge.down{color:var(--down);}
   .change-badge.flat{color:var(--ink-muted);}
@@ -698,14 +698,20 @@ function priceDiff(current, previous){
   return current - previous;
 }
 
-function changeBadgeHtml(current, previous){
+const ARROW_UP_SVG = '<svg class="change-arrow" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4l8 10H4z"/></svg>';
+const ARROW_DOWN_SVG = '<svg class="change-arrow" viewBox="0 0 24 24" fill="currentColor"><path d="M12 20L4 10h16z"/></svg>';
+
+function changeBadgeHtml(current, previous, decimals){
+  decimals = decimals || 0;
   const diff = priceDiff(current, previous);
   if(diff === null) return '';
-  const rounded = Math.round(diff);
-  const dir = rounded > 0 ? 'up' : (rounded < 0 ? 'down' : 'flat');
-  const sign = rounded > 0 ? '+' : '';
-  const arrow = dir === 'up' ? '▲' : (dir === 'down' ? '▼' : '');
-  return `<span class="change-badge ${dir}">${arrow} ${sign}${rounded}</span>`;
+  const threshold = 1 / Math.pow(10, decimals + 1); // smallest meaningfully-different move at this precision
+  const dir = diff > threshold ? 'up' : (diff < -threshold ? 'down' : 'flat');
+  const arrow = dir === 'up' ? ARROW_UP_SVG : (dir === 'down' ? ARROW_DOWN_SVG : '');
+  let sign = '', value = (0).toFixed(decimals);
+  if(dir === 'up'){ sign = '+'; value = diff.toFixed(decimals); }
+  else if(dir === 'down'){ sign = '-'; value = Math.abs(diff).toFixed(decimals); }
+  return `<span class="change-badge ${dir}">${arrow}${sign}${value}</span>`;
 }
 
 function goldGramEgp(karatKey){
@@ -765,7 +771,7 @@ function renderFx(){
     const country = lang === 'ar' ? c.country_ar : c.country_en;
     return `
     <div class="fx-card" onclick="openAssetModal('${c.code}')">
-      <div class="fx-top"><img class="fx-flag" src="https://flagcdn.com/w80/${c.flag}.png" alt="${c.code}" loading="lazy" onerror="handleFlagError(this,'${c.code}')"><span class="fx-code">${c.code}</span> ${changeBadgeHtml(p&&p.sell, prevP&&prevP.sell)}</div>
+      <div class="fx-top"><img class="fx-flag" src="https://flagcdn.com/w80/${c.flag}.png" alt="${c.code}" loading="lazy" onerror="handleFlagError(this,'${c.code}')"><span class="fx-code">${c.code}</span> ${changeBadgeHtml(p&&p.sell, prevP&&prevP.sell, 2)}</div>
       <div class="fx-name">${name}</div>
       <div class="fx-country">${country}</div>
       <div class="fx-buysell">

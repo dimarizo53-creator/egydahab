@@ -1,24 +1,24 @@
 {
   "gold": {
     "k24": {
-      "sell": 6742.75,
-      "buy": 6651.5
+      "sell": 6771.5,
+      "buy": 6685.75
     },
     "k22": {
-      "sell": 6181,
-      "buy": 6097.25
+      "sell": 6207.25,
+      "buy": 6128.5
     },
     "k21": {
-      "sell": 5900,
-      "buy": 5820
+      "sell": 5925,
+      "buy": 5850
     },
     "k18": {
-      "sell": 5057.25,
-      "buy": 4988.5
+      "sell": 5078.5,
+      "buy": 5014.25
     },
     "goldPound": {
-      "sell": 47200,
-      "buy": 46560
+      "sell": 47400,
+      "buy": 46800
     }
   },
   "silver": {
@@ -121,31 +121,31 @@
     "TRY": "frankfurter",
     "USD": "nbe"
   },
-  "goldSilverUpdatedAt": "2026-07-29T18:00:05.629Z",
-  "currenciesUpdatedAt": "2026-07-29T18:00:24.095Z",
+  "goldSilverUpdatedAt": "2026-07-29T19:15:16.961Z",
+  "currenciesUpdatedAt": "2026-07-29T19:15:18.536Z",
   "goldSilverStatus": "live",
   "currenciesStatus": "live",
-  "lastRunAt": "2026-07-29T18:00:24.095Z",
+  "lastRunAt": "2026-07-29T19:15:18.536Z",
   "note": "Seed data confirmed directly from market.isagha.com/prices/eg and egrates.com/en/banks/4 (National Bank of Egypt rates) on 2026-07-22. Switched currency source from CBE (blocked by their firewall, confirmed unusable) to NBE via egrates.com (verified real, working). Will be overwritten by the first GitHub Actions run.",
   "previousGold": {
     "k24": {
-      "sell": 6708.5,
+      "sell": 6742.75,
       "buy": 6651.5
     },
     "k22": {
-      "sell": 6149.5,
+      "sell": 6181,
       "buy": 6097.25
     },
     "k21": {
-      "sell": 5870,
+      "sell": 5900,
       "buy": 5820
     },
     "k18": {
-      "sell": 5031.5,
+      "sell": 5057.25,
       "buy": 4988.5
     },
     "goldPound": {
-      "sell": 46960,
+      "sell": 47200,
       "buy": 46560
     }
   },
@@ -213,8 +213,8 @@
       "sell": 164.826
     },
     "LYD": {
-      "buy": 7.892036934732856,
-      "sell": 7.892036934732856
+      "buy": 7.888301648655045,
+      "sell": 7.888301648655045
     },
     "QAR": {
       "buy": 12.855,

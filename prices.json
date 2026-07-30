@@ -53,28 +53,28 @@
       "sell": 13.819
     },
     "AUD": {
-      "buy": 35.131,
-      "sell": 35.418
+      "buy": 35.197,
+      "sell": 35.347
     },
     "BHD": {
       "buy": 132.228,
-      "sell": 134.598
+      "sell": 134.615
     },
     "CAD": {
-      "buy": 35.899,
-      "sell": 36.031
+      "buy": 36.04,
+      "sell": 36.167
     },
     "CHF": {
-      "buy": 61.731,
-      "sell": 62.118
+      "buy": 62.109,
+      "sell": 62.408
     },
     "EUR": {
-      "buy": 57.614,
-      "sell": 57.87
+      "buy": 57.984,
+      "sell": 58.236
     },
     "GBP": {
-      "buy": 67.263,
-      "sell": 67.538
+      "buy": 67.582,
+      "sell": 67.878
     },
     "JOD": {
       "buy": 70.617,
@@ -82,11 +82,11 @@
     },
     "KWD": {
       "buy": 159.83,
-      "sell": 164.826
+      "sell": 164.88
     },
     "LYD": {
-      "buy": 7.887679444707367,
-      "sell": 7.887679444707367
+      "buy": 7.886435331230284,
+      "sell": 7.886435331230284
     },
     "QAR": {
       "buy": 12.855,
@@ -94,11 +94,11 @@
     },
     "SAR": {
       "buy": 13.456,
-      "sell": 13.519
+      "sell": 13.518
     },
     "TRY": {
-      "buy": 1.06761185903253,
-      "sell": 1.06761185903253
+      "buy": 1.0674751011432657,
+      "sell": 1.0674751011432657
     },
     "USD": {
       "buy": 50.65,
@@ -121,11 +121,11 @@
     "TRY": "frankfurter",
     "USD": "nbe"
   },
-  "goldSilverUpdatedAt": "2026-07-30T03:47:48.048Z",
-  "currenciesUpdatedAt": "2026-07-30T03:47:49.122Z",
+  "goldSilverUpdatedAt": "2026-07-30T06:14:46.453Z",
+  "currenciesUpdatedAt": "2026-07-30T06:14:47.397Z",
   "goldSilverStatus": "live",
   "currenciesStatus": "live",
-  "lastRunAt": "2026-07-30T03:47:49.122Z",
+  "lastRunAt": "2026-07-30T06:14:47.397Z",
   "note": "Seed data confirmed directly from market.isagha.com/prices/eg and egrates.com/en/banks/4 (National Bank of Egypt rates) on 2026-07-22. Switched currency source from CBE (blocked by their firewall, confirmed unusable) to NBE via egrates.com (verified real, working). Will be overwritten by the first GitHub Actions run.",
   "previousGold": {
     "k24": {

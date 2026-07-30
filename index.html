@@ -218,12 +218,7 @@
   .fx-card:hover::before{opacity:1;}
   .fx-top{display:flex;justify-content:space-between;align-items:center;}
   .fx-code{font-family:var(--font-mono);font-size:12px;color:var(--ink-muted);letter-spacing:1px;}
-  .fx-flag{width:26px;height:19px;object-fit:cover;border-radius:4px;box-shadow:0 0 0 1px rgba(0,0,0,.12);flex-shrink:0;}
-  .fx-flag-fallback{
-    width:26px;height:19px;border-radius:4px;background:var(--surface-2);border:1px solid var(--border);
-    display:flex;align-items:center;justify-content:center;flex-shrink:0;
-    font-family:var(--font-mono);font-weight:700;font-size:9px;color:var(--ink-muted);letter-spacing:0;
-  }
+  .fx-flag{font-size:22px;line-height:1;flex-shrink:0;}
   .fx-name{font-family:var(--font-body);font-size:13px;color:var(--ink);font-weight:600;margin-top:2px;}
   .fx-country{font-family:var(--font-body);font-weight:600;font-size:11.5px;color:var(--ink-muted);}
   .fx-value{font-family:var(--font-display);font-weight:700;font-size:19px;direction:ltr;color:var(--teal-deep);margin-top:2px;}
@@ -426,9 +421,24 @@
             <option value="goldPound" data-i18n="calcGoldPound">جنيه ذهب (8 جم)</option>
           </select>
         </div>
-        <div class="calc-field">
+        <div class="calc-field" id="calcGramsField">
           <label data-i18n="calcGramsLabel">الوزن بالجرام</label>
           <input type="number" id="calcGrams" class="calc-input" value="1" min="0" step="0.01">
+        </div>
+        <div class="calc-field" id="calcQtyField" style="display:none;">
+          <label data-i18n="calcQtyLabel">عدد الجنيهات</label>
+          <select id="calcQty" class="calc-select">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+          </select>
         </div>
       </div>
       <div class="calc-result">
@@ -550,6 +560,7 @@ const dict = {
     calcKaratLabel: 'اختر العيار',
     calcK24: 'عيار 24', calcK21: 'عيار 21', calcK18: 'عيار 18', calcGoldPound: 'جنيه ذهب (8 جم)',
     calcGramsLabel: 'الوزن بالجرام',
+    calcQtyLabel: 'عدد الجنيهات',
     silverTitle: 'الفضة',
     fxTitle: 'العملات',
     chartTitle: 'السعر عبر الزمن',
@@ -596,6 +607,7 @@ const dict = {
     calcKaratLabel: 'Choose karat',
     calcK24: '24K', calcK21: '21K', calcK18: '18K', calcGoldPound: 'Gold Pound (8g)',
     calcGramsLabel: 'Weight in grams',
+    calcQtyLabel: 'Number of coins',
     silverTitle: 'Silver',
     fxTitle: 'Currencies',
     chartTitle: 'Price Over Time',
@@ -622,15 +634,6 @@ let lang = 'ar';
 function fmt(n, decimals=2){
   if(n === null || n === undefined || isNaN(n)) return '—';
   return n.toLocaleString('en-US', {minimumFractionDigits:decimals, maximumFractionDigits:decimals});
-}
-
-function handleFlagError(imgEl, code){
-  imgEl.onerror = null;
-  imgEl.style.display = 'none';
-  const badge = document.createElement('span');
-  badge.className = 'fx-flag-fallback';
-  badge.textContent = code.slice(0,2);
-  imgEl.insertAdjacentElement('afterend', badge);
 }
 
 const currencies = [
@@ -780,30 +783,44 @@ function goldPoundEgp(){
   return entry ? entry.sell : null;
 }
 
+function toggleCalculatorFields(){
+  const karat = document.getElementById('calcKarat').value;
+  const isGoldPound = karat === 'goldPound';
+  document.getElementById('calcGramsField').style.display = isGoldPound ? 'none' : 'flex';
+  document.getElementById('calcQtyField').style.display = isGoldPound ? 'flex' : 'none';
+}
+
 function updateCalculator(){
   const karatSel = document.getElementById('calcKarat');
-  const gramsInput = document.getElementById('calcGrams');
-  if(!karatSel || !gramsInput) return;
+  if(!karatSel) return;
   const karat = karatSel.value;
-  const grams = parseFloat(gramsInput.value);
+  const isGoldPound = karat === 'goldPound';
   const entry = state.goldPrices && state.goldPrices[karat];
   const buyResult = document.getElementById('calcBuyResult');
   const sellResult = document.getElementById('calcSellResult');
-  if(!entry || isNaN(grams) || grams < 0){
+  const t = dict[lang];
+
+  let quantity;
+  if(isGoldPound){
+    quantity = parseFloat(document.getElementById('calcQty').value);
+  } else {
+    quantity = parseFloat(document.getElementById('calcGrams').value);
+  }
+
+  if(!entry || isNaN(quantity) || quantity < 0){
     buyResult.textContent = '—';
     sellResult.textContent = '—';
     return;
   }
-  // goldPound entries are priced per 8g coin, not per gram — normalize to a per-gram rate first.
-  const unitDivisor = karat === 'goldPound' ? 8 : 1;
-  const buyPerGram = entry.buy / unitDivisor;
-  const sellPerGram = entry.sell / unitDivisor;
-  const t = dict[lang];
-  buyResult.textContent = `${fmt(buyPerGram * grams)} ${t.unit}`;
-  sellResult.textContent = `${fmt(sellPerGram * grams)} ${t.unit}`;
+  // Gold pound is priced and sold as whole 8g coins, not by the gram —
+  // multiply the coin price directly by how many coins were selected.
+  buyResult.textContent = `${fmt(entry.buy * quantity)} ${t.unit}`;
+  sellResult.textContent = `${fmt(entry.sell * quantity)} ${t.unit}`;
 }
-document.getElementById('calcKarat').addEventListener('change', updateCalculator);
+document.getElementById('calcKarat').addEventListener('change', () => { toggleCalculatorFields(); updateCalculator(); });
 document.getElementById('calcGrams').addEventListener('input', updateCalculator);
+document.getElementById('calcQty').addEventListener('change', updateCalculator);
+toggleCalculatorFields();
 
 function renderGold(){
   const t = dict[lang];
@@ -839,6 +856,12 @@ function renderSilver(){
     </div>`;
 }
 
+function flagEmoji(countryCode){
+  if(!countryCode || countryCode.length !== 2) return '🏳️';
+  const codePoints = countryCode.toUpperCase().split('').map(c => 127397 + c.charCodeAt(0));
+  return String.fromCodePoint(...codePoints);
+}
+
 function renderFx(){
   const t = dict[lang];
   const prevFx = state.previousCurrencyPrices;
@@ -849,7 +872,7 @@ function renderFx(){
     const country = lang === 'ar' ? c.country_ar : c.country_en;
     return `
     <div class="fx-card" onclick="openAssetModal('${c.code}')">
-      <div class="fx-top"><img class="fx-flag" src="https://flagcdn.com/w80/${c.flag}.png" alt="${c.code}" loading="lazy" onerror="handleFlagError(this,'${c.code}')"><span class="fx-code">${c.code}</span> ${changeBadgeHtml(p&&p.sell, prevP&&prevP.sell, 2)}</div>
+      <div class="fx-top"><span class="fx-flag">${flagEmoji(c.flag)}</span><span class="fx-code">${c.code}</span> ${changeBadgeHtml(p&&p.sell, prevP&&prevP.sell, 2)}</div>
       <div class="fx-name">${name}</div>
       <div class="fx-country">${country}</div>
       <div class="fx-buysell">

@@ -67,8 +67,7 @@
   .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden;box-shadow:0 6px 24px rgba(32,40,31,.06);}
   .fx-card{background:var(--surface);padding:20px;display:flex;flex-direction:column;gap:6px;}
   .fx-top{display:flex;justify-content:space-between;align-items:center;}
-  .fx-flag{width:28px;height:21px;object-fit:cover;border-radius:4px;box-shadow:0 0 0 1px rgba(0,0,0,.12);flex-shrink:0;}
-  .fx-flag-fallback{width:28px;height:21px;border-radius:4px;background:var(--surface-2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-weight:700;font-size:10px;color:var(--ink-muted);}
+  .fx-flag{font-size:24px;line-height:1;flex-shrink:0;}
   .fx-code{font-family:var(--font-mono);font-size:12px;color:var(--ink-muted);letter-spacing:1px;}
   .fx-name{font-family:var(--font-body);font-weight:700;font-size:15px;color:var(--ink);margin-top:4px;}
   .fx-country{font-family:var(--font-body);font-weight:600;font-size:12px;color:var(--ink-muted);}
@@ -214,13 +213,10 @@ function fmt(n, decimals=2){
   if(n === null || n === undefined || isNaN(n)) return '—';
   return n.toLocaleString('en-US', {minimumFractionDigits:decimals, maximumFractionDigits:decimals});
 }
-function handleFlagError(imgEl, code){
-  imgEl.onerror = null;
-  imgEl.style.display = 'none';
-  const badge = document.createElement('span');
-  badge.className = 'fx-flag-fallback';
-  badge.textContent = code.slice(0,2);
-  imgEl.insertAdjacentElement('afterend', badge);
+function flagEmoji(countryCode){
+  if(!countryCode || countryCode.length !== 2) return '🏳️';
+  const codePoints = countryCode.toUpperCase().split('').map(c => 127397 + c.charCodeAt(0));
+  return String.fromCodePoint(...codePoints);
 }
 const currencies = [
   {code:'AUD', flag:'au', name_ar:'الدولار الأسترالي', name_en:'Australian Dollar', country_ar:'أستراليا', country_en:'Australia'},
@@ -266,7 +262,7 @@ function renderFx(){
     const country = lang === 'ar' ? c.country_ar : c.country_en;
     return `
     <div class="fx-card" onclick="openAssetModal('${c.code}')">
-      <div class="fx-top"><img class="fx-flag" src="https://flagcdn.com/w80/${c.flag}.png" alt="${c.code}" loading="lazy" onerror="handleFlagError(this,'${c.code}')"><span class="fx-code">${c.code}</span></div>
+      <div class="fx-top"><span class="fx-flag">${flagEmoji(c.flag)}</span><span class="fx-code">${c.code}</span></div>
       <div class="fx-name">${name}</div>
       <div class="fx-country">${country}</div>
       <div class="fx-buysell">

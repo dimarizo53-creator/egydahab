@@ -1,24 +1,24 @@
 {
   "gold": {
     "k24": {
-      "sell": 6782.75,
-      "buy": 6708.5
+      "sell": 6800,
+      "buy": 6725.75
     },
     "k22": {
-      "sell": 6217.5,
-      "buy": 6149.5
+      "sell": 6233.25,
+      "buy": 6165.25
     },
     "k21": {
-      "sell": 5935,
-      "buy": 5870
+      "sell": 5950,
+      "buy": 5885
     },
     "k18": {
-      "sell": 5087.25,
-      "buy": 5031.5
+      "sell": 5100,
+      "buy": 5044.25
     },
     "goldPound": {
-      "sell": 47480,
-      "buy": 46960
+      "sell": 47600,
+      "buy": 47080
     }
   },
   "silver": {
@@ -85,8 +85,8 @@
       "sell": 166.423
     },
     "LYD": {
-      "buy": 7.912644405760406,
-      "sell": 7.912644405760406
+      "buy": 7.920792079207921,
+      "sell": 7.920792079207921
     },
     "QAR": {
       "buy": 12.97,
@@ -97,8 +97,8 @@
       "sell": 13.637
     },
     "TRY": {
-      "buy": 1.070342937877296,
-      "sell": 1.070342937877296
+      "buy": 1.0712258036871594,
+      "sell": 1.0712258036871594
     },
     "USD": {
       "buy": 51.1,
@@ -121,58 +121,58 @@
     "TRY": "frankfurter",
     "USD": "nbe"
   },
-  "goldSilverUpdatedAt": "2026-07-30T14:38:31.999Z",
-  "currenciesUpdatedAt": "2026-07-30T14:38:33.482Z",
+  "goldSilverUpdatedAt": "2026-07-30T16:12:53.726Z",
+  "currenciesUpdatedAt": "2026-07-30T16:13:08.465Z",
   "goldSilverStatus": "live",
   "currenciesStatus": "live",
-  "lastRunAt": "2026-07-30T14:38:33.483Z",
+  "lastRunAt": "2026-07-30T16:13:08.466Z",
   "note": "Seed data confirmed directly from market.isagha.com/prices/eg and egrates.com/en/banks/4 (National Bank of Egypt rates) on 2026-07-22. Switched currency source from CBE (blocked by their firewall, confirmed unusable) to NBE via egrates.com (verified real, working). Will be overwritten by the first GitHub Actions run.",
   "previousGold": {
     "k24": {
-      "sell": 6760,
-      "buy": 6691.5
+      "sell": 6782.75,
+      "buy": 6708.5
     },
     "k22": {
-      "sell": 6196.75,
-      "buy": 6133.75
+      "sell": 6217.5,
+      "buy": 6149.5
     },
     "k21": {
-      "sell": 5915,
-      "buy": 5855
+      "sell": 5935,
+      "buy": 5870
     },
     "k18": {
-      "sell": 5070,
-      "buy": 5018.5
+      "sell": 5087.25,
+      "buy": 5031.5
     },
     "goldPound": {
-      "sell": 47320,
-      "buy": 46840
+      "sell": 47480,
+      "buy": 46960
     }
   },
   "previousSilver": {
     "s999": {
-      "sell": 98.75,
-      "buy": 93.75
+      "sell": 99.75,
+      "buy": 94.75
     },
     "s925": {
-      "sell": 91.5,
-      "buy": 87
+      "sell": 92.5,
+      "buy": 87.75
     },
     "s900": {
-      "sell": 89,
-      "buy": 84.5
+      "sell": 90,
+      "buy": 85.5
     },
     "s800": {
-      "sell": 79.25,
-      "buy": 75.25
+      "sell": 80,
+      "buy": 76
     },
     "s600": {
-      "sell": 59.25,
-      "buy": 56.25
+      "sell": 60,
+      "buy": 57
     },
     "silverPound": {
-      "sell": 732,
-      "buy": 696
+      "sell": 740,
+      "buy": 702
     }
   },
   "previousCurrencies": {
@@ -182,7 +182,7 @@
     },
     "AUD": {
       "buy": 35.499,
-      "sell": 35.753
+      "sell": 35.953
     },
     "BHD": {
       "buy": 133.403,
@@ -190,19 +190,19 @@
     },
     "CAD": {
       "buy": 36.326,
-      "sell": 36.488
+      "sell": 36.558
     },
     "CHF": {
       "buy": 62.515,
-      "sell": 63.046
+      "sell": 63.682
     },
     "EUR": {
       "buy": 58.433,
-      "sell": 58.793
+      "sell": 59.064
     },
     "GBP": {
       "buy": 68.137,
-      "sell": 68.639
+      "sell": 68.849
     },
     "JOD": {
       "buy": 71.244,
@@ -213,8 +213,8 @@
       "sell": 166.423
     },
     "LYD": {
-      "buy": 7.916402786573782,
-      "sell": 7.916402786573782
+      "buy": 7.912644405760406,
+      "sell": 7.912644405760406
     },
     "QAR": {
       "buy": 12.97,
@@ -225,8 +225,8 @@
       "sell": 13.637
     },
     "TRY": {
-      "buy": 1.0687414500683996,
-      "sell": 1.0687414500683996
+      "buy": 1.070342937877296,
+      "sell": 1.070342937877296
     },
     "USD": {
       "buy": 51.1,

@@ -85,8 +85,8 @@
       "sell": 166.423
     },
     "LYD": {
-      "buy": 7.961783439490446,
-      "sell": 7.961783439490446
+      "buy": 7.971938775510204,
+      "sell": 7.971938775510204
     },
     "QAR": {
       "buy": 12.97,
@@ -97,8 +97,8 @@
       "sell": 13.637
     },
     "TRY": {
-      "buy": 1.076044031721778,
-      "sell": 1.076044031721778
+      "buy": 1.0761250887803198,
+      "sell": 1.0761250887803198
     },
     "USD": {
       "buy": 51.1,
@@ -121,31 +121,31 @@
     "TRY": "frankfurter",
     "USD": "nbe"
   },
-  "goldSilverUpdatedAt": "2026-07-31T10:13:06.250Z",
-  "currenciesUpdatedAt": "2026-07-31T10:13:18.600Z",
+  "goldSilverUpdatedAt": "2026-07-31T12:15:00.324Z",
+  "currenciesUpdatedAt": "2026-07-31T12:15:02.637Z",
   "goldSilverStatus": "live",
   "currenciesStatus": "live",
-  "lastRunAt": "2026-07-31T10:13:18.600Z",
+  "lastRunAt": "2026-07-31T12:15:02.637Z",
   "note": "Seed data confirmed directly from market.isagha.com/prices/eg and egrates.com/en/banks/4 (National Bank of Egypt rates) on 2026-07-22. Switched currency source from CBE (blocked by their firewall, confirmed unusable) to NBE via egrates.com (verified real, working). Will be overwritten by the first GitHub Actions run.",
   "previousGold": {
     "k24": {
-      "sell": 6828.5,
+      "sell": 6800,
       "buy": 6742.75
     },
     "k22": {
-      "sell": 6259.5,
+      "sell": 6233.25,
       "buy": 6181
     },
     "k21": {
-      "sell": 5975,
+      "sell": 5950,
       "buy": 5900
     },
     "k18": {
-      "sell": 5121.5,
+      "sell": 5100,
       "buy": 5057.25
     },
     "goldPound": {
-      "sell": 47800,
+      "sell": 47600,
       "buy": 47200
     }
   },
@@ -213,8 +213,8 @@
       "sell": 166.423
     },
     "LYD": {
-      "buy": 7.936507936507937,
-      "sell": 7.936507936507937
+      "buy": 7.961783439490446,
+      "sell": 7.961783439490446
     },
     "QAR": {
       "buy": 12.97,
@@ -225,8 +225,8 @@
       "sell": 13.637
     },
     "TRY": {
-      "buy": 1.0732147073343492,
-      "sell": 1.0732147073343492
+      "buy": 1.076044031721778,
+      "sell": 1.076044031721778
     },
     "USD": {
       "buy": 51.1,

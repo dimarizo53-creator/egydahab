@@ -67,7 +67,8 @@
   .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden;box-shadow:0 6px 24px rgba(32,40,31,.06);}
   .fx-card{background:var(--surface);padding:20px;display:flex;flex-direction:column;gap:6px;}
   .fx-top{display:flex;justify-content:space-between;align-items:center;}
-  .fx-flag{font-size:24px;line-height:1;flex-shrink:0;}
+  .fx-flag{width:28px;height:21px;border-radius:3px;box-shadow:0 0 0 1px rgba(0,0,0,.12);flex-shrink:0;overflow:hidden;}
+  .fx-flag-fallback{width:28px;height:21px;border-radius:3px;background:var(--surface-2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:var(--font-mono);font-weight:700;font-size:10px;color:var(--ink-muted);}
   .fx-code{font-family:var(--font-mono);font-size:12px;color:var(--ink-muted);letter-spacing:1px;}
   .fx-name{font-family:var(--font-body);font-weight:700;font-size:15px;color:var(--ink);margin-top:4px;}
   .fx-country{font-family:var(--font-body);font-weight:600;font-size:12px;color:var(--ink-muted);}
@@ -213,10 +214,16 @@ function fmt(n, decimals=2){
   if(n === null || n === undefined || isNaN(n)) return '—';
   return n.toLocaleString('en-US', {minimumFractionDigits:decimals, maximumFractionDigits:decimals});
 }
-function flagEmoji(countryCode){
-  if(!countryCode || countryCode.length !== 2) return '🏳️';
-  const codePoints = countryCode.toUpperCase().split('').map(c => 127397 + c.charCodeAt(0));
-  return String.fromCodePoint(...codePoints);
+const FLAG_SVGS = {
+  au: '<svg viewBox="0 0 24 18"><rect width="24" height="18" fill="#00008B"/><path d="M0 0L5 3.6M5 0L0 3.6" stroke="#fff" stroke-width="1"/><g fill="#fff"><circle cx="18" cy="4" r="0.8"/><circle cx="20" cy="8" r="0.8"/><circle cx="18" cy="12" r="0.8"/><circle cx="14" cy="9" r="0.6"/><circle cx="21" cy="13" r="0.6"/></g></svg>',
+  ly: '<svg viewBox="0 0 24 18"><rect width="24" height="6" fill="#E70013"/><rect y="6" width="24" height="6" fill="#000"/><rect y="12" width="24" height="6" fill="#239E46"/><circle cx="12" cy="9" r="2" fill="none" stroke="#fff" stroke-width="0.6"/><circle cx="12.9" cy="9" r="1.6" fill="#000"/></svg>',
+  tr: '<svg viewBox="0 0 24 18"><rect width="24" height="18" fill="#E30A17"/><circle cx="9.5" cy="9" r="3.6" fill="#fff"/><circle cx="10.7" cy="9" r="2.9" fill="#E30A17"/><path d="M13.5 9l3.2-1 -2 2.6 0-3.2 2 2.6z" fill="#fff"/></svg>',
+  ch: '<svg viewBox="0 0 24 18"><rect width="24" height="18" fill="#FF0000"/><rect x="10" y="4" width="4" height="10" fill="#fff"/><rect x="7" y="7" width="10" height="4" fill="#fff"/></svg>'
+};
+function flagSvgHtml(countryCode){
+  const svg = FLAG_SVGS[countryCode];
+  if(!svg) return `<span class="fx-flag-fallback">${(countryCode||'').slice(0,2).toUpperCase()}</span>`;
+  return svg.replace('<svg ', '<svg class="fx-flag" ');
 }
 const currencies = [
   {code:'AUD', flag:'au', name_ar:'الدولار الأسترالي', name_en:'Australian Dollar', country_ar:'أستراليا', country_en:'Australia'},
@@ -262,7 +269,7 @@ function renderFx(){
     const country = lang === 'ar' ? c.country_ar : c.country_en;
     return `
     <div class="fx-card" onclick="openAssetModal('${c.code}')">
-      <div class="fx-top"><span class="fx-flag">${flagEmoji(c.flag)}</span><span class="fx-code">${c.code}</span></div>
+      <div class="fx-top">${flagSvgHtml(c.flag)}<span class="fx-code">${c.code}</span></div>
       <div class="fx-name">${name}</div>
       <div class="fx-country">${country}</div>
       <div class="fx-buysell">

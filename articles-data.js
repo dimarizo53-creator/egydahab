@@ -8,6 +8,11 @@ const ARTICLES = [
     tags: ['gold', 'usd'],
     date: '2026-07-21',
     author: { ar: 'فريق إيجي دهب', en: 'Egydahab Team' },
+    image: {
+      url: 'https://images.unsplash.com/photo-1762463176319-8416bf1e6a8e?fm=jpg&q=80&w=1400&auto=format&fit=crop',
+      credit: 'Photo by Scottsdale Mint on Unsplash',
+      alt: { ar: 'سبائك ذهب مرتبة', en: 'Gold bars arranged in a pattern' }
+    },
     title: {
       ar: 'الذهب أم الدولار؟ أين تحفظ أموالك في 2026 لحمايتها من التضخم؟',
       en: 'Gold or the Dollar? Where Should You Keep Your Money in 2026 to Protect It From Inflation?'
@@ -74,6 +79,11 @@ const ARTICLES = [
     tags: ['usd'],
     date: '2026-07-21',
     author: { ar: 'فريق إيجي دهب', en: 'Egydahab Team' },
+    image: {
+      url: 'https://images.unsplash.com/photo-1771736006753-d911e5115a56?fm=jpg&q=80&w=1400&auto=format&fit=crop',
+      credit: 'Photo by Giorgio Trovato on Unsplash',
+      alt: { ar: 'أوراق نقدية دولار أمريكي', en: 'US hundred dollar bills fanned out' }
+    },
     title: {
       ar: 'الفيدرالي الأمريكي وسعر الفائدة: كيف تؤثر القرارات الدولية على الجنيه والاقتصاد المصري؟',
       en: 'The Fed and Interest Rates: How Do International Decisions Affect the Egyptian Pound and Economy?'
@@ -142,6 +152,11 @@ const ARTICLES = [
     tags: ['gold'],
     date: '2026-07-21',
     author: { ar: 'فريق إيجي دهب', en: 'Egydahab Team' },
+    image: {
+      url: 'https://images.unsplash.com/photo-1710211288826-b7df3ab71588?fm=jpg&q=80&w=1400&auto=format&fit=crop',
+      credit: 'Photo by Thales Botelho de Sousa on Unsplash',
+      alt: { ar: 'محلات الذهب في خان الخليلي بالقاهرة', en: 'Gold and jewelry shops in Khan el-Khalili, Cairo' }
+    },
     title: {
       ar: 'بورصة الذهب وتذبذب الأسعار: قراءة في المسببات العالمية والواقع المصري',
       en: 'The Gold Exchange and Price Swings: Reading the Global Causes and the Egyptian Reality'
@@ -212,6 +227,11 @@ const ARTICLES = [
     tags: ['usd'],
     date: '2026-07-21',
     author: { ar: 'فريق إيجي دهب', en: 'Egydahab Team' },
+    image: {
+      url: 'https://images.unsplash.com/photo-1626692880062-35c360fb6afc?fm=jpg&q=80&w=1400&auto=format&fit=crop',
+      credit: 'Photo by Roaming Pictures on Unsplash',
+      alt: { ar: 'منظر جوي للقاهرة والنيل', en: 'Aerial view of Cairo and the Nile' }
+    },
     title: {
       ar: 'سوق الصرف وسعر الدولار في مصر: بين المبادرات الاقتصادية وتوقعات المستقبل',
       en: 'Egypt\'s FX Market and the Dollar Price: Between Economic Initiatives and Future Outlook'

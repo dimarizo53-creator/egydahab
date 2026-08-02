@@ -133,6 +133,17 @@
   .menu-dropdown a:last-child{border-bottom:none;}
   .menu-dropdown a:hover{background:var(--surface-2);color:var(--teal);}
 
+  .country-switch{display:flex;align-items:center;gap:6px;margin-bottom:14px;}
+  .country-switch a{
+    display:flex;align-items:center;gap:6px;font-family:var(--font-body);font-weight:700;font-size:12.5px;
+    color:var(--ink-muted);text-decoration:none;background:var(--surface);border:1px solid var(--border);
+    padding:6px 13px;border-radius:20px;transition:.2s;
+  }
+  .country-switch a:visited{color:var(--ink-muted);}
+  .country-switch a.active{color:var(--teal);border-color:var(--teal);background:rgba(14,110,94,.06);}
+  .country-switch a:hover{border-color:var(--teal);color:var(--teal);}
+  .country-switch svg{width:16px;height:12px;border-radius:2px;flex-shrink:0;}
+
   .hero{text-align:center;padding:20px 0 48px;}
   .hero-label{font-family:var(--font-body);font-weight:700;font-size:13px;color:var(--ink-muted);letter-spacing:.5px;margin-bottom:22px;}
   .hero-frame{
@@ -218,7 +229,8 @@
   .fx-card:hover::before{opacity:1;}
   .fx-top{display:flex;justify-content:space-between;align-items:center;}
   .fx-code{font-family:var(--font-mono);font-size:12px;color:var(--ink-muted);letter-spacing:1px;}
-  .fx-flag{font-size:22px;line-height:1;flex-shrink:0;}
+  .fx-flag{width:26px;height:19.5px;border-radius:3px;box-shadow:0 0 0 1px rgba(0,0,0,.12);flex-shrink:0;overflow:hidden;}
+  .fx-flag-fallback{width:26px;height:19.5px;border-radius:3px;background:var(--surface-2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:var(--font-mono);font-weight:700;font-size:9px;color:var(--ink-muted);}
   .fx-name{font-family:var(--font-body);font-size:13px;color:var(--ink);font-weight:600;margin-top:2px;}
   .fx-country{font-family:var(--font-body);font-weight:600;font-size:11.5px;color:var(--ink-muted);}
   .fx-value{font-family:var(--font-display);font-weight:700;font-size:19px;direction:ltr;color:var(--teal-deep);margin-top:2px;}
@@ -367,6 +379,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M3 12h18"/><path d="M3 18h18"/></svg>
         </button>
         <div class="menu-dropdown" id="menuDropdown">
+          <a href="saudi.html" data-i18n="menuSaudi">🇸🇦 السوق السعودي</a>
           <a href="about.html" data-i18n="menuAbout">من نحن</a>
           <a href="articles.html" data-i18n="menuArticles">المقالات</a>
           <a href="other-currencies.html" data-i18n="menuOtherCurrencies">عملات أخرى</a>
@@ -379,6 +392,17 @@
       <button class="lang-toggle" id="langBtn">EN</button>
     </div>
   </header>
+
+  <div class="country-switch">
+    <a href="index.html" class="active">
+      <svg viewBox="0 0 24 18"><rect width="24" height="6" fill="#CE1126"/><rect y="6" width="24" height="6" fill="#fff"/><rect y="12" width="24" height="6" fill="#000"/><circle cx="12" cy="9" r="1.7" fill="#C09A2E"/></svg>
+      <span data-i18n="switchEgypt">مصر</span>
+    </a>
+    <a href="saudi.html">
+      <svg viewBox="0 0 24 18"><rect width="24" height="18" fill="#006C35"/><rect x="3" y="8" width="14" height="2" fill="#fff"/><path d="M17 9l3-1.2v2.4z" fill="#fff"/></svg>
+      <span data-i18n="switchSaudi">السعودية</span>
+    </a>
+  </div>
 
   <div class="offline-banner" id="offlineBanner"></div>
 
@@ -427,18 +451,7 @@
         </div>
         <div class="calc-field" id="calcQtyField" style="display:none;">
           <label data-i18n="calcQtyLabel">عدد الجنيهات</label>
-          <select id="calcQty" class="calc-select">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
-          </select>
+          <input type="number" id="calcQty" class="calc-input" value="1" min="0" step="1">
         </div>
       </div>
       <div class="calc-result">
@@ -515,6 +528,7 @@
 
   <footer>
     <nav class="footer-nav">
+      <a href="saudi.html" data-i18n="menuSaudi">🇸🇦 السوق السعودي</a>
       <a href="about.html" data-i18n="menuAbout">من نحن</a>
       <a href="articles.html" data-i18n="menuArticles">المقالات</a>
       <a href="other-currencies.html" data-i18n="menuOtherCurrencies">عملات أخرى</a>
@@ -545,6 +559,9 @@ const dict = {
     offlineMsg: '⚠️ تعذر جلب الأسعار المباشرة الآن، الأرقام المعروضة تقريبية وليست محدثة لحظياً. أعد تحميل الصفحة أو تأكد من اتصال الإنترنت.',
     adviceNotice: 'هذا الموقع لأغراض المعلومات فقط، وليس استشارة مالية أو دعوة للتداول أو الشراء أو البيع.',
     contactLabel: 'تواصل معنا',
+    menuSaudi: '🇸🇦 السوق السعودي',
+    switchEgypt: 'مصر',
+    switchSaudi: 'السعودية',
     menuAbout: 'من نحن',
     menuArticles: 'المقالات',
     menuOtherCurrencies: 'عملات أخرى',
@@ -592,6 +609,9 @@ const dict = {
     offlineMsg: "⚠️ Couldn't reach live prices right now — numbers shown are an approximate backup, not real-time. Reload the page or check your internet connection.",
     adviceNotice: 'This site is for informational purposes only. It is not financial advice, and not a recommendation to trade, buy, or sell.',
     contactLabel: 'Contact',
+    menuSaudi: '🇸🇦 Saudi Market',
+    switchEgypt: 'Egypt',
+    switchSaudi: 'Saudi Arabia',
     menuAbout: 'About Us',
     menuArticles: 'Articles',
     menuOtherCurrencies: 'Other Currencies',
@@ -819,7 +839,7 @@ function updateCalculator(){
 }
 document.getElementById('calcKarat').addEventListener('change', () => { toggleCalculatorFields(); updateCalculator(); });
 document.getElementById('calcGrams').addEventListener('input', updateCalculator);
-document.getElementById('calcQty').addEventListener('change', updateCalculator);
+document.getElementById('calcQty').addEventListener('input', updateCalculator);
 toggleCalculatorFields();
 
 function renderGold(){
@@ -856,10 +876,27 @@ function renderSilver(){
     </div>`;
 }
 
-function flagEmoji(countryCode){
-  if(!countryCode || countryCode.length !== 2) return '🏳️';
-  const codePoints = countryCode.toUpperCase().split('').map(c => 127397 + c.charCodeAt(0));
-  return String.fromCodePoint(...codePoints);
+const FLAG_SVGS = {
+  us: '<svg viewBox="0 0 24 18"><rect width="24" height="18" fill="#B22234"/><rect y="1.38" width="24" height="1.38" fill="#fff"/><rect y="4.15" width="24" height="1.38" fill="#fff"/><rect y="6.92" width="24" height="1.38" fill="#fff"/><rect y="9.7" width="24" height="1.38" fill="#fff"/><rect y="12.5" width="24" height="1.38" fill="#fff"/><rect y="15.25" width="24" height="1.38" fill="#fff"/><rect width="10" height="9.7" fill="#3C3B6E"/></svg>',
+  gb: '<svg viewBox="0 0 24 18"><rect width="24" height="18" fill="#00247d"/><path d="M0 0L24 18M24 0L0 18" stroke="#fff" stroke-width="3.6"/><path d="M0 0L24 18M24 0L0 18" stroke="#cf142b" stroke-width="1.2"/><path d="M12 0V18M0 9H24" stroke="#fff" stroke-width="6"/><path d="M12 0V18M0 9H24" stroke="#cf142b" stroke-width="2.4"/></svg>',
+  ca: '<svg viewBox="0 0 24 18"><rect width="24" height="18" fill="#fff"/><rect width="6" height="18" fill="#d52b1e"/><rect x="18" width="6" height="18" fill="#d52b1e"/><path d="M12 4l1 2.3 2.3-1-.7 2.3 2.1.6-1.7 1.6 1.1 2-2.3-.3.3 2.3-1.8-1.7-1 1.6h-.4l1-1.6-1.8 1.7.3-2.3-2.3.3 1.1-2-1.7-1.6 2.1-.6-.7-2.3 2.3 1z" fill="#d52b1e" transform="scale(0.9) translate(1.3,0.5)"/></svg>',
+  eu: '<svg viewBox="0 0 24 18"><rect width="24" height="18" fill="#003399"/><g fill="#FFCC00"><circle cx="12" cy="3.2" r="0.7"/><circle cx="15.4" cy="4.1" r="0.7"/><circle cx="17.7" cy="7" r="0.7"/><circle cx="17.7" cy="11" r="0.7"/><circle cx="15.4" cy="13.9" r="0.7"/><circle cx="12" cy="14.8" r="0.7"/><circle cx="8.6" cy="13.9" r="0.7"/><circle cx="6.3" cy="11" r="0.7"/><circle cx="6.3" cy="7" r="0.7"/><circle cx="8.6" cy="4.1" r="0.7"/></g></svg>',
+  sa: '<svg viewBox="0 0 24 18"><rect width="24" height="18" fill="#006C35"/><rect x="3" y="8" width="14" height="2" fill="#fff"/><path d="M17 9l3-1.2v2.4z" fill="#fff"/></svg>',
+  ae: '<svg viewBox="0 0 24 18"><rect width="24" height="18" fill="#fff"/><rect width="24" height="6" fill="#00732F"/><rect y="12" width="24" height="6" fill="#000"/><rect width="7" height="18" fill="#FF0000"/></svg>',
+  bh: '<svg viewBox="0 0 24 18"><rect width="24" height="18" fill="#CE1126"/><path d="M0 0h9l2 2.25L9 4.5l2 2.25L9 9l2 2.25L9 13.5l2 2.25L9 18H0z" fill="#fff"/></svg>',
+  jo: '<svg viewBox="0 0 24 18"><rect width="24" height="6" fill="#000"/><rect y="6" width="24" height="6" fill="#fff"/><rect y="12" width="24" height="6" fill="#007A3D"/><path d="M0 0L11 9L0 18z" fill="#CE1126"/></svg>',
+  kw: '<svg viewBox="0 0 24 18"><rect width="24" height="6" fill="#007A3D"/><rect y="6" width="24" height="6" fill="#fff"/><rect y="12" width="24" height="6" fill="#CE1126"/><path d="M0 0L7 9L0 18z" fill="#000"/></svg>',
+  qa: '<svg viewBox="0 0 24 18"><rect width="24" height="18" fill="#8D1B3D"/><path d="M0 0h8l2.4 2.25L8 4.5l2.4 2.25L8 9l2.4 2.25L8 13.5l2.4 2.25L8 18H0z" fill="#fff"/></svg>',
+  au: '<svg viewBox="0 0 24 18"><rect width="24" height="18" fill="#00008B"/><path d="M0 0L5 3.6M5 0L0 3.6" stroke="#fff" stroke-width="1"/><path d="M0 0H12V9H0z" fill="none"/><g fill="#fff"><circle cx="18" cy="4" r="0.8"/><circle cx="20" cy="8" r="0.8"/><circle cx="18" cy="12" r="0.8"/><circle cx="14" cy="9" r="0.6"/><circle cx="21" cy="13" r="0.6"/></g></svg>',
+  ly: '<svg viewBox="0 0 24 18"><rect width="24" height="6" fill="#E70013"/><rect y="6" width="24" height="6" fill="#000"/><rect y="12" width="24" height="6" fill="#239E46"/><circle cx="12" cy="9" r="2" fill="none" stroke="#fff" stroke-width="0.6"/><circle cx="12.9" cy="9" r="1.6" fill="#000"/></svg>',
+  tr: '<svg viewBox="0 0 24 18"><rect width="24" height="18" fill="#E30A17"/><circle cx="9.5" cy="9" r="3.6" fill="#fff"/><circle cx="10.7" cy="9" r="2.9" fill="#E30A17"/><path d="M13.5 9l3.2-1 -2 2.6 0-3.2 2 2.6z" fill="#fff"/></svg>',
+  ch: '<svg viewBox="0 0 24 18"><rect width="24" height="18" fill="#FF0000"/><rect x="10" y="4" width="4" height="10" fill="#fff"/><rect x="7" y="7" width="10" height="4" fill="#fff"/></svg>'
+};
+
+function flagSvgHtml(countryCode){
+  const svg = FLAG_SVGS[countryCode];
+  if(!svg) return `<span class="fx-flag-fallback">${(countryCode||'').slice(0,2).toUpperCase()}</span>`;
+  return svg.replace('<svg ', '<svg class="fx-flag" ');
 }
 
 function renderFx(){
@@ -872,7 +909,7 @@ function renderFx(){
     const country = lang === 'ar' ? c.country_ar : c.country_en;
     return `
     <div class="fx-card" onclick="openAssetModal('${c.code}')">
-      <div class="fx-top"><span class="fx-flag">${flagEmoji(c.flag)}</span><span class="fx-code">${c.code}</span> ${changeBadgeHtml(p&&p.sell, prevP&&prevP.sell, 2)}</div>
+      <div class="fx-top">${flagSvgHtml(c.flag)}<span class="fx-code">${c.code}</span> ${changeBadgeHtml(p&&p.sell, prevP&&prevP.sell, 2)}</div>
       <div class="fx-name">${name}</div>
       <div class="fx-country">${country}</div>
       <div class="fx-buysell">

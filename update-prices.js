@@ -9,7 +9,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const { scrapeISagha, resolveCurrencies } = require('./scraper');
+const { scrapeISagha, resolveCurrencies, scrapeSaudiGold, resolveSaudiCurrencies, scrapeSaudiSilver } = require('./scraper');
 
 const OUTPUT_FILE = path.join(__dirname, 'prices.json');
 
@@ -56,6 +56,50 @@ async function main() {
   } catch (err) {
     data.currenciesStatus = 'stale_fallback';
     console.error('Currency refresh FAILED, keeping previous data:', err.message);
+  }
+
+  try {
+    const { gold, scrapedAt } = await scrapeSaudiGold();
+    data.saudi = data.saudi || {};
+    if (data.saudi.gold) data.saudi.previousGold = data.saudi.gold;
+    data.saudi.gold = gold;
+    data.saudi.goldUpdatedAt = scrapedAt;
+    data.saudi.goldStatus = 'live';
+    console.log('Saudi gold refreshed OK at', scrapedAt, '— 24K sell:', gold.k24.sell);
+  } catch (err) {
+    data.saudi = data.saudi || {};
+    data.saudi.goldStatus = 'stale_fallback';
+    console.error('Saudi gold refresh FAILED, keeping previous data:', err.message);
+  }
+
+  try {
+    const { rates, sources } = await resolveSaudiCurrencies();
+    if (!rates.USD) throw new Error('No Saudi currency source returned USD data');
+    data.saudi = data.saudi || {};
+    if (data.saudi.currencies) data.saudi.previousCurrencies = data.saudi.currencies;
+    data.saudi.currencies = rates;
+    data.saudi.currencySources = sources;
+    data.saudi.currenciesUpdatedAt = new Date().toISOString();
+    data.saudi.currenciesStatus = 'live';
+    console.log('Saudi currencies refreshed OK — USD:', JSON.stringify(rates.USD));
+  } catch (err) {
+    data.saudi = data.saudi || {};
+    data.saudi.currenciesStatus = 'stale_fallback';
+    console.error('Saudi currency refresh FAILED, keeping previous data:', err.message);
+  }
+
+  try {
+    const { silver, scrapedAt } = await scrapeSaudiSilver();
+    data.saudi = data.saudi || {};
+    if (data.saudi.silver) data.saudi.previousSilver = data.saudi.silver;
+    data.saudi.silver = silver;
+    data.saudi.silverUpdatedAt = scrapedAt;
+    data.saudi.silverStatus = 'live';
+    console.log('Saudi silver refreshed OK at', scrapedAt, '— 999 sell:', silver.s999.sell);
+  } catch (err) {
+    data.saudi = data.saudi || {};
+    data.saudi.silverStatus = 'stale_fallback';
+    console.error('Saudi silver refresh FAILED, keeping previous data:', err.message);
   }
 
   data.lastRunAt = new Date().toISOString();

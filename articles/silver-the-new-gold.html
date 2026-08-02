@@ -85,6 +85,9 @@
   .share-copied.show{opacity:1;}
   .article-body{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:28px;box-shadow:0 6px 24px rgba(32,40,31,.06);margin-bottom:30px;}
   .article-body p{font-family:var(--font-body);font-weight:600;font-size:15px;color:var(--ink);line-height:2;margin-bottom:16px;}
+  .article-image{margin:4px 0 22px;}
+  .article-image img{width:100%;height:auto;max-height:420px;object-fit:cover;border-radius:12px;display:block;}
+  .article-image figcaption{font-family:var(--font-mono);font-size:11px;color:var(--ink-muted);margin-top:6px;text-align:center;}
   .article-body p:last-child{margin-bottom:0;}
   .article-body strong{color:var(--teal-deep);}
 
@@ -213,6 +216,15 @@ function formatDateClient(dateStr, lang){
   const d = new Date(dateStr + 'T00:00:00');
   return d.toLocaleDateString(lang === 'ar' ? 'ar-EG' : 'en-GB', { year: 'numeric', month: 'long', day: 'numeric' });
 }
+function insertImageAfterFirstParagraph(bodyHtml, article, lang){
+  if(!article.image) return bodyHtml;
+  const figureHtml = `<figure class="article-image"><img src="${article.image.url}" alt="${article.image.alt[lang]}" loading="lazy"><figcaption>${article.image.credit}</figcaption></figure>`;
+  const firstIdx = bodyHtml.indexOf('</p>');
+  if(firstIdx === -1) return figureHtml + bodyHtml;
+  const secondIdx = bodyHtml.indexOf('</p>', firstIdx + 4);
+  const insertAt = (secondIdx === -1 ? firstIdx : secondIdx) + 4;
+  return bodyHtml.slice(0, insertAt) + figureHtml + bodyHtml.slice(insertAt);
+}
 function applyLang(){
   const t = dict[lang];
   document.documentElement.lang = lang;
@@ -224,7 +236,7 @@ function applyLang(){
   document.getElementById('articleTitleEl').textContent = ARTICLE.title[lang];
   document.getElementById('articleMetaEl').textContent = `${ARTICLE.author ? ARTICLE.author[lang] : ''} · ${formatDateClient(ARTICLE.date, lang)}`;
   document.getElementById('articleExcerptEl').textContent = ARTICLE.excerpt[lang];
-  document.getElementById('articleBodyEl').innerHTML = ARTICLE.body[lang];
+  document.getElementById('articleBodyEl').innerHTML = insertImageAfterFirstParagraph(ARTICLE.body[lang], ARTICLE, lang);
   document.querySelector('.article-tags').innerHTML = ARTICLE.tags.map(tag =>
     `<span class="article-tag ${tagClass(tag)}">${tagLabel(tag, lang)}</span>`
   ).join('');
@@ -258,6 +270,7 @@ document.addEventListener('click', (e) => {
   const btn = document.getElementById('menuBtn');
   if(dropdown.classList.contains('open') && !dropdown.contains(e.target) && e.target !== btn){ dropdown.classList.remove('open'); }
 });
+updateShareLinks();
 </script>
 </body>
 </html>

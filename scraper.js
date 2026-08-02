@@ -340,7 +340,7 @@ async function scrapeSaudiGold() {
 // This can be upgraded to a real scraped buy/sell spread later the same way NBE was
 // layered on top for Egypt, if a scrapeable Saudi bank-rate source turns up.
 
-const SAUDI_CURRENCY_CODES = ['USD', 'EUR', 'GBP', 'EGP', 'AED', 'KWD', 'BHD', 'QAR', 'JOD', 'INR', 'PKR', 'PHP'];
+const SAUDI_CURRENCY_CODES = ['USD', 'EUR', 'GBP', 'EGP', 'AED', 'KWD', 'BHD', 'QAR', 'JOD', 'INR', 'PKR', 'AUD', 'LYD', 'TRY', 'CHF'];
 
 /**
  * Fetches currency rates (SAR per 1 unit of each currency) from Frankfurter.

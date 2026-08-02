@@ -402,21 +402,21 @@
 
   <div class="section">
     <div class="section-title">
-      <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4.5v9L12 20l-8-4.5v-9L12 2z"/><path d="M12 8l3.5 2v4L12 16l-3.5-2v-4L12 8z"/></svg>
-      <span data-i18n="silverTitle">الفضة</span>
-      <span class="section-live-tag" id="silverLiveTag"></span>
-    </div>
-    <div class="grid silver" id="silverGrid"></div>
-  </div>
-
-  <div class="section">
-    <div class="section-title">
       <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 10l-3 3 3 3"/><path d="M4 13h13"/><path d="M17 6l3 3-3 3"/><path d="M20 9H7"/></svg>
       <span data-i18n="fxTitle">العملات</span>
       <span class="section-live-tag" id="currenciesLiveTag"></span>
     </div>
     <div class="grid fx" id="fxGrid"></div>
     <div class="disclaimer" style="margin-top:12px;" data-i18n="fxSourceNote">أسعار العملات مصدرها Frankfurter (سعر عالمي حقيقي ومباشر)، ولا يوجد بعد مصدر بنكي سعودي يمكن سحب هامش شراء/بيع حقيقي منه، لذلك سعر الشراء والبيع متطابقان حاليًا.</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">
+      <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4.5v9L12 20l-8-4.5v-9L12 2z"/><path d="M12 8l3.5 2v4L12 16l-3.5-2v-4L12 8z"/></svg>
+      <span data-i18n="silverTitle">الفضة</span>
+      <span class="section-live-tag" id="silverLiveTag"></span>
+    </div>
+    <div class="grid silver" id="silverGrid"></div>
   </div>
 
   <footer>
@@ -530,8 +530,7 @@ const currencies = [
   {code:'QAR', flag:'qa', name_ar:'الريال القطري', name_en:'Qatari Riyal', country_ar:'قطر', country_en:'Qatar'},
   {code:'JOD', flag:'jo', name_ar:'الدينار الأردني', name_en:'Jordanian Dinar', country_ar:'الأردن', country_en:'Jordan'},
   {code:'INR', flag:'in', name_ar:'الروبية الهندية', name_en:'Indian Rupee', country_ar:'الهند', country_en:'India'},
-  {code:'PKR', flag:'pk', name_ar:'الروبية الباكستانية', name_en:'Pakistani Rupee', country_ar:'باكستان', country_en:'Pakistan'},
-  {code:'PHP', flag:'ph', name_ar:'البيزو الفلبيني', name_en:'Philippine Peso', country_ar:'الفلبين', country_en:'Philippines'}
+  {code:'PKR', flag:'pk', name_ar:'الروبية الباكستانية', name_en:'Pakistani Rupee', country_ar:'باكستان', country_en:'Pakistan'}
 ];
 
 const FLAG_SVGS = {
@@ -545,8 +544,7 @@ const FLAG_SVGS = {
   qa: '<svg viewBox="0 0 24 18"><rect width="24" height="18" fill="#8D1B3D"/><path d="M0 0h8l2.4 2.25L8 4.5l2.4 2.25L8 9l2.4 2.25L8 13.5l2.4 2.25L8 18H0z" fill="#fff"/></svg>',
   jo: '<svg viewBox="0 0 24 18"><rect width="24" height="6" fill="#000"/><rect y="6" width="24" height="6" fill="#fff"/><rect y="12" width="24" height="6" fill="#007A3D"/><path d="M0 0L11 9L0 18z" fill="#CE1126"/></svg>',
   in: '<svg viewBox="0 0 24 18"><rect width="24" height="6" fill="#FF9933"/><rect y="6" width="24" height="6" fill="#fff"/><rect y="12" width="24" height="6" fill="#138808"/><circle cx="12" cy="9" r="1.9" fill="none" stroke="#000080" stroke-width="0.35"/></svg>',
-  pk: '<svg viewBox="0 0 24 18"><rect width="24" height="18" fill="#01411C"/><rect width="6" height="18" fill="#fff"/><circle cx="16" cy="9" r="3.4" fill="#fff"/><circle cx="17.3" cy="9" r="2.7" fill="#01411C"/><path d="M19 6.3l0.9 2.7 -2.5-1.6 3.1 0 -2.5 1.6z" fill="#fff"/></svg>',
-  ph: '<svg viewBox="0 0 24 18"><rect width="24" height="9" fill="#0038A8"/><rect y="9" width="24" height="9" fill="#CE1126"/><path d="M0 0L9 9L0 18z" fill="#fff"/><circle cx="4" cy="9" r="1.6" fill="#FCD116"/></svg>'
+  pk: '<svg viewBox="0 0 24 18"><rect width="24" height="18" fill="#01411C"/><rect width="6" height="18" fill="#fff"/><circle cx="16" cy="9" r="3.4" fill="#fff"/><circle cx="17.3" cy="9" r="2.7" fill="#01411C"/><path d="M19 6.3l0.9 2.7 -2.5-1.6 3.1 0 -2.5 1.6z" fill="#fff"/></svg>'
 };
 
 function flagSvgHtml(countryCode){
@@ -584,9 +582,9 @@ const SAUDI_GOLD_FALLBACK = {
   k18:{sell:369.54, buy:380.62}, ounce:{sell:15325.12, buy:15784.88}
 };
 const CURRENCIES_FALLBACK = {
-  USD:{buy:3.75,sell:3.75}, EUR:{buy:4.3906,sell:4.3906}, GBP:{buy:5.0787,sell:5.0787}, EGP:{buy:0.0702,sell:0.0702},
-  AED:{buy:1.0211,sell:1.0211}, KWD:{buy:12.2136,sell:12.2136}, BHD:{buy:9.9734,sell:9.9734}, QAR:{buy:1.0302,sell:1.0302},
-  JOD:{buy:5.2891,sell:5.2891}, INR:{buy:0.0395,sell:0.0395}, PKR:{buy:0.0134,sell:0.0134}, PHP:{buy:0.0610,sell:0.0610}
+  USD:{buy:3.75,sell:3.75}, EUR:{buy:4.3131,sell:4.3131}, GBP:{buy:5.0359,sell:5.0359}, EGP:{buy:0.0734,sell:0.0734},
+  AED:{buy:1.0211,sell:1.0211}, KWD:{buy:12.1608,sell:12.1608}, BHD:{buy:9.9734,sell:9.9734}, QAR:{buy:1.0302,sell:1.0302},
+  JOD:{buy:5.2891,sell:5.2891}, INR:{buy:0.0393,sell:0.0393}, PKR:{buy:0.0135,sell:0.0135}
 };
 const SILVER_FALLBACK = { s999: {buy:9.25, sell:6.93} };
 

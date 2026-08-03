@@ -452,7 +452,7 @@ async function scrapeSaudiSilver() {
 }
 
 module.exports = {
-  scrapeISagha, scrapeNBE, fetchCurrencies, resolveCurrencies,
+  scrapeISagha, scrapeNBE, fetchCurrencies, resolveCurrencies, CURRENCY_CODES,
   parseEgpNumber, GOLD_ROW_MAP, SILVER_ROW_MAP, ISAGHA_CURRENCY_ROW_MAP,
   scrapeSaudiGold, parseSarNumber, SAUDI_GOLD_ROW_MAP,
   fetchSaudiCurrencies, resolveSaudiCurrencies, SAUDI_CURRENCY_CODES,

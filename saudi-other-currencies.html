@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>عملات أخرى | Egydahab</title>
-<link rel="canonical" href="https://egydahab.online/other-currencies.html">
+<title>عملات أخرى | السوق السعودي | Egydahab</title>
+<link rel="canonical" href="https://egydahab.online/saudi-other-currencies.html">
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-9HCSMCNTCT"></script>
 <script>
@@ -13,7 +13,7 @@
   gtag('js', new Date());
   gtag('config', 'G-9HCSMCNTCT');
 </script>
-<meta name="description" content="أسعار عملات إضافية مقابل الجنيه المصري — الدولار الأسترالي، الدينار الليبي، الليرة التركية، الفرنك السويسري.">
+<meta name="description" content="أسعار عملات إضافية مقابل الريال السعودي — الدولار الأسترالي، الدينار الليبي، الليرة التركية، الفرنك السويسري.">
 <link rel="icon" type="image/png" sizes="192x192" href="/favicon.png">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -112,7 +112,7 @@
 <body>
 <div class="app">
   <header>
-    <a class="logo" href="index.html">
+    <a class="logo" href="saudi.html">
       <div class="logo-mark">
         <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="#fff" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 16.5l5.5-5.5 4 4 7-8.5"/><path d="M14.5 6h5.5v5.5"/></svg>
       </div>
@@ -129,9 +129,11 @@
           <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M3 12h18"/><path d="M3 18h18"/></svg>
         </button>
         <div class="menu-dropdown" id="menuDropdown">
-          <a href="index.html" data-i18n="menuHome">الرئيسية</a>
+          <a href="saudi.html" data-i18n="menuHome">السوق السعودي</a>
+          <a href="index.html" data-i18n="menuEgypt">🇪🇬 السوق المصري</a>
           <a href="about.html" data-i18n="menuAbout">من نحن</a>
           <a href="articles.html" data-i18n="menuArticles">المقالات</a>
+          <a href="contact.html" data-i18n="menuContact">تواصل معنا</a>
           <a href="privacy.html" data-i18n="menuPrivacy">سياسة الخصوصية</a>
           <a href="terms.html" data-i18n="menuTerms">الشروط والأحكام</a>
           <a href="disclaimer.html" data-i18n="menuDisclaimer">إخلاء المسؤولية</a>
@@ -141,10 +143,10 @@
     </div>
   </header>
 
-  <a class="back-link" href="index.html" data-i18n="back">→ الرجوع للرئيسية</a>
+  <a class="back-link" href="saudi.html" data-i18n="back">→ الرجوع للسوق السعودي</a>
 
   <h1 data-i18n="title">عملات أخرى</h1>
-  <div class="page-sub" data-i18n="subtitle">عملات إضافية مقابل الجنيه المصري، غير مدرجة في الصفحة الرئيسية.</div>
+  <div class="page-sub" data-i18n="subtitle">عملات إضافية مقابل الريال السعودي، غير مدرجة في صفحة السوق السعودي.</div>
 
   <div class="grid" id="fxGrid"></div>
 
@@ -165,7 +167,8 @@
 
   <footer>
     <nav class="footer-nav">
-      <a href="index.html" data-i18n="menuHome">الرئيسية</a>
+      <a href="saudi.html" data-i18n="menuHome">السوق السعودي</a>
+      <a href="index.html" data-i18n="menuEgypt">🇪🇬 السوق المصري</a>
       <a href="about.html" data-i18n="menuAbout">من نحن</a>
       <a href="articles.html" data-i18n="menuArticles">المقالات</a>
       <a href="contact.html" data-i18n="menuContact">تواصل معنا</a>
@@ -183,13 +186,13 @@ const dict = {
     brand: 'إيجي دهب<span class="sub">Egydahab</span>',
     buyLabel: 'شراء', sellLabel: 'بيع',
     contactLabel: 'تواصل معنا',
-    menuHome: 'الرئيسية', menuAbout: 'من نحن', menuArticles: 'المقالات', menuContact: 'تواصل معنا',
+    menuHome: 'السوق السعودي', menuEgypt: '🇪🇬 السوق المصري', menuAbout: 'من نحن', menuArticles: 'المقالات', menuContact: 'تواصل معنا',
     menuPrivacy: 'سياسة الخصوصية', menuTerms: 'الشروط والأحكام', menuDisclaimer: 'إخلاء المسؤولية',
     live: 'مباشر', offlineDot: 'غير متصل',
-    back: '→ الرجوع للرئيسية',
+    back: '→ الرجوع للسوق السعودي',
     title: 'عملات أخرى',
-    subtitle: 'عملات إضافية مقابل الجنيه المصري، غير مدرجة في الصفحة الرئيسية.',
-    unit: 'جنيه',
+    subtitle: 'عملات إضافية مقابل الريال السعودي، غير مدرجة في صفحة السوق السعودي.',
+    unit: 'ريال',
     chartLoading: 'جارِ التحميل...',
     tabs: {week:'أسبوع', month:'شهر', sixm:'6 أشهر'},
     copyright: '© 2026 إيجي دهب. جميع الحقوق محفوظة.'
@@ -198,13 +201,13 @@ const dict = {
     brand: 'Egydahab<span class="sub">إيجي دهب</span>',
     buyLabel: 'Buy', sellLabel: 'Sell',
     contactLabel: 'Contact',
-    menuHome: 'Home', menuAbout: 'About Us', menuArticles: 'Articles', menuContact: 'Contact',
+    menuHome: 'Saudi Market', menuEgypt: '🇪🇬 Egypt Market', menuAbout: 'About Us', menuArticles: 'Articles', menuContact: 'Contact',
     menuPrivacy: 'Privacy Policy', menuTerms: 'Terms & Conditions', menuDisclaimer: 'Disclaimer',
     live: 'LIVE', offlineDot: 'OFFLINE',
-    back: '← Back to home',
+    back: '← Back to Saudi market',
     title: 'Other Currencies',
-    subtitle: 'Additional currencies against the Egyptian Pound, not shown on the main page.',
-    unit: 'EGP',
+    subtitle: 'Additional currencies against the Saudi Riyal, not shown on the Saudi market page.',
+    unit: 'SAR',
     chartLoading: 'Loading...',
     tabs: {week:'Week', month:'Month', sixm:'6 Months'},
     copyright: '© 2026 Egydahab. All rights reserved.'
@@ -237,8 +240,9 @@ async function fetchWithTimeout(url, ms = 12000){
     clearTimeout(timer);
   }
 }
+// SAR-equivalent estimates, used ONLY if the live prices.json fetch fails entirely.
 const FALLBACK = {
-  AUD:{buy:33.6,sell:33.9}, LYD:{buy:10.55,sell:10.70}, TRY:{buy:1.21,sell:1.23}, CHF:{buy:63.8,sell:64.3}
+  AUD:{buy:2.45,sell:2.47}, LYD:{buy:0.77,sell:0.78}, TRY:{buy:0.088,sell:0.090}, CHF:{buy:4.66,sell:4.69}
 };
 let state = { currencyPrices:{}, live:false };
 
@@ -247,9 +251,10 @@ async function fetchCurrent(){
     const res = await fetchWithTimeout(`${PRICES_JSON_URL}?t=${Date.now()}`, 12000);
     if(!res.ok) throw new Error('bad response');
     const data = await res.json();
-    if(!data.currencies || !data.currencies.AUD) throw new Error('missing AUD data');
-    state.currencyPrices = data.currencies;
-    state.live = data.currenciesStatus === 'live';
+    if(!data.saudi || !data.saudi.currencies || !data.saudi.currencies.AUD) throw new Error('missing saudi AUD data');
+    // Merge onto fallback + last known good data so a partial scrape never blanks a currency out.
+    state.currencyPrices = Object.assign({}, FALLBACK, (data.saudi.previousCurrencies || {}), data.saudi.currencies);
+    state.live = data.saudi.currenciesStatus === 'live';
   }catch(e){
     state.currencyPrices = FALLBACK;
     state.live = false;
@@ -352,7 +357,8 @@ async function loadModalChart(){
   };
 
   try{
-    let url = `${API}?base=${modalAsset}&quotes=EGP&from=${from}&to=${to}`;
+    // Base=SAR since this page shows rates vs the Saudi Riyal, not the Egyptian Pound.
+    let url = `${API}?base=${modalAsset}&quotes=SAR&from=${from}&to=${to}`;
     if(group) url += `&group=${group}`;
     const res = await fetchWithTimeout(url, 12000);
     if(thisRequestId !== modalChartRequestId) return;

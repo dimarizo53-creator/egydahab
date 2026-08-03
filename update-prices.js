@@ -9,7 +9,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const { scrapeISagha, resolveCurrencies, scrapeSaudiGold, resolveSaudiCurrencies, scrapeSaudiSilver } = require('./scraper');
+const { scrapeISagha, resolveCurrencies, scrapeSaudiGold, resolveSaudiCurrencies, scrapeSaudiSilver, CURRENCY_CODES, SAUDI_CURRENCY_CODES } = require('./scraper');
 
 const OUTPUT_FILE = path.join(__dirname, 'prices.json');
 
@@ -48,11 +48,15 @@ async function main() {
     const { rates, sources } = await resolveCurrencies();
     if (!rates.USD) throw new Error('No currency source returned USD data');
     if (data.currencies) data.previousCurrencies = data.currencies;
-    data.currencies = rates;
-    data.currencySources = sources;
+    // Merge on top of whatever was already live, instead of replacing wholesale —
+    // if this run's fetch only came back with a subset of currencies (one tier
+    // failing, e.g. a network hiccup), the codes it didn't get keep their last
+    // known-good value instead of silently disappearing from the site.
+    data.currencies = Object.assign({}, data.currencies, rates);
+    data.currencySources = Object.assign({}, data.currencySources, sources);
     data.currenciesUpdatedAt = new Date().toISOString();
-    data.currenciesStatus = 'live';
-    console.log('Currencies refreshed OK — USD:', JSON.stringify(rates.USD), 'sources:', JSON.stringify(sources));
+    data.currenciesStatus = Object.keys(rates).length >= CURRENCY_CODES.length ? 'live' : 'partial';
+    console.log('Currencies refreshed OK —', Object.keys(rates).length, '/', CURRENCY_CODES.length, 'codes — USD:', JSON.stringify(rates.USD), 'sources:', JSON.stringify(sources));
   } catch (err) {
     data.currenciesStatus = 'stale_fallback';
     console.error('Currency refresh FAILED, keeping previous data:', err.message);
@@ -77,11 +81,11 @@ async function main() {
     if (!rates.USD) throw new Error('No Saudi currency source returned USD data');
     data.saudi = data.saudi || {};
     if (data.saudi.currencies) data.saudi.previousCurrencies = data.saudi.currencies;
-    data.saudi.currencies = rates;
-    data.saudi.currencySources = sources;
+    data.saudi.currencies = Object.assign({}, data.saudi.currencies, rates);
+    data.saudi.currencySources = Object.assign({}, data.saudi.currencySources, sources);
     data.saudi.currenciesUpdatedAt = new Date().toISOString();
-    data.saudi.currenciesStatus = 'live';
-    console.log('Saudi currencies refreshed OK — USD:', JSON.stringify(rates.USD));
+    data.saudi.currenciesStatus = Object.keys(rates).length >= SAUDI_CURRENCY_CODES.length ? 'live' : 'partial';
+    console.log('Saudi currencies refreshed OK —', Object.keys(rates).length, '/', SAUDI_CURRENCY_CODES.length, 'codes — USD:', JSON.stringify(rates.USD));
   } catch (err) {
     data.saudi = data.saudi || {};
     data.saudi.currenciesStatus = 'stale_fallback';

@@ -1,24 +1,24 @@
 {
   "gold": {
     "k24": {
-      "sell": 6702.75,
-      "buy": 6645.75
+      "sell": 6668.5,
+      "buy": 6611.5
     },
     "k22": {
-      "sell": 6144.25,
-      "buy": 6092
+      "sell": 6112.75,
+      "buy": 6060.5
     },
     "k21": {
-      "sell": 5865,
-      "buy": 5815
+      "sell": 5835,
+      "buy": 5785
     },
     "k18": {
-      "sell": 5027.25,
-      "buy": 4984.25
+      "sell": 5001.5,
+      "buy": 4958.5
     },
     "goldPound": {
-      "sell": 46920,
-      "buy": 46520
+      "sell": 46680,
+      "buy": 46280
     }
   },
   "silver": {
@@ -121,32 +121,32 @@
     "LYD": "frankfurter",
     "TRY": "frankfurter"
   },
-  "goldSilverUpdatedAt": "2026-08-03T11:39:58.396Z",
-  "currenciesUpdatedAt": "2026-08-03T11:39:59.446Z",
+  "goldSilverUpdatedAt": "2026-08-03T14:00:26.284Z",
+  "currenciesUpdatedAt": "2026-08-03T14:00:43.427Z",
   "goldSilverStatus": "live",
-  "currenciesStatus": "live",
-  "lastRunAt": "2026-08-03T11:40:01.971Z",
+  "currenciesStatus": "partial",
+  "lastRunAt": "2026-08-03T14:01:00.468Z",
   "note": "Seed data confirmed directly from market.isagha.com/prices/eg and egrates.com/en/banks/4 (National Bank of Egypt rates) on 2026-07-22. Switched currency source from CBE (blocked by their firewall, confirmed unusable) to NBE via egrates.com (verified real, working). Will be overwritten by the first GitHub Actions run.",
   "previousGold": {
     "k24": {
-      "sell": 6742.75,
-      "buy": 6685.75
+      "sell": 6702.75,
+      "buy": 6645.75
     },
     "k22": {
-      "sell": 6181,
-      "buy": 6128.5
+      "sell": 6144.25,
+      "buy": 6092
     },
     "k21": {
-      "sell": 5900,
-      "buy": 5850
+      "sell": 5865,
+      "buy": 5815
     },
     "k18": {
-      "sell": 5057.25,
-      "buy": 5014.25
+      "sell": 5027.25,
+      "buy": 4984.25
     },
     "goldPound": {
-      "sell": 47200,
-      "buy": 46800
+      "sell": 46920,
+      "buy": 46520
     }
   },
   "previousSilver": {
@@ -177,78 +177,86 @@
   },
   "previousCurrencies": {
     "USD": {
-      "buy": 50.15,
-      "sell": 50.25
+      "buy": 50.17,
+      "sell": 50.27
     },
     "SAR": {
-      "buy": 13.324,
-      "sell": 13.381
+      "buy": 13.329,
+      "sell": 13.387
     },
     "KWD": {
-      "buy": 158.627,
-      "sell": 163.335
+      "buy": 158.691,
+      "sell": 163.4
     },
     "AED": {
-      "buy": 13.641,
-      "sell": 13.683
+      "buy": 13.646,
+      "sell": 13.689
     },
     "EUR": {
-      "buy": 57.778,
-      "sell": 58.079
+      "buy": 57.786,
+      "sell": 58.102
     },
     "GBP": {
-      "buy": 67.472,
-      "sell": 67.868
+      "buy": 67.474,
+      "sell": 67.895
     },
     "CAD": {
-      "buy": 35.712,
-      "sell": 35.88
+      "buy": 35.721,
+      "sell": 35.894
     },
     "CHF": {
-      "buy": 61.96,
-      "sell": 62.368
+      "buy": 61.984,
+      "sell": 62.393
     },
     "AUD": {
-      "buy": 35.205,
-      "sell": 35.451
+      "buy": 35.114,
+      "sell": 35.466
     },
     "BHD": {
-      "buy": 130.923,
-      "sell": 133.271
+      "buy": 130.975,
+      "sell": 133.325
     },
     "QAR": {
-      "buy": 12.728,
-      "sell": 13.784
+      "buy": 12.734,
+      "sell": 13.79
     },
     "JOD": {
-      "buy": 69.92,
-      "sell": 70.975
+      "buy": 69.948,
+      "sell": 71.003
+    },
+    "LYD": {
+      "buy": 7.990411506192568,
+      "sell": 7.990411506192568
+    },
+    "TRY": {
+      "buy": 1.074379277372498,
+      "sell": 1.074379277372498
     }
   },
   "saudi": {
     "gold": {
       "k24": {
-        "sell": 488.25,
-        "buy": 502.9
+        "sell": 486.41,
+        "buy": 501
       },
       "k22": {
-        "sell": 447.57,
-        "buy": 460.99
+        "sell": 445.87,
+        "buy": 459.25
       },
       "k21": {
-        "sell": 427.22,
-        "buy": 440.04
+        "sell": 425.61,
+        "buy": 438.38
       },
       "k18": {
-        "sell": 366.19,
-        "buy": 377.18
+        "sell": 364.81,
+        "buy": 375.75
       },
       "ounce": {
-        "sell": 15186.37,
-        "buy": 15641.97
+        "sell": 15129,
+        "buy": 15582.87
       }
     },
-    "goldUpdatedAt": "2026-08-03T11:40:01.210Z",
+    "goldUpdatedAt": "2026-08-03T14:00:45.283Z",
     "goldStatus": "live",
     "currencies": {
       "USD": {
@@ -330,7 +338,7 @@
       "CHF": "frankfurter"
     },
     "currenciesUpdatedAt": "2026-08-03T11:40:01.762Z",
-    "currenciesStatus": "live",
+    "currenciesStatus": "stale_fallback",
     "silver": {
       "s999": {
         "buy": 9.25,
@@ -342,24 +350,24 @@
     "note": "Saudi gold confirmed directly from sa-goldprice.com on 2026-07-31. Saudi currencies (15 codes, incl. AUD/LYD/TRY/CHF for the upcoming other-currencies page; PHP removed per request) seeded from Frankfurter (base=USD, cross-computed to SAR), confirmed directly against the live API on 2026-08-02 — SAR/USD landed exactly on the real-world 3.75 peg. No scrapeable Saudi bank buy/sell aggregator found yet (SAMA's own rate page is a JS app, like NBE's site), so buy=sell for now, same as Egypt's own Frankfurter fallback tier. Saudi silver (999, per gram) confirmed directly from saudigoldprice.com/silverprice/ on 2026-08-02, using its bullion buy-new/resale rows for a real distinct buy/sell spread, cross-checked against the page's own separate summary row for the same purity. Will be overwritten by the first GitHub Actions run.",
     "previousGold": {
       "k24": {
-        "sell": 489.77,
-        "buy": 504.47
+        "sell": 488.25,
+        "buy": 502.9
       },
       "k22": {
-        "sell": 448.96,
-        "buy": 462.43
+        "sell": 447.57,
+        "buy": 460.99
       },
       "k21": {
-        "sell": 428.55,
-        "buy": 441.41
+        "sell": 427.22,
+        "buy": 440.04
       },
       "k18": {
-        "sell": 367.33,
-        "buy": 378.35
+        "sell": 366.19,
+        "buy": 377.18
       },
       "ounce": {
-        "sell": 15233.63,
-        "buy": 15690.63
+        "sell": 15186.37,
+        "buy": 15641.97
       }
     },
     "previousCurrencies": {

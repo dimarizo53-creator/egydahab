@@ -256,11 +256,18 @@ async function resolveCurrencies() {
 // means genuine <table> markup — good sign for reliable scraping.
 //
 // Parsing tested against the exact real confirmed values from the live page:
-// 24K sell 492.71 / buy 507.50 SAR, ounce sell 15,325.12 / buy 15,784.88 SAR —
-// all matched. A real bug was caught and fixed during testing: the label cell
-// itself ("عيار 24") contains a number, which was initially being misread as a
-// price — fixed by skipping the label cell and only counting cells that contain
-// an actual "ريال" (SAR) marker.
+// 24K سعر البيع 485.68 / سعر الشراء 500.26 SAR. IMPORTANT: on this source site,
+// "سعر البيع" (first column) is consistently the LOWER number and "سعر الشراء"
+// (second column) the HIGHER one — the reverse of the shop-sells-higher
+// convention used everywhere else on this site (Egypt gold, all currencies).
+// A real bug was caught and fixed: earlier code assumed column position meant
+// [sell, buy] in that order and wrote sell < buy, inverting every Saudi gold
+// price. Fixed by taking max/min instead of trusting column position — sell is
+// always the higher value now, regardless of the source's own column order.
+// A second, unrelated bug was also caught and fixed during testing: the label
+// cell itself ("عيار 24") contains a number, which was initially being misread
+// as a price — fixed by skipping the label cell and only counting cells that
+// contain an actual "ريال" (SAR) marker.
 
 const SAUDI_GOLD_URL = 'https://sa-goldprice.com/';
 
@@ -308,7 +315,13 @@ async function scrapeSaudiGold() {
       if (v !== null) numericValues.push(v);
     });
     if (numericValues.length >= 2) {
-      gold[outKey] = { sell: numericValues[0], buy: numericValues[1] };
+      // sa-goldprice.com's own column order is [سعر البيع, سعر الشراء] with the
+      // FIRST value being the lower one — the reverse of the shop-sells-higher
+      // convention this site uses everywhere else (see Egypt's gold/currencies,
+      // where sell > buy always). Taking max/min instead of trusting position
+      // guarantees sell is always the higher price, buy the lower — and keeps
+      // working even if the source site ever reorders its own columns.
+      gold[outKey] = { sell: Math.max(numericValues[0], numericValues[1]), buy: Math.min(numericValues[0], numericValues[1]) };
     }
   });
 
@@ -417,7 +430,10 @@ async function scrapeSaudiSilver() {
 
   const $ = cheerio.load(res.data);
   let summarySell = null;
-  const gramPrices = []; // in page order: buy(new) first, then resale(sell)
+  const gramPrices = []; // NOTE: page order between these two rows is NOT reliably
+  // "buy(new) first, sell(resale) second" — same class of assumption that inverted
+  // Saudi gold's buy/sell. sell/buy below are assigned by value (max/min), not by
+  // which one appears first, so this list's order no longer matters.
 
   $('table tr').each((_, row) => {
     const cells = $(row).find('td');
@@ -437,8 +453,12 @@ async function scrapeSaudiSilver() {
 
   let buy, sell;
   if (gramPrices.length >= 2) {
-    buy = gramPrices[0];
-    sell = gramPrices[1];
+    // Same fix as Saudi gold: don't trust the source page's column position
+    // (that assumption is what caused the buy/sell inversion) — sell is always
+    // the higher of the two prices, matching Egypt's and the currency section's
+    // shop-sells-higher convention.
+    sell = Math.max(gramPrices[0], gramPrices[1]);
+    buy = Math.min(gramPrices[0], gramPrices[1]);
   } else if (summarySell !== null) {
     buy = summarySell;
     sell = summarySell;

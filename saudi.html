@@ -580,49 +580,59 @@ const CURRENCIES_FALLBACK = {
 const SILVER_FALLBACK = { s999: {buy:9.25, sell:6.93} };
 
 async function fetchCurrent(){
+  let data = null;
   try{
     const res = await fetchWithTimeout(`${PRICES_JSON_URL}?t=${Date.now()}`, 12000);
     if(!res.ok) throw new Error('prices.json not reachable');
-    const data = await res.json();
-
-    if(data.saudi && data.saudi.gold && data.saudi.gold.k24){
-      state.goldPrices = data.saudi.gold;
-      state.previousGoldPrices = data.saudi.previousGold || null;
-      state.metalsLive = data.saudi.goldStatus === 'live';
-      state.metalsDate = data.saudi.goldUpdatedAt;
-    } else {
-      throw new Error('prices.json missing saudi gold data');
-    }
-
-    if(data.saudi && data.saudi.currencies && data.saudi.currencies.USD){
-      Object.assign(state.currencyPrices, data.saudi.currencies);
-      state.previousCurrencyPrices = data.saudi.previousCurrencies || null;
-      state.currenciesLive = data.saudi.currenciesStatus === 'live';
-      state.currenciesDate = data.saudi.currenciesUpdatedAt;
-    } else {
-      throw new Error('prices.json missing saudi currency data');
-    }
-
-    if(data.saudi && data.saudi.silver && data.saudi.silver.s999){
-      state.silverPrices = data.saudi.silver;
-      state.previousSilverPrices = data.saudi.previousSilver || null;
-      state.silverLive = data.saudi.silverStatus === 'live';
-      state.silverDate = data.saudi.silverUpdatedAt;
-    } else {
-      throw new Error('prices.json missing saudi silver data');
-    }
+    data = await res.json();
   }catch(e){
+    data = null; // whole fetch failed (network down, repo/URL not set up) — every section falls back below
+  }
+
+  // Each section is handled independently: if one section's data is missing or
+  // malformed, only THAT section falls back to its own hardcoded numbers and
+  // shows as stale — it no longer drags the other, perfectly good sections down
+  // with it. Previously, one failing section (e.g. silver, which comes from a
+  // separate, less-tested source) threw away otherwise-live gold and currency
+  // data too and put the whole page into a scary "offline" state.
+  if(data && data.saudi && data.saudi.gold && data.saudi.gold.k24){
+    state.goldPrices = data.saudi.gold;
+    state.previousGoldPrices = data.saudi.previousGold || null;
+    state.metalsLive = data.saudi.goldStatus === 'live';
+    state.metalsDate = data.saudi.goldUpdatedAt;
+  } else {
     state.goldPrices = state.goldPrices || SAUDI_GOLD_FALLBACK;
-    if(!state.currencyPrices.USD) Object.assign(state.currencyPrices, CURRENCIES_FALLBACK);
-    state.silverPrices = state.silverPrices || SILVER_FALLBACK;
     state.metalsLive = false;
-    state.currenciesLive = false;
-    state.silverLive = false;
     state.metalsDate = null;
+  }
+
+  if(data && data.saudi && data.saudi.currencies && data.saudi.currencies.USD){
+    Object.assign(state.currencyPrices, data.saudi.currencies);
+    state.previousCurrencyPrices = data.saudi.previousCurrencies || null;
+    state.currenciesLive = data.saudi.currenciesStatus === 'live';
+    state.currenciesDate = data.saudi.currenciesUpdatedAt;
+  } else {
+    if(!state.currencyPrices.USD) Object.assign(state.currencyPrices, CURRENCIES_FALLBACK);
+    state.currenciesLive = false;
     state.currenciesDate = null;
+  }
+
+  if(data && data.saudi && data.saudi.silver && data.saudi.silver.s999){
+    state.silverPrices = data.saudi.silver;
+    state.previousSilverPrices = data.saudi.previousSilver || null;
+    state.silverLive = data.saudi.silverStatus === 'live';
+    state.silverDate = data.saudi.silverUpdatedAt;
+  } else {
+    state.silverPrices = state.silverPrices || SILVER_FALLBACK;
+    state.silverLive = false;
     state.silverDate = null;
   }
-  state.live = state.metalsLive && state.currenciesLive && state.silverLive;
+
+  // Silver is a secondary section (its own small live/stale tag already shows its
+  // status). The page-wide "offline" banner should reflect the two essential
+  // sections only — gold and currencies — same as the Egypt page, so a silver-only
+  // hiccup no longer triggers the full-page offline warning.
+  state.live = state.metalsLive && state.currenciesLive;
   state.rateDate = state.metalsLive ? state.metalsDate : (state.currenciesLive ? state.currenciesDate : state.silverDate);
 }
 

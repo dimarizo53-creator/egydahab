@@ -11,6 +11,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://egydahab.online/saudi-other-currencies.html</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://egydahab.online/saudi.html</loc>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
@@ -142,6 +147,26 @@
   </url>
   <url>
     <loc>https://egydahab.online/articles/chicken-prices-egypt-inflation-gauge.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://egydahab.online/articles/gold-price-predictions-end-2026.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://egydahab.online/articles/real-vs-fake-gold-guide.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://egydahab.online/articles/gold-vs-savings-certificates-inflation.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://egydahab.online/articles/used-gold-and-kasr-savings.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

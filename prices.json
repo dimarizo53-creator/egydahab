@@ -101,8 +101,8 @@
       "sell": 13.401
     },
     "TRY": {
-      "buy": 1.045019437361535,
-      "sell": 1.045019437361535
+      "buy": 1.0449429983594394,
+      "sell": 1.0449429983594394
     }
   },
   "currencySources": {
@@ -121,11 +121,11 @@
     "SAR": "nbe",
     "TRY": "frankfurter"
   },
-  "goldSilverUpdatedAt": "2026-08-08T09:51:00.413Z",
-  "currenciesUpdatedAt": "2026-08-08T09:51:00.990Z",
+  "goldSilverUpdatedAt": "2026-08-08T10:18:06.106Z",
+  "currenciesUpdatedAt": "2026-08-08T10:18:06.977Z",
   "goldSilverStatus": "live",
   "currenciesStatus": "live",
-  "lastRunAt": "2026-08-08T09:51:03.231Z",
+  "lastRunAt": "2026-08-08T10:18:09.142Z",
   "note": "Seed data confirmed directly from market.isagha.com/prices/eg and egrates.com/en/banks/4 (National Bank of Egypt rates) on 2026-07-22. Switched currency source from CBE (blocked by their firewall, confirmed unusable) to NBE via egrates.com (verified real, working). Will be overwritten by the first GitHub Actions run.",
   "previousGold": {
     "k24": {
@@ -256,7 +256,7 @@
         "buy": 16287.37
       }
     },
-    "goldUpdatedAt": "2026-08-08T09:51:02.581Z",
+    "goldUpdatedAt": "2026-08-08T10:18:08.558Z",
     "goldStatus": "live",
     "currencies": {
       "USD": {
@@ -304,16 +304,16 @@
         "sell": 0.01346293653571717
       },
       "AUD": {
-        "buy": 2.639079489074211,
-        "sell": 2.639079489074211
+        "buy": 2.639009843506716,
+        "sell": 2.639009843506716
       },
       "LYD": {
         "buy": 0.588824118235883,
         "sell": 0.588824118235883
       },
       "TRY": {
-        "buy": 0.07871164774963399,
-        "sell": 0.07871164774963399
+        "buy": 0.07870607217346817,
+        "sell": 0.07870607217346817
       },
       "CHF": {
         "buy": 4.630272723063388,
@@ -337,7 +337,7 @@
       "TRY": "frankfurter",
       "CHF": "frankfurter"
     },
-    "currenciesUpdatedAt": "2026-08-08T09:51:03.083Z",
+    "currenciesUpdatedAt": "2026-08-08T10:18:09.071Z",
     "currenciesStatus": "live",
     "silver": {
       "s999": {

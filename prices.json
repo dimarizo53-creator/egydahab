@@ -121,58 +121,58 @@
     "SAR": "nbe",
     "TRY": "frankfurter"
   },
-  "goldSilverUpdatedAt": "2026-08-08T12:18:23.752Z",
-  "currenciesUpdatedAt": "2026-08-08T12:18:24.636Z",
+  "goldSilverUpdatedAt": "2026-08-08T13:23:17.993Z",
+  "currenciesUpdatedAt": "2026-08-08T13:23:19.780Z",
   "goldSilverStatus": "live",
   "currenciesStatus": "live",
-  "lastRunAt": "2026-08-08T12:18:26.781Z",
+  "lastRunAt": "2026-08-08T13:23:22.175Z",
   "note": "Seed data confirmed directly from market.isagha.com/prices/eg and egrates.com/en/banks/4 (National Bank of Egypt rates) on 2026-07-22. Switched currency source from CBE (blocked by their firewall, confirmed unusable) to NBE via egrates.com (verified real, working). Will be overwritten by the first GitHub Actions run.",
   "previousGold": {
     "k24": {
-      "sell": 6971.5,
-      "buy": 6902.75
+      "sell": 7000,
+      "buy": 6925.75
     },
     "k22": {
-      "sell": 6390.5,
-      "buy": 6327.5
+      "sell": 6416.75,
+      "buy": 6348.5
     },
     "k21": {
-      "sell": 6100,
-      "buy": 6040
+      "sell": 6125,
+      "buy": 6060
     },
     "k18": {
-      "sell": 5228.5,
-      "buy": 5177.25
+      "sell": 5250,
+      "buy": 5194.25
     },
     "goldPound": {
-      "sell": 48800,
-      "buy": 48320
+      "sell": 49000,
+      "buy": 48480
     }
   },
   "previousSilver": {
     "s999": {
-      "sell": 102,
-      "buy": 97
+      "sell": 101,
+      "buy": 96
     },
     "s925": {
-      "sell": 94.5,
-      "buy": 89.75
+      "sell": 93.5,
+      "buy": 89
     },
     "s900": {
-      "sell": 91.75,
-      "buy": 87.25
+      "sell": 91,
+      "buy": 86.5
     },
     "s800": {
-      "sell": 81.75,
-      "buy": 77.75
+      "sell": 81,
+      "buy": 77
     },
     "s600": {
-      "sell": 61.25,
-      "buy": 58.25
+      "sell": 60.75,
+      "buy": 57.75
     },
     "silverPound": {
-      "sell": 756,
-      "buy": 718
+      "sell": 748,
+      "buy": 712
     }
   },
   "previousCurrencies": {
@@ -256,7 +256,7 @@
         "buy": 16287.37
       }
     },
-    "goldUpdatedAt": "2026-08-08T12:18:26.176Z",
+    "goldUpdatedAt": "2026-08-08T13:23:21.401Z",
     "goldStatus": "live",
     "currencies": {
       "USD": {
@@ -337,7 +337,7 @@
       "TRY": "frankfurter",
       "CHF": "frankfurter"
     },
-    "currenciesUpdatedAt": "2026-08-08T12:18:26.687Z",
+    "currenciesUpdatedAt": "2026-08-08T13:23:22.033Z",
     "currenciesStatus": "live",
     "silver": {
       "s999": {
@@ -376,12 +376,12 @@
         "sell": 3.7499531255859297
       },
       "EUR": {
-        "buy": 4.329754069968826,
-        "sell": 4.329754069968826
+        "buy": 4.329566610382301,
+        "sell": 4.329566610382301
       },
       "GBP": {
-        "buy": 5.047191238076011,
-        "sell": 5.047191238076011
+        "buy": 5.0469365095387095,
+        "sell": 5.0469365095387095
       },
       "EGP": {
         "buy": 0.07532105600120513,

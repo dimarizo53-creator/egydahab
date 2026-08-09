@@ -23,6 +23,41 @@
 const axios = require('axios');
 const cheerio = require('cheerio');
 
+// Shared retry helper: some scrape targets (saudigoldprice.com in particular) appear to
+// intermittently block or rate-limit requests coming from cloud/CI IP ranges — like GitHub
+// Actions runners — even though the same request succeeds fine from an ordinary browser or a
+// residential/non-datacenter IP. A direct manual fetch of saudigoldprice.com/silverprice/
+// during debugging came back completely healthy with fresh, correctly structured data, which
+// means the page itself isn't broken — a transient block or timeout specific to the
+// automated run is the more likely explanation for occasional stale "not updated" results.
+// Retrying with a short backoff, plus a more complete/realistic header set, meaningfully
+// reduces how often that kind of transient failure takes down a whole scrape.
+async function fetchWithRetry(url, options, retries = 2, delayMs = 2000) {
+  let lastErr;
+  for (let attempt = 0; attempt <= retries; attempt++) {
+    try {
+      return await axios.get(url, options);
+    } catch (err) {
+      lastErr = err;
+      const status = err.response && err.response.status;
+      // Don't bother retrying a clean 404 — that's a real "page moved", not a transient block.
+      if (status === 404) break;
+      if (attempt < retries) {
+        console.warn(`fetchWithRetry: attempt ${attempt + 1} for ${url} failed (${err.message}), retrying in ${delayMs}ms...`);
+        await new Promise(r => setTimeout(r, delayMs));
+      }
+    }
+  }
+  throw lastErr;
+}
+
+const BROWSER_LIKE_HEADERS = {
+  'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36',
+  'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'Accept-Language': 'ar,en;q=0.8',
+  'Cache-Control': 'no-cache',
+};
+
 const ISAGHA_URL = 'https://market.isagha.com/prices/eg'; // Egypt-specific — pinned so results don't vary by scraper server location
 const FRANKFURTER_URL = 'https://api.frankfurter.dev/v2/rates';
 const NBE_URL = 'https://egrates.com/en/banks/4'; // National Bank of Egypt rates, via egrates.com
@@ -287,12 +322,9 @@ function parseSarNumber(text) {
 }
 
 async function scrapeSaudiGold() {
-  const res = await axios.get(SAUDI_GOLD_URL, {
+  const res = await fetchWithRetry(SAUDI_GOLD_URL, {
     timeout: 15000,
-    headers: {
-      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36',
-      'Accept-Language': 'ar,en;q=0.8',
-    },
+    headers: { ...BROWSER_LIKE_HEADERS, 'Referer': 'https://saudigoldprice.com/' },
   });
 
   const $ = cheerio.load(res.data);
@@ -420,12 +452,9 @@ async function resolveSaudiCurrencies() {
 const SAUDI_SILVER_URL = 'https://saudigoldprice.com/silverprice/';
 
 async function scrapeSaudiSilver() {
-  const res = await axios.get(SAUDI_SILVER_URL, {
+  const res = await fetchWithRetry(SAUDI_SILVER_URL, {
     timeout: 15000,
-    headers: {
-      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36',
-      'Accept-Language': 'ar,en;q=0.8',
-    },
+    headers: { ...BROWSER_LIKE_HEADERS, 'Referer': 'https://saudigoldprice.com/' },
   });
 
   const $ = cheerio.load(res.data);

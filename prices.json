@@ -121,31 +121,31 @@
     "SAR": "nbe",
     "TRY": "frankfurter"
   },
-  "goldSilverUpdatedAt": "2026-08-11T20:08:10.560Z",
-  "currenciesUpdatedAt": "2026-08-11T20:08:12.131Z",
+  "goldSilverUpdatedAt": "2026-08-11T21:00:42.805Z",
+  "currenciesUpdatedAt": "2026-08-11T21:00:59.463Z",
   "goldSilverStatus": "live",
-  "currenciesStatus": "live",
-  "lastRunAt": "2026-08-11T20:08:15.684Z",
+  "currenciesStatus": "partial",
+  "lastRunAt": "2026-08-11T21:01:17.369Z",
   "note": "Seed data confirmed directly from market.isagha.com/prices/eg and egrates.com/en/banks/4 (National Bank of Egypt rates) on 2026-07-22. Switched currency source from CBE (blocked by their firewall, confirmed unusable) to NBE via egrates.com (verified real, working). Will be overwritten by the first GitHub Actions run.",
   "previousGold": {
     "k24": {
-      "sell": 7200,
+      "sell": 7194.25,
       "buy": 7114.25
     },
     "k22": {
-      "sell": 6600,
+      "sell": 6594.75,
       "buy": 6521.5
     },
     "k21": {
-      "sell": 6300,
+      "sell": 6295,
       "buy": 6225
     },
     "k18": {
-      "sell": 5400,
+      "sell": 5395.75,
       "buy": 5335.75
     },
     "goldPound": {
-      "sell": 50400,
+      "sell": 50360,
       "buy": 49800
     }
   },
@@ -236,27 +236,27 @@
   "saudi": {
     "gold": {
       "k24": {
-        "sell": 543.16,
-        "buy": 527.34
+        "sell": 542.58,
+        "buy": 526.77
       },
       "k22": {
-        "sell": 497.9,
-        "buy": 483.4
+        "sell": 497.36,
+        "buy": 482.88
       },
       "k21": {
-        "sell": 475.27,
-        "buy": 461.42
+        "sell": 474.75,
+        "buy": 460.93
       },
       "k18": {
-        "sell": 407.37,
-        "buy": 395.51
+        "sell": 406.93,
+        "buy": 395.08
       },
       "ounce": {
-        "sell": 16894.19,
-        "buy": 16402.12
+        "sell": 16876.04,
+        "buy": 16384.5
       }
     },
-    "goldUpdatedAt": "2026-08-11T20:08:14.712Z",
+    "goldUpdatedAt": "2026-08-11T21:01:02.058Z",
     "goldStatus": "live",
     "currencies": {
       "USD": {
@@ -338,7 +338,7 @@
       "CHF": "frankfurter"
     },
     "currenciesUpdatedAt": "2026-08-11T20:08:15.326Z",
-    "currenciesStatus": "live",
+    "currenciesStatus": "stale_fallback",
     "silver": {
       "s999": {
         "buy": 6.93,
@@ -350,24 +350,24 @@
     "note": "Saudi gold confirmed directly from sa-goldprice.com on 2026-07-31. Saudi currencies (15 codes, incl. AUD/LYD/TRY/CHF for the upcoming other-currencies page; PHP removed per request) seeded from Frankfurter (base=USD, cross-computed to SAR), confirmed directly against the live API on 2026-08-02 — SAR/USD landed exactly on the real-world 3.75 peg. No scrapeable Saudi bank buy/sell aggregator found yet (SAMA's own rate page is a JS app, like NBE's site), so buy=sell for now, same as Egypt's own Frankfurter fallback tier. Saudi silver (999, per gram) confirmed directly from saudigoldprice.com/silverprice/ on 2026-08-02, using its bullion buy-new/resale rows for a real distinct buy/sell spread, cross-checked against the page's own separate summary row for the same purity. Will be overwritten by the first GitHub Actions run.",
     "previousGold": {
       "k24": {
-        "sell": 542.25,
-        "buy": 526.46
+        "sell": 543.16,
+        "buy": 527.34
       },
       "k22": {
-        "sell": 497.07,
-        "buy": 482.59
+        "sell": 497.9,
+        "buy": 483.4
       },
       "k21": {
-        "sell": 474.47,
-        "buy": 460.65
+        "sell": 475.27,
+        "buy": 461.42
       },
       "k18": {
-        "sell": 406.69,
-        "buy": 394.85
+        "sell": 407.37,
+        "buy": 395.51
       },
       "ounce": {
-        "sell": 16865.99,
-        "buy": 16374.75
+        "sell": 16894.19,
+        "buy": 16402.12
       }
     },
     "previousCurrencies": {

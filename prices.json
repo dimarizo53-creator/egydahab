@@ -121,32 +121,32 @@
     "SAR": "nbe",
     "TRY": "frankfurter"
   },
-  "goldSilverUpdatedAt": "2026-08-17T11:13:02.155Z",
-  "currenciesUpdatedAt": "2026-08-17T11:13:03.364Z",
+  "goldSilverUpdatedAt": "2026-08-17T11:37:38.935Z",
+  "currenciesUpdatedAt": "2026-08-17T11:37:55.134Z",
   "goldSilverStatus": "live",
-  "currenciesStatus": "live",
-  "lastRunAt": "2026-08-17T11:13:05.286Z",
+  "currenciesStatus": "partial",
+  "lastRunAt": "2026-08-17T11:38:11.186Z",
   "note": "Seed data confirmed directly from market.isagha.com/prices/eg and egrates.com/en/banks/4 (National Bank of Egypt rates) on 2026-07-22. Switched currency source from CBE (blocked by their firewall, confirmed unusable) to NBE via egrates.com (verified real, working). Will be overwritten by the first GitHub Actions run.",
   "previousGold": {
     "k24": {
-      "sell": 7171.5,
-      "buy": 7114.25
+      "sell": 7148.5,
+      "buy": 7091.5
     },
     "k22": {
-      "sell": 6573.75,
-      "buy": 6521.5
+      "sell": 6552.75,
+      "buy": 6500.5
     },
     "k21": {
-      "sell": 6275,
-      "buy": 6225
+      "sell": 6255,
+      "buy": 6205
     },
     "k18": {
-      "sell": 5378.5,
-      "buy": 5335.75
+      "sell": 5361.5,
+      "buy": 5318.5
     },
     "goldPound": {
-      "sell": 50200,
-      "buy": 49800
+      "sell": 50040,
+      "buy": 49640
     }
   },
   "previousSilver": {
@@ -217,8 +217,8 @@
       "sell": 163.861
     },
     "LYD": {
-      "buy": 7.892036934732856,
-      "sell": 7.892036934732856
+      "buy": 7.897022822395957,
+      "sell": 7.897022822395957
     },
     "QAR": {
       "buy": 12.749,
@@ -229,8 +229,8 @@
       "sell": 13.401
     },
     "TRY": {
-      "buy": 1.0502105672187274,
-      "sell": 1.0502105672187274
+      "buy": 1.0501885088373364,
+      "sell": 1.0501885088373364
     }
   },
   "saudi": {
@@ -338,7 +338,7 @@
       "CHF": "frankfurter"
     },
     "currenciesUpdatedAt": "2026-08-17T11:13:04.954Z",
-    "currenciesStatus": "live",
+    "currenciesStatus": "stale_fallback",
     "silver": {
       "s999": {
         "buy": 6.93,

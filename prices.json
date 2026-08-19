@@ -1,24 +1,24 @@
 {
   "gold": {
     "k24": {
-      "sell": 7285.75,
-      "buy": 7222.75
+      "sell": 7302.75,
+      "buy": 7240
     },
     "k22": {
-      "sell": 6678.5,
-      "buy": 6621
+      "sell": 6694.25,
+      "buy": 6636.75
     },
     "k21": {
-      "sell": 6375,
-      "buy": 6320
+      "sell": 6390,
+      "buy": 6335
     },
     "k18": {
-      "sell": 5464.25,
-      "buy": 5417.25
+      "sell": 5477.25,
+      "buy": 5430
     },
     "goldPound": {
-      "sell": 51000,
-      "buy": 50560
+      "sell": 51120,
+      "buy": 50680
     }
   },
   "silver": {
@@ -121,32 +121,32 @@
     "SAR": "nbe",
     "TRY": "frankfurter"
   },
-  "goldSilverUpdatedAt": "2026-08-19T19:20:48.043Z",
-  "currenciesUpdatedAt": "2026-08-19T19:20:50.303Z",
+  "goldSilverUpdatedAt": "2026-08-19T19:45:41.297Z",
+  "currenciesUpdatedAt": "2026-08-19T19:45:42.979Z",
   "goldSilverStatus": "live",
   "currenciesStatus": "live",
-  "lastRunAt": "2026-08-19T19:20:52.176Z",
+  "lastRunAt": "2026-08-19T19:45:44.706Z",
   "note": "Seed data confirmed directly from market.isagha.com/prices/eg and egrates.com/en/banks/4 (National Bank of Egypt rates) on 2026-07-22. Switched currency source from CBE (blocked by their firewall, confirmed unusable) to NBE via egrates.com (verified real, working). Will be overwritten by the first GitHub Actions run.",
   "previousGold": {
     "k24": {
-      "sell": 7257.25,
-      "buy": 7200
+      "sell": 7285.75,
+      "buy": 7222.75
     },
     "k22": {
-      "sell": 6652.5,
-      "buy": 6600
+      "sell": 6678.5,
+      "buy": 6621
     },
     "k21": {
-      "sell": 6350,
-      "buy": 6300
+      "sell": 6375,
+      "buy": 6320
     },
     "k18": {
-      "sell": 5442.75,
-      "buy": 5400
+      "sell": 5464.25,
+      "buy": 5417.25
     },
     "goldPound": {
-      "sell": 50800,
-      "buy": 50400
+      "sell": 51000,
+      "buy": 50560
     }
   },
   "previousSilver": {
@@ -337,7 +337,7 @@
       "TRY": "frankfurter",
       "CHF": "frankfurter"
     },
-    "currenciesUpdatedAt": "2026-08-19T19:20:51.892Z",
+    "currenciesUpdatedAt": "2026-08-19T19:45:44.421Z",
     "currenciesStatus": "live",
     "silver": {
       "s999": {

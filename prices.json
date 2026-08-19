@@ -121,11 +121,11 @@
     "SAR": "nbe",
     "TRY": "frankfurter"
   },
-  "goldSilverUpdatedAt": "2026-08-19T07:11:17.954Z",
-  "currenciesUpdatedAt": "2026-08-19T07:11:18.843Z",
+  "goldSilverUpdatedAt": "2026-08-19T07:51:06.942Z",
+  "currenciesUpdatedAt": "2026-08-19T07:51:08.149Z",
   "goldSilverStatus": "live",
   "currenciesStatus": "live",
-  "lastRunAt": "2026-08-19T07:11:20.720Z",
+  "lastRunAt": "2026-08-19T07:51:09.459Z",
   "note": "Seed data confirmed directly from market.isagha.com/prices/eg and egrates.com/en/banks/4 (National Bank of Egypt rates) on 2026-07-22. Switched currency source from CBE (blocked by their firewall, confirmed unusable) to NBE via egrates.com (verified real, working). Will be overwritten by the first GitHub Actions run.",
   "previousGold": {
     "k24": {
@@ -337,7 +337,7 @@
       "TRY": "frankfurter",
       "CHF": "frankfurter"
     },
-    "currenciesUpdatedAt": "2026-08-19T07:11:20.361Z",
+    "currenciesUpdatedAt": "2026-08-19T07:51:09.307Z",
     "currenciesStatus": "live",
     "silver": {
       "s999": {
@@ -376,8 +376,8 @@
         "sell": 3.7499531255859297
       },
       "EUR": {
-        "buy": 4.342162396873643,
-        "sell": 4.342162396873643
+        "buy": 4.342350948803682,
+        "sell": 4.342350948803682
       },
       "GBP": {
         "buy": 5.077430820005078,
@@ -392,8 +392,8 @@
         "sell": 1.0211062665291577
       },
       "KWD": {
-        "buy": 12.1921482565228,
-        "sell": 12.1921482565228
+        "buy": 12.190661952944044,
+        "sell": 12.190661952944044
       },
       "BHD": {
         "buy": 9.97307270370001,
@@ -408,16 +408,16 @@
         "sell": 5.289046384936796
       },
       "INR": {
-        "buy": 0.03922030042750128,
-        "sell": 0.03922030042750128
+        "buy": 0.0392187622558632,
+        "sell": 0.0392187622558632
       },
       "PKR": {
         "buy": 0.013475091293743515,
         "sell": 0.013475091293743515
       },
       "AUD": {
-        "buy": 2.6634705020641896,
-        "sell": 2.6634705020641896
+        "buy": 2.663115845539281,
+        "sell": 2.663115845539281
       },
       "LYD": {
         "buy": 0.5902142477719412,
@@ -428,8 +428,8 @@
         "sell": 0.07827972476848771
       },
       "CHF": {
-        "buy": 4.626630887387805,
-        "sell": 4.626630887387805
+        "buy": 4.626844954425578,
+        "sell": 4.626844954425578
       }
     }
   }

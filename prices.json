@@ -121,11 +121,11 @@
     "SAR": "nbe",
     "TRY": "frankfurter"
   },
-  "goldSilverUpdatedAt": "2026-08-19T00:25:04.157Z",
-  "currenciesUpdatedAt": "2026-08-19T00:25:05.980Z",
+  "goldSilverUpdatedAt": "2026-08-19T01:57:00.299Z",
+  "currenciesUpdatedAt": "2026-08-19T01:57:01.008Z",
   "goldSilverStatus": "live",
   "currenciesStatus": "live",
-  "lastRunAt": "2026-08-19T00:25:08.785Z",
+  "lastRunAt": "2026-08-19T01:57:02.338Z",
   "note": "Seed data confirmed directly from market.isagha.com/prices/eg and egrates.com/en/banks/4 (National Bank of Egypt rates) on 2026-07-22. Switched currency source from CBE (blocked by their firewall, confirmed unusable) to NBE via egrates.com (verified real, working). Will be overwritten by the first GitHub Actions run.",
   "previousGold": {
     "k24": {
@@ -264,8 +264,8 @@
         "sell": 3.7499531255859297
       },
       "EUR": {
-        "buy": 4.342350948803682,
-        "sell": 4.342350948803682
+        "buy": 4.342539517109605,
+        "sell": 4.342539517109605
       },
       "GBP": {
         "buy": 5.078204346942921,
@@ -304,8 +304,8 @@
         "sell": 0.01346837625255899
       },
       "AUD": {
-        "buy": 2.6638962146034793,
-        "sell": 2.6638962146034793
+        "buy": 2.6643930512629224,
+        "sell": 2.6643930512629224
       },
       "LYD": {
         "buy": 0.5902142477719412,
@@ -316,8 +316,8 @@
         "sell": 0.0782815631262525
       },
       "CHF": {
-        "buy": 4.6274872744099955,
-        "sell": 4.6274872744099955
+        "buy": 4.627701420704336,
+        "sell": 4.627701420704336
       }
     },
     "currencySources": {
@@ -337,7 +337,7 @@
       "TRY": "frankfurter",
       "CHF": "frankfurter"
     },
-    "currenciesUpdatedAt": "2026-08-19T00:25:08.722Z",
+    "currenciesUpdatedAt": "2026-08-19T01:57:02.168Z",
     "currenciesStatus": "live",
     "silver": {
       "s999": {
@@ -376,8 +376,8 @@
         "sell": 3.7499531255859297
       },
       "EUR": {
-        "buy": 4.342162396873643,
-        "sell": 4.342162396873643
+        "buy": 4.342350948803682,
+        "sell": 4.342350948803682
       },
       "GBP": {
         "buy": 5.078204346942921,

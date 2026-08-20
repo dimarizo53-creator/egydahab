@@ -121,11 +121,11 @@
     "SAR": "nbe",
     "TRY": "frankfurter"
   },
-  "goldSilverUpdatedAt": "2026-08-20T02:48:28.071Z",
-  "currenciesUpdatedAt": "2026-08-20T02:48:30.067Z",
+  "goldSilverUpdatedAt": "2026-08-20T03:34:39.808Z",
+  "currenciesUpdatedAt": "2026-08-20T03:34:41.722Z",
   "goldSilverStatus": "live",
   "currenciesStatus": "live",
-  "lastRunAt": "2026-08-20T02:48:49.981Z",
+  "lastRunAt": "2026-08-20T03:34:59.977Z",
   "note": "Seed data confirmed directly from market.isagha.com/prices/eg and egrates.com/en/banks/4 (National Bank of Egypt rates) on 2026-07-22. Switched currency source from CBE (blocked by their firewall, confirmed unusable) to NBE via egrates.com (verified real, working). Will be overwritten by the first GitHub Actions run.",
   "previousGold": {
     "k24": {
@@ -264,12 +264,12 @@
         "sell": 3.7499531255859297
       },
       "EUR": {
-        "buy": 4.349338900487126,
-        "sell": 4.349338900487126
+        "buy": 4.349906477010744,
+        "sell": 4.349906477010744
       },
       "GBP": {
-        "buy": 5.08078447312265,
-        "sell": 5.08078447312265
+        "buy": 5.08130081300813,
+        "sell": 5.08130081300813
       },
       "EGP": {
         "buy": 0.07416802023303591,
@@ -304,8 +304,8 @@
         "sell": 0.013478360492229726
       },
       "AUD": {
-        "buy": 2.6574541589157588,
-        "sell": 2.6574541589157588
+        "buy": 2.657736671450593,
+        "sell": 2.657736671450593
       },
       "LYD": {
         "buy": 0.5893793835091649,
@@ -316,8 +316,8 @@
         "sell": 0.07826685868135996
       },
       "CHF": {
-        "buy": 4.629200999907416,
-        "sell": 4.629200999907416
+        "buy": 4.630487127245786,
+        "sell": 4.630487127245786
       }
     },
     "currencySources": {
@@ -337,7 +337,7 @@
       "TRY": "frankfurter",
       "CHF": "frankfurter"
     },
-    "currenciesUpdatedAt": "2026-08-20T02:48:49.798Z",
+    "currenciesUpdatedAt": "2026-08-20T03:34:59.839Z",
     "currenciesStatus": "live",
     "silver": {
       "s999": {

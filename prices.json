@@ -121,32 +121,32 @@
     "SAR": "nbe",
     "TRY": "frankfurter"
   },
-  "goldSilverUpdatedAt": "2026-08-20T09:01:32.125Z",
-  "currenciesUpdatedAt": "2026-08-20T09:01:32.948Z",
+  "goldSilverUpdatedAt": "2026-08-20T09:47:18.922Z",
+  "currenciesUpdatedAt": "2026-08-20T09:47:19.634Z",
   "goldSilverStatus": "live",
   "currenciesStatus": "live",
-  "lastRunAt": "2026-08-20T09:01:51.295Z",
+  "lastRunAt": "2026-08-20T09:47:20.796Z",
   "note": "Seed data confirmed directly from market.isagha.com/prices/eg and egrates.com/en/banks/4 (National Bank of Egypt rates) on 2026-07-22. Switched currency source from CBE (blocked by their firewall, confirmed unusable) to NBE via egrates.com (verified real, working). Will be overwritten by the first GitHub Actions run.",
   "previousGold": {
     "k24": {
-      "sell": 7342.75,
-      "buy": 7285.75
+      "sell": 7308.5,
+      "buy": 7240
     },
     "k22": {
-      "sell": 6731,
-      "buy": 6678.5
+      "sell": 6699.5,
+      "buy": 6636.75
     },
     "k21": {
-      "sell": 6425,
-      "buy": 6375
+      "sell": 6395,
+      "buy": 6335
     },
     "k18": {
-      "sell": 5507.25,
-      "buy": 5464.25
+      "sell": 5481.5,
+      "buy": 5430
     },
     "goldPound": {
-      "sell": 51400,
-      "buy": 51000
+      "sell": 51160,
+      "buy": 50680
     }
   },
   "previousSilver": {
@@ -217,8 +217,8 @@
       "sell": 163.861
     },
     "LYD": {
-      "buy": 7.955449482895784,
-      "sell": 7.955449482895784
+      "buy": 7.95924864692773,
+      "sell": 7.95924864692773
     },
     "QAR": {
       "buy": 12.749,
@@ -229,8 +229,8 @@
       "sell": 13.401
     },
     "TRY": {
-      "buy": 1.0560331171985553,
-      "sell": 1.0560331171985553
+      "buy": 1.0565240359218173,
+      "sell": 1.0565240359218173
     }
   },
   "saudi": {
@@ -337,7 +337,7 @@
       "TRY": "frankfurter",
       "CHF": "frankfurter"
     },
-    "currenciesUpdatedAt": "2026-08-20T09:01:51.102Z",
+    "currenciesUpdatedAt": "2026-08-20T09:47:20.673Z",
     "currenciesStatus": "live",
     "silver": {
       "s999": {
@@ -376,16 +376,16 @@
         "sell": 3.7499531255859297
       },
       "EUR": {
-        "buy": 4.3538836642284915,
-        "sell": 4.3538836642284915
+        "buy": 4.354642048423619,
+        "sell": 4.354642048423619
       },
       "GBP": {
-        "buy": 5.083625641807737,
-        "sell": 5.083625641807737
+        "buy": 5.08440105755542,
+        "sell": 5.08440105755542
       },
       "EGP": {
-        "buy": 0.07410810890927685,
-        "sell": 0.07410810890927685
+        "buy": 0.07407572020118965,
+        "sell": 0.07407572020118965
       },
       "AED": {
         "buy": 1.0211062665291577,
@@ -408,28 +408,28 @@
         "sell": 5.289046384936796
       },
       "INR": {
-        "buy": 0.039195704150825066,
-        "sell": 0.039195704150825066
+        "buy": 0.03919416790781532,
+        "sell": 0.03919416790781532
       },
       "PKR": {
-        "buy": 0.013487268018990072,
-        "sell": 0.013487268018990072
+        "buy": 0.013488541484009334,
+        "sell": 0.013488541484009334
       },
       "AUD": {
-        "buy": 2.658160552897395,
-        "sell": 2.658160552897395
+        "buy": 2.657736671450593,
+        "sell": 2.657736671450593
       },
       "LYD": {
         "buy": 0.5895531187359981,
         "sell": 0.5895531187359981
       },
       "TRY": {
-        "buy": 0.07826073345959399,
-        "sell": 0.07826073345959399
+        "buy": 0.0782625709254549,
+        "sell": 0.0782625709254549
       },
       "CHF": {
-        "buy": 4.6386492253455796,
-        "sell": 4.6386492253455796
+        "buy": 4.64015590923855,
+        "sell": 4.64015590923855
       }
     }
   }

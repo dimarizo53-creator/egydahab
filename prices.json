@@ -121,11 +121,11 @@
     "SAR": "nbe",
     "TRY": "frankfurter"
   },
-  "goldSilverUpdatedAt": "2026-08-20T04:59:11.550Z",
-  "currenciesUpdatedAt": "2026-08-20T04:59:12.425Z",
+  "goldSilverUpdatedAt": "2026-08-20T05:27:00.716Z",
+  "currenciesUpdatedAt": "2026-08-20T05:27:02.562Z",
   "goldSilverStatus": "live",
   "currenciesStatus": "live",
-  "lastRunAt": "2026-08-20T04:59:13.819Z",
+  "lastRunAt": "2026-08-20T05:27:04.345Z",
   "note": "Seed data confirmed directly from market.isagha.com/prices/eg and egrates.com/en/banks/4 (National Bank of Egypt rates) on 2026-07-22. Switched currency source from CBE (blocked by their firewall, confirmed unusable) to NBE via egrates.com (verified real, working). Will be overwritten by the first GitHub Actions run.",
   "previousGold": {
     "k24": {
@@ -337,7 +337,7 @@
       "TRY": "frankfurter",
       "CHF": "frankfurter"
     },
-    "currenciesUpdatedAt": "2026-08-20T04:59:13.632Z",
+    "currenciesUpdatedAt": "2026-08-20T05:27:04.053Z",
     "currenciesStatus": "live",
     "silver": {
       "s999": {
@@ -376,12 +376,12 @@
         "sell": 3.7499531255859297
       },
       "EUR": {
-        "buy": 4.351420738871242,
-        "sell": 4.351420738871242
+        "buy": 4.351988858908521,
+        "sell": 4.351988858908521
       },
       "GBP": {
-        "buy": 5.082333807684489,
-        "sell": 5.082333807684489
+        "buy": 5.082850462539392,
+        "sell": 5.082850462539392
       },
       "EGP": {
         "buy": 0.07414217503484682,
@@ -416,8 +416,8 @@
         "sell": 0.01348035911676687
       },
       "AUD": {
-        "buy": 2.658019244059327,
-        "sell": 2.658019244059327
+        "buy": 2.658160552897395,
+        "sell": 2.658160552897395
       },
       "LYD": {
         "buy": 0.5893793835091649,
@@ -428,8 +428,8 @@
         "sell": 0.07826440847760072
       },
       "CHF": {
-        "buy": 4.634135038695027,
-        "sell": 4.634135038695027
+        "buy": 4.6354239095165255,
+        "sell": 4.6354239095165255
       }
     }
   }

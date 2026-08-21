@@ -121,11 +121,11 @@
     "SAR": "nbe",
     "TRY": "frankfurter"
   },
-  "goldSilverUpdatedAt": "2026-08-21T05:46:03.848Z",
-  "currenciesUpdatedAt": "2026-08-21T05:46:04.722Z",
+  "goldSilverUpdatedAt": "2026-08-21T06:21:18.658Z",
+  "currenciesUpdatedAt": "2026-08-21T06:21:20.116Z",
   "goldSilverStatus": "live",
   "currenciesStatus": "live",
-  "lastRunAt": "2026-08-21T05:46:06.237Z",
+  "lastRunAt": "2026-08-21T06:21:21.222Z",
   "note": "Seed data confirmed directly from market.isagha.com/prices/eg and egrates.com/en/banks/4 (National Bank of Egypt rates) on 2026-07-22. Switched currency source from CBE (blocked by their firewall, confirmed unusable) to NBE via egrates.com (verified real, working). Will be overwritten by the first GitHub Actions run.",
   "previousGold": {
     "k24": {
@@ -264,12 +264,12 @@
         "sell": 3.7499531255859297
       },
       "EUR": {
-        "buy": 4.368910830529948,
-        "sell": 4.368910830529948
+        "buy": 4.369483527047103,
+        "sell": 4.369483527047103
       },
       "GBP": {
-        "buy": 5.098399102681758,
-        "sell": 5.098399102681758
+        "buy": 5.098919029165817,
+        "sell": 5.098919029165817
       },
       "EGP": {
         "buy": 0.07396613830188539,
@@ -304,8 +304,8 @@
         "sell": 0.0134961873270801
       },
       "AUD": {
-        "buy": 2.662761283450939,
-        "sell": 2.662761283450939
+        "buy": 2.663115845539281,
+        "sell": 2.663115845539281
       },
       "LYD": {
         "buy": 0.5912961210974456,
@@ -316,8 +316,8 @@
         "sell": 0.07822950973566249
       },
       "CHF": {
-        "buy": 4.67180565288484,
-        "sell": 4.67180565288484
+        "buy": 4.673115566147951,
+        "sell": 4.673115566147951
       }
     },
     "currencySources": {
@@ -337,7 +337,7 @@
       "TRY": "frankfurter",
       "CHF": "frankfurter"
     },
-    "currenciesUpdatedAt": "2026-08-21T05:46:06.054Z",
+    "currenciesUpdatedAt": "2026-08-21T06:21:21.155Z",
     "currenciesStatus": "live",
     "silver": {
       "s999": {

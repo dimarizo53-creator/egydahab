@@ -121,11 +121,11 @@
     "SAR": "nbe",
     "TRY": "frankfurter"
   },
-  "goldSilverUpdatedAt": "2026-08-23T11:32:11.298Z",
-  "currenciesUpdatedAt": "2026-08-23T11:32:12.607Z",
+  "goldSilverUpdatedAt": "2026-08-23T11:54:32.231Z",
+  "currenciesUpdatedAt": "2026-08-23T11:54:33.048Z",
   "goldSilverStatus": "live",
   "currenciesStatus": "live",
-  "lastRunAt": "2026-08-23T11:32:13.762Z",
+  "lastRunAt": "2026-08-23T11:54:34.155Z",
   "note": "Seed data confirmed directly from market.isagha.com/prices/eg and egrates.com/en/banks/4 (National Bank of Egypt rates) on 2026-07-22. Switched currency source from CBE (blocked by their firewall, confirmed unusable) to NBE via egrates.com (verified real, working). Will be overwritten by the first GitHub Actions run.",
   "previousGold": {
     "k24": {
@@ -337,7 +337,7 @@
       "TRY": "frankfurter",
       "CHF": "frankfurter"
     },
-    "currenciesUpdatedAt": "2026-08-23T11:32:13.573Z",
+    "currenciesUpdatedAt": "2026-08-23T11:54:33.866Z",
     "currenciesStatus": "live",
     "silver": {
       "s999": {

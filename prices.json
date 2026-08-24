@@ -121,11 +121,11 @@
     "SAR": "nbe",
     "TRY": "frankfurter"
   },
-  "goldSilverUpdatedAt": "2026-08-24T20:47:33.035Z",
-  "currenciesUpdatedAt": "2026-08-24T20:47:34.186Z",
+  "goldSilverUpdatedAt": "2026-08-24T21:15:57.719Z",
+  "currenciesUpdatedAt": "2026-08-24T21:15:59.200Z",
   "goldSilverStatus": "live",
   "currenciesStatus": "live",
-  "lastRunAt": "2026-08-24T20:47:35.173Z",
+  "lastRunAt": "2026-08-24T21:15:59.801Z",
   "note": "Seed data confirmed directly from market.isagha.com/prices/eg and egrates.com/en/banks/4 (National Bank of Egypt rates) on 2026-07-22. Switched currency source from CBE (blocked by their firewall, confirmed unusable) to NBE via egrates.com (verified real, working). Will be overwritten by the first GitHub Actions run.",
   "previousGold": {
     "k24": {
@@ -229,8 +229,8 @@
       "sell": 13.401
     },
     "TRY": {
-      "buy": 1.0576302736089518,
-      "sell": 1.0576302736089518
+      "buy": 1.0576638321275966,
+      "sell": 1.0576638321275966
     }
   },
   "saudi": {
@@ -337,7 +337,7 @@
       "TRY": "frankfurter",
       "CHF": "frankfurter"
     },
-    "currenciesUpdatedAt": "2026-08-24T20:47:35.055Z",
+    "currenciesUpdatedAt": "2026-08-24T21:15:59.735Z",
     "currenciesStatus": "live",
     "silver": {
       "s999": {
@@ -354,8 +354,8 @@
         "sell": 3.7499531255859297
       },
       "EUR": {
-        "buy": 4.382312984793374,
-        "sell": 4.382312984793374
+        "buy": 4.382120946538125,
+        "sell": 4.382120946538125
       },
       "GBP": {
         "buy": 5.1122130770410505,
@@ -394,16 +394,16 @@
         "sell": 0.013484539974918755
       },
       "AUD": {
-        "buy": 2.683555173894375,
-        "sell": 2.683555173894375
+        "buy": 2.683411152256749,
+        "sell": 2.683411152256749
       },
       "LYD": {
         "buy": 0.590772139185916,
         "sell": 0.590772139185916
       },
       "TRY": {
-        "buy": 0.07803355442840422,
-        "sell": 0.07803355442840422
+        "buy": 0.07803599019867963,
+        "sell": 0.07803599019867963
       },
       "CHF": {
         "buy": 4.682744088035589,

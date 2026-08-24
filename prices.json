@@ -121,31 +121,31 @@
     "SAR": "nbe",
     "TRY": "frankfurter"
   },
-  "goldSilverUpdatedAt": "2026-08-24T18:56:08.846Z",
-  "currenciesUpdatedAt": "2026-08-24T18:56:09.790Z",
+  "goldSilverUpdatedAt": "2026-08-24T19:21:05.898Z",
+  "currenciesUpdatedAt": "2026-08-24T19:21:06.493Z",
   "goldSilverStatus": "live",
   "currenciesStatus": "live",
-  "lastRunAt": "2026-08-24T18:56:10.851Z",
+  "lastRunAt": "2026-08-24T19:21:07.347Z",
   "note": "Seed data confirmed directly from market.isagha.com/prices/eg and egrates.com/en/banks/4 (National Bank of Egypt rates) on 2026-07-22. Switched currency source from CBE (blocked by their firewall, confirmed unusable) to NBE via egrates.com (verified real, working). Will be overwritten by the first GitHub Actions run.",
   "previousGold": {
     "k24": {
-      "sell": 7582.75,
+      "sell": 7571.5,
       "buy": 7502.75
     },
     "k22": {
-      "sell": 6951,
+      "sell": 6940.5,
       "buy": 6877.5
     },
     "k21": {
-      "sell": 6635,
+      "sell": 6625,
       "buy": 6565
     },
     "k18": {
-      "sell": 5687.25,
+      "sell": 5678.5,
       "buy": 5627.25
     },
     "goldPound": {
-      "sell": 53080,
+      "sell": 53000,
       "buy": 52520
     }
   },
@@ -337,7 +337,7 @@
       "TRY": "frankfurter",
       "CHF": "frankfurter"
     },
-    "currenciesUpdatedAt": "2026-08-24T18:56:10.713Z",
+    "currenciesUpdatedAt": "2026-08-24T19:21:07.088Z",
     "currenciesStatus": "live",
     "silver": {
       "s999": {
@@ -354,8 +354,8 @@
         "sell": 3.7499531255859297
       },
       "EUR": {
-        "buy": 4.382505039880796,
-        "sell": 4.382505039880796
+        "buy": 4.382312984793374,
+        "sell": 4.382312984793374
       },
       "GBP": {
         "buy": 5.1122130770410505,

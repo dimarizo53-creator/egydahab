@@ -121,32 +121,32 @@
     "SAR": "nbe",
     "TRY": "frankfurter"
   },
-  "goldSilverUpdatedAt": "2026-08-24T19:49:52.775Z",
-  "currenciesUpdatedAt": "2026-08-24T19:49:55.793Z",
+  "goldSilverUpdatedAt": "2026-08-24T20:14:31.300Z",
+  "currenciesUpdatedAt": "2026-08-24T20:14:32.322Z",
   "goldSilverStatus": "live",
   "currenciesStatus": "live",
-  "lastRunAt": "2026-08-24T19:49:59.683Z",
+  "lastRunAt": "2026-08-24T20:14:33.829Z",
   "note": "Seed data confirmed directly from market.isagha.com/prices/eg and egrates.com/en/banks/4 (National Bank of Egypt rates) on 2026-07-22. Switched currency source from CBE (blocked by their firewall, confirmed unusable) to NBE via egrates.com (verified real, working). Will be overwritten by the first GitHub Actions run.",
   "previousGold": {
     "k24": {
-      "sell": 7571.5,
-      "buy": 7502.75
+      "sell": 7577.25,
+      "buy": 7508.5
     },
     "k22": {
-      "sell": 6940.5,
-      "buy": 6877.5
+      "sell": 6945.75,
+      "buy": 6882.75
     },
     "k21": {
-      "sell": 6625,
-      "buy": 6565
+      "sell": 6630,
+      "buy": 6570
     },
     "k18": {
-      "sell": 5678.5,
-      "buy": 5627.25
+      "sell": 5682.75,
+      "buy": 5631.5
     },
     "goldPound": {
-      "sell": 53000,
-      "buy": 52520
+      "sell": 53040,
+      "buy": 52560
     }
   },
   "previousSilver": {
@@ -304,8 +304,8 @@
         "sell": 0.013484539974918755
       },
       "AUD": {
-        "buy": 2.6836271905106943,
-        "sell": 2.6836271905106943
+        "buy": 2.683555173894375,
+        "sell": 2.683555173894375
       },
       "LYD": {
         "buy": 0.590772139185916,
@@ -316,8 +316,8 @@
         "sell": 0.07803355442840422
       },
       "CHF": {
-        "buy": 4.682963379226374,
-        "sell": 4.682963379226374
+        "buy": 4.682744088035589,
+        "sell": 4.682744088035589
       }
     },
     "currencySources": {
@@ -337,7 +337,7 @@
       "TRY": "frankfurter",
       "CHF": "frankfurter"
     },
-    "currenciesUpdatedAt": "2026-08-24T19:49:59.350Z",
+    "currenciesUpdatedAt": "2026-08-24T20:14:33.518Z",
     "currenciesStatus": "live",
     "silver": {
       "s999": {

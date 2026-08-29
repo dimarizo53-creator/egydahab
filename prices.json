@@ -1,24 +1,24 @@
 {
   "gold": {
     "k24": {
-      "sell": 7240,
-      "buy": 7171.5
+      "sell": 7234.25,
+      "buy": 7160
     },
     "k22": {
-      "sell": 6636.75,
-      "buy": 6573.75
+      "sell": 6631.5,
+      "buy": 6563.25
     },
     "k21": {
-      "sell": 6335,
-      "buy": 6275
+      "sell": 6330,
+      "buy": 6265
     },
     "k18": {
-      "sell": 5430,
-      "buy": 5378.5
+      "sell": 5425.75,
+      "buy": 5370
     },
     "goldPound": {
-      "sell": 50680,
-      "buy": 50200
+      "sell": 50640,
+      "buy": 50120
     }
   },
   "silver": {
@@ -121,58 +121,58 @@
     "SAR": "nbe",
     "TRY": "frankfurter"
   },
-  "goldSilverUpdatedAt": "2026-08-29T13:17:38.485Z",
-  "currenciesUpdatedAt": "2026-08-29T13:17:39.201Z",
+  "goldSilverUpdatedAt": "2026-08-29T17:14:30.713Z",
+  "currenciesUpdatedAt": "2026-08-29T17:14:32.424Z",
   "goldSilverStatus": "live",
   "currenciesStatus": "live",
-  "lastRunAt": "2026-08-29T13:17:40.422Z",
+  "lastRunAt": "2026-08-29T17:14:34.084Z",
   "note": "Seed data confirmed directly from market.isagha.com/prices/eg and egrates.com/en/banks/4 (National Bank of Egypt rates) on 2026-07-22. Switched currency source from CBE (blocked by their firewall, confirmed unusable) to NBE via egrates.com (verified real, working). Will be overwritten by the first GitHub Actions run.",
   "previousGold": {
     "k24": {
-      "sell": 7285.75,
-      "buy": 7200
+      "sell": 7240,
+      "buy": 7171.5
     },
     "k22": {
-      "sell": 6678.5,
-      "buy": 6600
+      "sell": 6636.75,
+      "buy": 6573.75
     },
     "k21": {
-      "sell": 6375,
-      "buy": 6300
+      "sell": 6335,
+      "buy": 6275
     },
     "k18": {
-      "sell": 5464.25,
-      "buy": 5400
+      "sell": 5430,
+      "buy": 5378.5
     },
     "goldPound": {
-      "sell": 51000,
-      "buy": 50400
+      "sell": 50680,
+      "buy": 50200
     }
   },
   "previousSilver": {
     "s999": {
-      "sell": 108.75,
-      "buy": 103.75
+      "sell": 108,
+      "buy": 103
     },
     "s925": {
-      "sell": 100.75,
-      "buy": 96.25
+      "sell": 100,
+      "buy": 95.25
     },
     "s900": {
-      "sell": 98,
-      "buy": 93.5
+      "sell": 97.25,
+      "buy": 92.75
     },
     "s800": {
-      "sell": 87.25,
-      "buy": 83.25
+      "sell": 86.5,
+      "buy": 82.5
     },
     "s600": {
-      "sell": 65.25,
-      "buy": 62.25
+      "sell": 64.75,
+      "buy": 61.75
     },
     "silverPound": {
-      "sell": 806,
-      "buy": 770
+      "sell": 800,
+      "buy": 762
     }
   },
   "previousCurrencies": {
@@ -229,8 +229,8 @@
       "sell": 13.401
     },
     "TRY": {
-      "buy": 1.0434710019408562,
-      "sell": 1.0434710019408562
+      "buy": 1.0434601137371524,
+      "sell": 1.0434601137371524
     }
   },
   "saudi": {
@@ -337,7 +337,7 @@
       "TRY": "frankfurter",
       "CHF": "frankfurter"
     },
-    "currenciesUpdatedAt": "2026-08-29T13:17:40.351Z",
+    "currenciesUpdatedAt": "2026-08-29T17:14:33.775Z",
     "currenciesStatus": "live",
     "silver": {
       "s999": {
@@ -386,28 +386,28 @@
         "sell": 5.289046384936796
       },
       "INR": {
-        "buy": 0.03927884048862878,
-        "sell": 0.03927884048862878
+        "buy": 0.03927729772191673,
+        "sell": 0.03927729772191673
       },
       "PKR": {
-        "buy": 0.013464930588282818,
-        "sell": 0.013464930588282818
+        "buy": 0.013467106592148677,
+        "sell": 0.013467106592148677
       },
       "AUD": {
-        "buy": 2.6937478113299034,
-        "sell": 2.6937478113299034
+        "buy": 2.693892944694378,
+        "sell": 2.693892944694378
       },
       "LYD": {
         "buy": 0.5907372400756143,
         "sell": 0.5907372400756143
       },
       "TRY": {
-        "buy": 0.0778385783562049,
-        "sell": 0.0778385783562049
+        "buy": 0.07783797247649293,
+        "sell": 0.07783797247649293
       },
       "CHF": {
-        "buy": 4.658529768005217,
-        "sell": 4.658529768005217
+        "buy": 4.658746797111577,
+        "sell": 4.658746797111577
       }
     }
   }

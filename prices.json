@@ -1,23 +1,23 @@
 {
   "gold": {
     "k24": {
-      "sell": 7234.25,
+      "sell": 7228.5,
       "buy": 7160
     },
     "k22": {
-      "sell": 6631.5,
+      "sell": 6626.25,
       "buy": 6563.25
     },
     "k21": {
-      "sell": 6330,
+      "sell": 6325,
       "buy": 6265
     },
     "k18": {
-      "sell": 5425.75,
+      "sell": 5421.5,
       "buy": 5370
     },
     "goldPound": {
-      "sell": 50640,
+      "sell": 50600,
       "buy": 50120
     }
   },
@@ -121,32 +121,32 @@
     "SAR": "nbe",
     "TRY": "frankfurter"
   },
-  "goldSilverUpdatedAt": "2026-08-29T17:14:30.713Z",
-  "currenciesUpdatedAt": "2026-08-29T17:14:32.424Z",
+  "goldSilverUpdatedAt": "2026-08-29T19:44:13.054Z",
+  "currenciesUpdatedAt": "2026-08-29T19:44:15.092Z",
   "goldSilverStatus": "live",
   "currenciesStatus": "live",
-  "lastRunAt": "2026-08-29T17:14:34.084Z",
+  "lastRunAt": "2026-08-29T19:44:16.583Z",
   "note": "Seed data confirmed directly from market.isagha.com/prices/eg and egrates.com/en/banks/4 (National Bank of Egypt rates) on 2026-07-22. Switched currency source from CBE (blocked by their firewall, confirmed unusable) to NBE via egrates.com (verified real, working). Will be overwritten by the first GitHub Actions run.",
   "previousGold": {
     "k24": {
-      "sell": 7240,
-      "buy": 7171.5
+      "sell": 7234.25,
+      "buy": 7160
     },
     "k22": {
-      "sell": 6636.75,
-      "buy": 6573.75
+      "sell": 6631.5,
+      "buy": 6563.25
     },
     "k21": {
-      "sell": 6335,
-      "buy": 6275
+      "sell": 6330,
+      "buy": 6265
     },
     "k18": {
-      "sell": 5430,
-      "buy": 5378.5
+      "sell": 5425.75,
+      "buy": 5370
     },
     "goldPound": {
-      "sell": 50680,
-      "buy": 50200
+      "sell": 50640,
+      "buy": 50120
     }
   },
   "previousSilver": {
@@ -337,7 +337,7 @@
       "TRY": "frankfurter",
       "CHF": "frankfurter"
     },
-    "currenciesUpdatedAt": "2026-08-29T17:14:33.775Z",
+    "currenciesUpdatedAt": "2026-08-29T19:44:16.318Z",
     "currenciesStatus": "live",
     "silver": {
       "s999": {

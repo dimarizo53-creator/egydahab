@@ -64,8 +64,8 @@
       "sell": 167.547
     },
     "LYD": {
-      "buy": 8.114248620577735,
-      "sell": 8.114248620577735
+      "buy": 8.110300081103,
+      "sell": 8.110300081103
     },
     "QAR": {
       "buy": 13.013,
@@ -76,8 +76,8 @@
       "sell": 13.681
     },
     "TRY": {
-      "buy": 1.056736164681764,
-      "sell": 1.056736164681764
+      "buy": 1.056970721911003,
+      "sell": 1.056970721911003
     }
   },
   "currencySources": {
@@ -96,32 +96,32 @@
     "SAR": "nbe",
     "TRY": "frankfurter"
   },
-  "goldSilverUpdatedAt": "2026-09-12T17:54:13.740Z",
-  "currenciesUpdatedAt": "2026-09-12T17:54:14.615Z",
+  "goldSilverUpdatedAt": "2026-09-12T19:41:54.310Z",
+  "currenciesUpdatedAt": "2026-09-12T19:41:55.133Z",
   "goldSilverStatus": "live",
   "currenciesStatus": "live",
-  "lastRunAt": "2026-09-12T17:54:16.165Z",
+  "lastRunAt": "2026-09-12T19:41:56.012Z",
   "note": "Seed data confirmed directly from market.isagha.com/prices/eg and egrates.com/en/banks/4 (National Bank of Egypt rates) on 2026-07-22. Switched currency source from CBE (blocked by their firewall, confirmed unusable) to NBE via egrates.com (verified real, working). Will be overwritten by the first GitHub Actions run.",
   "previousGold": {
     "k24": {
-      "sell": 7182.75,
-      "buy": 7125.75
+      "sell": 7177.25,
+      "buy": 7120
     },
     "k22": {
-      "sell": 6584.25,
-      "buy": 6532
+      "sell": 6579,
+      "buy": 6526.75
     },
     "k21": {
-      "sell": 6285,
-      "buy": 6235
+      "sell": 6280,
+      "buy": 6230
     },
     "k18": {
-      "sell": 5387.25,
-      "buy": 5344.25
+      "sell": 5382.75,
+      "buy": 5340
     },
     "goldPound": {
-      "sell": 50280,
-      "buy": 49880
+      "sell": 50240,
+      "buy": 49840
     }
   },
   "previousSilver": {},
@@ -214,24 +214,24 @@
         "sell": 3.7499531255859297
       },
       "EUR": {
-        "buy": 4.356728967890907,
-        "sell": 4.356728967890907
+        "buy": 4.355780120219531,
+        "sell": 4.355780120219531
       },
       "GBP": {
-        "buy": 5.075369233111709,
-        "sell": 5.075369233111709
+        "buy": 5.074854097944684,
+        "sell": 5.074854097944684
       },
       "EGP": {
-        "buy": 0.07309246928288979,
-        "sell": 0.07309246928288979
+        "buy": 0.07306202966318405,
+        "sell": 0.07306202966318405
       },
       "AED": {
         "buy": 1.0211062665291577,
         "sell": 1.0211062665291577
       },
       "KWD": {
-        "buy": 12.202562538133009,
-        "sell": 12.202562538133009
+        "buy": 12.201073694485114,
+        "sell": 12.201073694485114
       },
       "BHD": {
         "buy": 9.97307270370001,
@@ -246,28 +246,28 @@
         "sell": 5.289046384936796
       },
       "INR": {
-        "buy": 0.03927729772191673,
-        "sell": 0.03927729772191673
+        "buy": 0.039271127866792335,
+        "sell": 0.039271127866792335
       },
       "PKR": {
-        "buy": 0.013503112467423741,
-        "sell": 0.013503112467423741
+        "buy": 0.013495458778121161,
+        "sell": 0.013495458778121161
       },
       "AUD": {
-        "buy": 2.6919349628512976,
-        "sell": 2.6919349628512976
+        "buy": 2.691210506485817,
+        "sell": 2.691210506485817
       },
       "LYD": {
-        "buy": 0.5930846331771544,
-        "sell": 0.5930846331771544
+        "buy": 0.5925574780753733,
+        "sell": 0.5925574780753733
       },
       "TRY": {
-        "buy": 0.0772397599388261,
-        "sell": 0.0772397599388261
+        "buy": 0.07722484786704971,
+        "sell": 0.07722484786704971
       },
       "CHF": {
-        "buy": 4.6157396722824835,
-        "sell": 4.6157396722824835
+        "buy": 4.614248800295312,
+        "sell": 4.614248800295312
       }
     },
     "currencySources": {
@@ -287,7 +287,7 @@
       "TRY": "frankfurter",
       "CHF": "frankfurter"
     },
-    "currenciesUpdatedAt": "2026-09-12T17:54:15.807Z",
+    "currenciesUpdatedAt": "2026-09-12T19:41:55.929Z",
     "currenciesStatus": "live",
     "silver": {
       "s999": {

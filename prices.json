@@ -32,28 +32,28 @@
       "sell": 14.151
     },
     "AUD": {
-      "buy": 36.921,
-      "sell": 37.107
+      "buy": 36.823,
+      "sell": 37.029
     },
     "BHD": {
       "buy": 135.413,
       "sell": 137.852
     },
     "CAD": {
-      "buy": 36.989,
-      "sell": 37.164
+      "buy": 36.937,
+      "sell": 37.053
     },
     "CHF": {
-      "buy": 62.964,
-      "sell": 63.309
+      "buy": 63.133,
+      "sell": 63.355
     },
     "EUR": {
-      "buy": 59.5,
-      "sell": 59.74
+      "buy": 59.459,
+      "sell": 59.646
     },
     "GBP": {
-      "buy": 69.345,
-      "sell": 69.64
+      "buy": 69.314,
+      "sell": 69.567
     },
     "JOD": {
       "buy": 72.318,
@@ -64,20 +64,20 @@
       "sell": 169.118
     },
     "LYD": {
-      "buy": 8.19403474270731,
-      "sell": 8.19403474270731
+      "buy": 8.189337482597658,
+      "sell": 8.189337482597658
     },
     "QAR": {
       "buy": 13.165,
-      "sell": 14.259
+      "sell": 14.276
     },
     "SAR": {
       "buy": 13.781,
-      "sell": 13.838
+      "sell": 13.837
     },
     "TRY": {
-      "buy": 1.0672814207650274,
-      "sell": 1.0672814207650274
+      "buy": 1.0665187760630526,
+      "sell": 1.0665187760630526
     }
   },
   "currencySources": {
@@ -96,11 +96,11 @@
     "SAR": "nbe",
     "TRY": "frankfurter"
   },
-  "goldSilverUpdatedAt": "2026-09-22T01:07:41.205Z",
-  "currenciesUpdatedAt": "2026-09-22T01:07:42.223Z",
+  "goldSilverUpdatedAt": "2026-09-22T06:08:21.930Z",
+  "currenciesUpdatedAt": "2026-09-22T06:08:26.303Z",
   "goldSilverStatus": "live",
   "currenciesStatus": "live",
-  "lastRunAt": "2026-09-22T01:07:43.751Z",
+  "lastRunAt": "2026-09-22T06:08:28.155Z",
   "note": "Seed data confirmed directly from market.isagha.com/prices/eg and egrates.com/en/banks/4 (National Bank of Egypt rates) on 2026-07-22. Switched currency source from CBE (blocked by their firewall, confirmed unusable) to NBE via egrates.com (verified real, working). Will be overwritten by the first GitHub Actions run.",
   "previousGold": {
     "k24": {
@@ -214,16 +214,16 @@
         "sell": 3.7499531255859297
       },
       "EUR": {
-        "buy": 4.306817692407081,
-        "sell": 4.306817692407081
+        "buy": 4.306261303935923,
+        "sell": 4.306261303935923
       },
       "GBP": {
-        "buy": 5.021340697966357,
-        "sell": 5.021340697966357
+        "buy": 5.020584396023697,
+        "sell": 5.020584396023697
       },
       "EGP": {
-        "buy": 0.07201653499643518,
-        "sell": 0.07201653499643518
+        "buy": 0.07206012696994372,
+        "sell": 0.07206012696994372
       },
       "AED": {
         "buy": 1.0211062665291577,
@@ -246,12 +246,12 @@
         "sell": 5.289046384936796
       },
       "INR": {
-        "buy": 0.03913587977457733,
-        "sell": 0.03913587977457733
+        "buy": 0.03913894324853229,
+        "sell": 0.03913894324853229
       },
       "PKR": {
-        "buy": 0.013494912418018406,
-        "sell": 0.013494912418018406
+        "buy": 0.013497462477054314,
+        "sell": 0.013497462477054314
       },
       "AUD": {
         "buy": 2.670013083064107,
@@ -262,12 +262,12 @@
         "sell": 0.5901097604154373
       },
       "TRY": {
-        "buy": 0.076862178427861,
-        "sell": 0.076862178427861
+        "buy": 0.07685331775772761,
+        "sell": 0.07685331775772761
       },
       "CHF": {
-        "buy": 4.556016219417741,
-        "sell": 4.556016219417741
+        "buy": 4.5572619969922075,
+        "sell": 4.5572619969922075
       }
     },
     "currencySources": {
@@ -287,7 +287,7 @@
       "TRY": "frankfurter",
       "CHF": "frankfurter"
     },
-    "currenciesUpdatedAt": "2026-09-22T01:07:43.438Z",
+    "currenciesUpdatedAt": "2026-09-22T06:08:27.843Z",
     "currenciesStatus": "live",
     "silver": {
       "s999": {
@@ -356,8 +356,8 @@
         "sell": 0.076862178427861
       },
       "CHF": {
-        "buy": 4.555601111566671,
-        "sell": 4.555601111566671
+        "buy": 4.556016219417741,
+        "sell": 4.556016219417741
       }
     }
   }

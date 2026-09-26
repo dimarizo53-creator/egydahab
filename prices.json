@@ -1,23 +1,23 @@
 {
   "gold": {
     "k24": {
-      "sell": 7131.5,
+      "sell": 7125.75,
       "buy": 7085.75
     },
     "k22": {
-      "sell": 6537.25,
+      "sell": 6532,
       "buy": 6495.25
     },
     "k21": {
-      "sell": 6240,
+      "sell": 6235,
       "buy": 6200
     },
     "k18": {
-      "sell": 5348.5,
+      "sell": 5344.25,
       "buy": 5314.25
     },
     "goldPound": {
-      "sell": 49920,
+      "sell": 49880,
       "buy": 49600
     }
   },
@@ -96,32 +96,32 @@
     "SAR": "nbe",
     "TRY": "frankfurter"
   },
-  "goldSilverUpdatedAt": "2026-09-26T11:44:52.702Z",
-  "currenciesUpdatedAt": "2026-09-26T11:44:55.357Z",
+  "goldSilverUpdatedAt": "2026-09-26T15:06:19.745Z",
+  "currenciesUpdatedAt": "2026-09-26T15:06:20.612Z",
   "goldSilverStatus": "live",
   "currenciesStatus": "live",
-  "lastRunAt": "2026-09-26T11:44:58.577Z",
+  "lastRunAt": "2026-09-26T15:06:24.086Z",
   "note": "Seed data confirmed directly from market.isagha.com/prices/eg and egrates.com/en/banks/4 (National Bank of Egypt rates) on 2026-07-22. Switched currency source from CBE (blocked by their firewall, confirmed unusable) to NBE via egrates.com (verified real, working). Will be overwritten by the first GitHub Actions run.",
   "previousGold": {
     "k24": {
-      "sell": 7142.75,
-      "buy": 7097.25
+      "sell": 7131.5,
+      "buy": 7085.75
     },
     "k22": {
-      "sell": 6547.5,
-      "buy": 6505.75
+      "sell": 6537.25,
+      "buy": 6495.25
     },
     "k21": {
-      "sell": 6250,
-      "buy": 6210
+      "sell": 6240,
+      "buy": 6200
     },
     "k18": {
-      "sell": 5357.25,
-      "buy": 5322.75
+      "sell": 5348.5,
+      "buy": 5314.25
     },
     "goldPound": {
-      "sell": 50000,
-      "buy": 49680
+      "sell": 49920,
+      "buy": 49600
     }
   },
   "previousSilver": {},
@@ -179,8 +179,8 @@
       "sell": 13.804
     },
     "TRY": {
-      "buy": 1.057943569290014,
-      "sell": 1.057943569290014
+      "buy": 1.0578876100203114,
+      "sell": 1.0578876100203114
     }
   },
   "saudi": {
@@ -214,12 +214,12 @@
         "sell": 3.7499531255859297
       },
       "EUR": {
-        "buy": 4.274417610600556,
-        "sell": 4.274417610600556
+        "buy": 4.274600324869625,
+        "sell": 4.274600324869625
       },
       "GBP": {
-        "buy": 4.970673029128144,
-        "sell": 4.970673029128144
+        "buy": 4.970920117313715,
+        "sell": 4.970920117313715
       },
       "EGP": {
         "buy": 0.07251316113874669,
@@ -287,7 +287,7 @@
       "TRY": "frankfurter",
       "CHF": "frankfurter"
     },
-    "currenciesUpdatedAt": "2026-09-26T11:44:58.507Z",
+    "currenciesUpdatedAt": "2026-09-26T15:06:23.950Z",
     "currenciesStatus": "live",
     "silver": {
       "s999": {
@@ -308,8 +308,8 @@
         "sell": 4.274417610600556
       },
       "GBP": {
-        "buy": 4.970920117313715,
-        "sell": 4.970920117313715
+        "buy": 4.970673029128144,
+        "sell": 4.970673029128144
       },
       "EGP": {
         "buy": 0.07251316113874669,
@@ -336,28 +336,28 @@
         "sell": 5.289046384936796
       },
       "INR": {
-        "buy": 0.03911750899702707,
-        "sell": 0.03911750899702707
+        "buy": 0.03911597887737141,
+        "sell": 0.03911597887737141
       },
       "PKR": {
-        "buy": 0.013498191242373522,
-        "sell": 0.013498191242373522
+        "buy": 0.013498373445999757,
+        "sell": 0.013498373445999757
       },
       "AUD": {
-        "buy": 2.635046113306983,
-        "sell": 2.635046113306983
+        "buy": 2.6349072512647553,
+        "sell": 2.6349072512647553
       },
       "LYD": {
         "buy": 0.5865446653762684,
         "sell": 0.5865446653762684
       },
       "TRY": {
-        "buy": 0.07671476682546624,
-        "sell": 0.07671476682546624
+        "buy": 0.07671064743786438,
+        "sell": 0.07671064743786438
       },
       "CHF": {
-        "buy": 4.532269760696156,
-        "sell": 4.532269760696156
+        "buy": 4.531858968548899,
+        "sell": 4.531858968548899
       }
     }
   }

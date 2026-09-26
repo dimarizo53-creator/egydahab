@@ -1,23 +1,23 @@
 {
   "gold": {
     "k24": {
-      "sell": 7125.75,
+      "sell": 7120,
       "buy": 7085.75
     },
     "k22": {
-      "sell": 6532,
+      "sell": 6526.75,
       "buy": 6495.25
     },
     "k21": {
-      "sell": 6235,
+      "sell": 6230,
       "buy": 6200
     },
     "k18": {
-      "sell": 5344.25,
+      "sell": 5340,
       "buy": 5314.25
     },
     "goldPound": {
-      "sell": 49880,
+      "sell": 49840,
       "buy": 49600
     }
   },
@@ -96,31 +96,31 @@
     "SAR": "nbe",
     "TRY": "frankfurter"
   },
-  "goldSilverUpdatedAt": "2026-09-26T15:06:19.745Z",
-  "currenciesUpdatedAt": "2026-09-26T15:06:20.612Z",
+  "goldSilverUpdatedAt": "2026-09-26T18:33:31.208Z",
+  "currenciesUpdatedAt": "2026-09-26T18:33:32.929Z",
   "goldSilverStatus": "live",
   "currenciesStatus": "live",
-  "lastRunAt": "2026-09-26T15:06:24.086Z",
+  "lastRunAt": "2026-09-26T18:33:34.445Z",
   "note": "Seed data confirmed directly from market.isagha.com/prices/eg and egrates.com/en/banks/4 (National Bank of Egypt rates) on 2026-07-22. Switched currency source from CBE (blocked by their firewall, confirmed unusable) to NBE via egrates.com (verified real, working). Will be overwritten by the first GitHub Actions run.",
   "previousGold": {
     "k24": {
-      "sell": 7131.5,
+      "sell": 7125.75,
       "buy": 7085.75
     },
     "k22": {
-      "sell": 6537.25,
+      "sell": 6532,
       "buy": 6495.25
     },
     "k21": {
-      "sell": 6240,
+      "sell": 6235,
       "buy": 6200
     },
     "k18": {
-      "sell": 5348.5,
+      "sell": 5344.25,
       "buy": 5314.25
     },
     "goldPound": {
-      "sell": 49920,
+      "sell": 49880,
       "buy": 49600
     }
   },
@@ -287,7 +287,7 @@
       "TRY": "frankfurter",
       "CHF": "frankfurter"
     },
-    "currenciesUpdatedAt": "2026-09-26T15:06:23.950Z",
+    "currenciesUpdatedAt": "2026-09-26T18:33:34.175Z",
     "currenciesStatus": "live",
     "silver": {
       "s999": {
@@ -304,12 +304,12 @@
         "sell": 3.7499531255859297
       },
       "EUR": {
-        "buy": 4.274417610600556,
-        "sell": 4.274417610600556
+        "buy": 4.274600324869625,
+        "sell": 4.274600324869625
       },
       "GBP": {
-        "buy": 4.970673029128144,
-        "sell": 4.970673029128144
+        "buy": 4.970920117313715,
+        "sell": 4.970920117313715
       },
       "EGP": {
         "buy": 0.07251316113874669,

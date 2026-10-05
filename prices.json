@@ -96,11 +96,11 @@
     "SAR": "nbe",
     "TRY": "frankfurter"
   },
-  "goldSilverUpdatedAt": "2026-10-04T21:18:09.861Z",
-  "currenciesUpdatedAt": "2026-10-04T21:18:10.655Z",
+  "goldSilverUpdatedAt": "2026-10-05T00:01:01.034Z",
+  "currenciesUpdatedAt": "2026-10-05T00:01:09.481Z",
   "goldSilverStatus": "live",
   "currenciesStatus": "live",
-  "lastRunAt": "2026-10-04T21:18:11.559Z",
+  "lastRunAt": "2026-10-05T00:01:14.457Z",
   "note": "Seed data confirmed directly from market.isagha.com/prices/eg and egrates.com/en/banks/4 (National Bank of Egypt rates) on 2026-07-22. Switched currency source from CBE (blocked by their firewall, confirmed unusable) to NBE via egrates.com (verified real, working). Will be overwritten by the first GitHub Actions run.",
   "previousGold": {
     "k24": {
@@ -214,12 +214,12 @@
         "sell": 3.7499531255859297
       },
       "EUR": {
-        "buy": 4.2328042328042335,
-        "sell": 4.2328042328042335
+        "buy": 4.232445930503237,
+        "sell": 4.232445930503237
       },
       "GBP": {
-        "buy": 4.963271788763153,
-        "sell": 4.963271788763153
+        "buy": 4.963518141658808,
+        "sell": 4.963518141658808
       },
       "EGP": {
         "buy": 0.07176535599204839,
@@ -254,8 +254,8 @@
         "sell": 0.013504388926401082
       },
       "AUD": {
-        "buy": 2.6032175769250796,
-        "sell": 2.6032175769250796
+        "buy": 2.6028787839350325,
+        "sell": 2.6028787839350325
       },
       "LYD": {
         "buy": 0.5841121495327103,
@@ -287,7 +287,7 @@
       "TRY": "frankfurter",
       "CHF": "frankfurter"
     },
-    "currenciesUpdatedAt": "2026-10-04T21:18:11.486Z",
+    "currenciesUpdatedAt": "2026-10-05T00:01:14.333Z",
     "currenciesStatus": "live",
     "silver": {
       "s999": {
@@ -344,8 +344,8 @@
         "sell": 0.013504388926401082
       },
       "AUD": {
-        "buy": 2.603014290548455,
-        "sell": 2.603014290548455
+        "buy": 2.6032175769250796,
+        "sell": 2.6032175769250796
       },
       "LYD": {
         "buy": 0.5841121495327103,

@@ -1,6 +1,109 @@
 {
   "gold": {
     "k18": {
+      "sell": 5078.5,
+      "buy": 5044.25
+    },
+    "k21": {
+      "sell": 5925,
+      "buy": 5885
+    },
+    "k22": {
+      "sell": 6207.25,
+      "buy": 6165.25
+    },
+    "k24": {
+      "sell": 6771.5,
+      "buy": 6725.75
+    },
+    "goldPound": {
+      "sell": 47400,
+      "buy": 47080
+    }
+  },
+  "silver": {},
+  "currencies": {
+    "USD": {
+      "buy": 53.63,
+      "sell": 53.73
+    },
+    "AED": {
+      "buy": 14.587,
+      "sell": 14.631
+    },
+    "AUD": {
+      "buy": 36.195,
+      "sell": 36.445
+    },
+    "BHD": {
+      "buy": 140.008,
+      "sell": 142.509
+    },
+    "CAD": {
+      "buy": 37.527,
+      "sell": 37.671
+    },
+    "CHF": {
+      "buy": 63.785,
+      "sell": 64.109
+    },
+    "EUR": {
+      "buy": 59.009,
+      "sell": 59.28
+    },
+    "GBP": {
+      "buy": 70.706,
+      "sell": 71.053
+    },
+    "JOD": {
+      "buy": 74.772,
+      "sell": 75.89
+    },
+    "KWD": {
+      "buy": 168.727,
+      "sell": 174.024
+    },
+    "LYD": {
+      "buy": 8.305647840531561,
+      "sell": 8.305647840531561
+    },
+    "QAR": {
+      "buy": 13.612,
+      "sell": 14.741
+    },
+    "SAR": {
+      "buy": 14.216,
+      "sell": 14.319
+    },
+    "TRY": {
+      "buy": 1.0641807404569592,
+      "sell": 1.0641807404569592
+    }
+  },
+  "currencySources": {
+    "USD": "nbe",
+    "AED": "nbe",
+    "AUD": "nbe",
+    "BHD": "nbe",
+    "CAD": "nbe",
+    "CHF": "nbe",
+    "EUR": "nbe",
+    "GBP": "nbe",
+    "JOD": "nbe",
+    "KWD": "nbe",
+    "LYD": "frankfurter",
+    "QAR": "nbe",
+    "SAR": "nbe",
+    "TRY": "frankfurter"
+  },
+  "goldSilverUpdatedAt": "2026-11-16T17:34:23.373Z",
+  "currenciesUpdatedAt": "2026-11-16T17:34:24.414Z",
+  "goldSilverStatus": "live",
+  "currenciesStatus": "live",
+  "lastRunAt": "2026-11-16T17:34:26.362Z",
+  "note": "Seed data confirmed directly from market.isagha.com/prices/eg and egrates.com/en/banks/4 (National Bank of Egypt rates) on 2026-07-22. Switched currency source from CBE (blocked by their firewall, confirmed unusable) to NBE via egrates.com (verified real, working). Will be overwritten by the first GitHub Actions run.",
+  "previousGold": {
+    "k18": {
       "sell": 5112.75,
       "buy": 5082.75
     },
@@ -21,8 +124,8 @@
       "buy": 47440
     }
   },
-  "silver": {},
-  "currencies": {
+  "previousSilver": {},
+  "previousCurrencies": {
     "USD": {
       "buy": 53.74,
       "sell": 53.84
@@ -80,109 +183,6 @@
       "sell": 1.0630381630700543
     }
   },
-  "currencySources": {
-    "USD": "nbe",
-    "AED": "nbe",
-    "AUD": "nbe",
-    "BHD": "nbe",
-    "CAD": "nbe",
-    "CHF": "nbe",
-    "EUR": "nbe",
-    "GBP": "nbe",
-    "JOD": "nbe",
-    "KWD": "nbe",
-    "LYD": "frankfurter",
-    "QAR": "nbe",
-    "SAR": "nbe",
-    "TRY": "frankfurter"
-  },
-  "goldSilverUpdatedAt": "2026-11-16T07:55:36.332Z",
-  "currenciesUpdatedAt": "2026-11-16T07:55:36.946Z",
-  "goldSilverStatus": "live",
-  "currenciesStatus": "live",
-  "lastRunAt": "2026-11-16T07:55:37.814Z",
-  "note": "Seed data confirmed directly from market.isagha.com/prices/eg and egrates.com/en/banks/4 (National Bank of Egypt rates) on 2026-07-22. Switched currency source from CBE (blocked by their firewall, confirmed unusable) to NBE via egrates.com (verified real, working). Will be overwritten by the first GitHub Actions run.",
-  "previousGold": {
-    "k18": {
-      "sell": 5112.75,
-      "buy": 5082.75
-    },
-    "k21": {
-      "sell": 5965,
-      "buy": 5930
-    },
-    "k22": {
-      "sell": 6249,
-      "buy": 6212.5
-    },
-    "k24": {
-      "sell": 6817.25,
-      "buy": 6777.25
-    },
-    "goldPound": {
-      "sell": 47720,
-      "buy": 47440
-    }
-  },
-  "previousSilver": {},
-  "previousCurrencies": {
-    "USD": {
-      "buy": 53.74,
-      "sell": 53.84
-    },
-    "AED": {
-      "buy": 14.617,
-      "sell": 14.662
-    },
-    "AUD": {
-      "buy": 36.382,
-      "sell": 36.692
-    },
-    "BHD": {
-      "buy": 140.295,
-      "sell": 142.812
-    },
-    "CAD": {
-      "buy": 37.649,
-      "sell": 37.838
-    },
-    "CHF": {
-      "buy": 64.007,
-      "sell": 64.51
-    },
-    "EUR": {
-      "buy": 59.227,
-      "sell": 59.612
-    },
-    "GBP": {
-      "buy": 70.969,
-      "sell": 71.349
-    },
-    "JOD": {
-      "buy": 74.925,
-      "sell": 76.045
-    },
-    "KWD": {
-      "buy": 169.074,
-      "sell": 174.635
-    },
-    "LYD": {
-      "buy": 8.301510874979247,
-      "sell": 8.301510874979247
-    },
-    "QAR": {
-      "buy": 13.64,
-      "sell": 14.798
-    },
-    "SAR": {
-      "buy": 14.245,
-      "sell": 14.349
-    },
-    "TRY": {
-      "buy": 1.0636487406398911,
-      "sell": 1.0636487406398911
-    }
-  },
   "saudi": {
     "gold": {
       "k24": {
@@ -209,6 +209,96 @@
     "goldUpdatedAt": "2026-07-31T00:00:00.000Z",
     "goldStatus": "stale_fallback",
     "currencies": {
+      "USD": {
+        "buy": 3.7499531255859297,
+        "sell": 3.7499531255859297
+      },
+      "EUR": {
+        "buy": 4.140615295432902,
+        "sell": 4.140615295432902
+      },
+      "GBP": {
+        "buy": 4.960809604127394,
+        "sell": 4.960809604127394
+      },
+      "EGP": {
+        "buy": 0.06995942353435007,
+        "sell": 0.06995942353435007
+      },
+      "AED": {
+        "buy": 1.0211062665291577,
+        "sell": 1.0211062665291577
+      },
+      "KWD": {
+        "buy": 12.098774394153871,
+        "sell": 12.098774394153871
+      },
+      "BHD": {
+        "buy": 9.97307270370001,
+        "sell": 9.97307270370001
+      },
+      "QAR": {
+        "buy": 1.0302162423892776,
+        "sell": 1.0302162423892776
+      },
+      "JOD": {
+        "buy": 5.289046384936796,
+        "sell": 5.289046384936796
+      },
+      "INR": {
+        "buy": 0.03986922892911251,
+        "sell": 0.03986922892911251
+      },
+      "PKR": {
+        "buy": 0.013538211602247344,
+        "sell": 0.013538211602247344
+      },
+      "AUD": {
+        "buy": 2.541102330190837,
+        "sell": 2.541102330190837
+      },
+      "LYD": {
+        "buy": 0.5810575246949448,
+        "sell": 0.5810575246949448
+      },
+      "TRY": {
+        "buy": 0.07444963110207789,
+        "sell": 0.07444963110207789
+      },
+      "CHF": {
+        "buy": 4.474873584821228,
+        "sell": 4.474873584821228
+      }
+    },
+    "currencySources": {
+      "USD": "frankfurter",
+      "EUR": "frankfurter",
+      "GBP": "frankfurter",
+      "EGP": "frankfurter",
+      "AED": "frankfurter",
+      "KWD": "frankfurter",
+      "BHD": "frankfurter",
+      "QAR": "frankfurter",
+      "JOD": "frankfurter",
+      "INR": "frankfurter",
+      "PKR": "frankfurter",
+      "AUD": "frankfurter",
+      "LYD": "frankfurter",
+      "TRY": "frankfurter",
+      "CHF": "frankfurter"
+    },
+    "currenciesUpdatedAt": "2026-11-16T17:34:26.002Z",
+    "currenciesStatus": "live",
+    "silver": {
+      "s999": {
+        "buy": 6.93,
+        "sell": 9.25
+      }
+    },
+    "silverUpdatedAt": "2026-08-02T06:01:02.000Z",
+    "silverStatus": "stale_fallback",
+    "note": "Saudi gold confirmed directly from sa-goldprice.com on 2026-07-31. Saudi currencies (15 codes, incl. AUD/LYD/TRY/CHF for the upcoming other-currencies page; PHP removed per request) seeded from Frankfurter (base=USD, cross-computed to SAR), confirmed directly against the live API on 2026-08-02 — SAR/USD landed exactly on the real-world 3.75 peg. No scrapeable Saudi bank buy/sell aggregator found yet (SAMA's own rate page is a JS app, like NBE's site), so buy=sell for now, same as Egypt's own Frankfurter fallback tier. Saudi silver (999, per gram) confirmed directly from saudigoldprice.com/silverprice/ on 2026-08-02, using its bullion buy-new/resale rows for a real distinct buy/sell spread, cross-checked against the page's own separate summary row for the same purity. Will be overwritten by the first GitHub Actions run.",
+    "previousCurrencies": {
       "USD": {
         "buy": 3.7499531255859297,
         "sell": 3.7499531255859297
@@ -268,96 +358,6 @@
       "CHF": {
         "buy": 4.485109436670255,
         "sell": 4.485109436670255
-      }
-    },
-    "currencySources": {
-      "USD": "frankfurter",
-      "EUR": "frankfurter",
-      "GBP": "frankfurter",
-      "EGP": "frankfurter",
-      "AED": "frankfurter",
-      "KWD": "frankfurter",
-      "BHD": "frankfurter",
-      "QAR": "frankfurter",
-      "JOD": "frankfurter",
-      "INR": "frankfurter",
-      "PKR": "frankfurter",
-      "AUD": "frankfurter",
-      "LYD": "frankfurter",
-      "TRY": "frankfurter",
-      "CHF": "frankfurter"
-    },
-    "currenciesUpdatedAt": "2026-11-16T07:55:37.749Z",
-    "currenciesStatus": "live",
-    "silver": {
-      "s999": {
-        "buy": 6.93,
-        "sell": 9.25
-      }
-    },
-    "silverUpdatedAt": "2026-08-02T06:01:02.000Z",
-    "silverStatus": "stale_fallback",
-    "note": "Saudi gold confirmed directly from sa-goldprice.com on 2026-07-31. Saudi currencies (15 codes, incl. AUD/LYD/TRY/CHF for the upcoming other-currencies page; PHP removed per request) seeded from Frankfurter (base=USD, cross-computed to SAR), confirmed directly against the live API on 2026-08-02 — SAR/USD landed exactly on the real-world 3.75 peg. No scrapeable Saudi bank buy/sell aggregator found yet (SAMA's own rate page is a JS app, like NBE's site), so buy=sell for now, same as Egypt's own Frankfurter fallback tier. Saudi silver (999, per gram) confirmed directly from saudigoldprice.com/silverprice/ on 2026-08-02, using its bullion buy-new/resale rows for a real distinct buy/sell spread, cross-checked against the page's own separate summary row for the same purity. Will be overwritten by the first GitHub Actions run.",
-    "previousCurrencies": {
-      "USD": {
-        "buy": 3.7499531255859297,
-        "sell": 3.7499531255859297
-      },
-      "EUR": {
-        "buy": 4.152479029980898,
-        "sell": 4.152479029980898
-      },
-      "GBP": {
-        "buy": 4.970673029128144,
-        "sell": 4.970673029128144
-      },
-      "EGP": {
-        "buy": 0.07007217433956975,
-        "sell": 0.07007217433956975
-      },
-      "AED": {
-        "buy": 1.0211062665291577,
-        "sell": 1.0211062665291577
-      },
-      "KWD": {
-        "buy": 12.10404638270574,
-        "sell": 12.10404638270574
-      },
-      "BHD": {
-        "buy": 9.97307270370001,
-        "sell": 9.97307270370001
-      },
-      "QAR": {
-        "buy": 1.0302162423892776,
-        "sell": 1.0302162423892776
-      },
-      "JOD": {
-        "buy": 5.289046384936796,
-        "sell": 5.289046384936796
-      },
-      "INR": {
-        "buy": 0.03986922892911251,
-        "sell": 0.03986922892911251
-      },
-      "PKR": {
-        "buy": 0.013530884243285298,
-        "sell": 0.013530884243285298
-      },
-      "AUD": {
-        "buy": 2.5504348491417788,
-        "sell": 2.5504348491417788
-      },
-      "LYD": {
-        "buy": 0.5816997266011285,
-        "sell": 0.5816997266011285
-      },
-      "TRY": {
-        "buy": 0.07453230975627935,
-        "sell": 0.07453230975627935
-      },
-      "CHF": {
-        "buy": 4.488128899061981,
-        "sell": 4.488128899061981
       }
     }
   }
